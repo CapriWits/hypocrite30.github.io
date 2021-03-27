@@ -33,6 +33,17 @@
   
   
   <entry>
+    <title>about</title>
+    <link href="/"/>
+    <url>/</url>
+    
+    <content type="html"><![CDATA[<h1 id="ABOUT-ME"><a href="#ABOUT-ME" class="headerlink" title="ABOUT ME"></a>ABOUT ME</h1><p>📭 How to reach me: </p><ul><li><a href="mailto:1027093394@qq.com">1027093394@qq.com</a></li><li><a href="mailto:cwh1027093394@gmail.com">cwh1027093394@gmail.com</a></li></ul><p>👶 My Site:</p><ul><li><strong>Blog</strong>: <a href="https://hypocrite30.github.io/">https://hypocrite30.github.io</a></li><li><strong>JianShu</strong>: <a href="https://www.jianshu.com/u/fc4ebe02fff2">https://www.jianshu.com/u/fc4ebe02fff2</a></li><li><strong>Github</strong>: <a href="https://github.com/hypocrite30">https://github.com/hypocrite30</a></li></ul><p>🎓 Learning <strong>Computer science and technology</strong></p><p>💗 Favor: <strong>Music</strong>🎵 <strong>Guitar</strong>🎸<strong>Coding</strong>💻 <strong>Blogging</strong>🖊 <strong>Basketball</strong>🏀 <strong>Gaming</strong>🎮 <strong>Exercising</strong>💪</p><p>📙 Motto：<strong>To see the world as it is and love it.</strong></p><h1 id="ABOUT-BLOG"><a href="#ABOUT-BLOG" class="headerlink" title="ABOUT BLOG"></a>ABOUT BLOG</h1><p>博客作为学习记录，用的Hexo + Github Page搭的，搭的不好请见谅。有需求或疑问可以 mail 与我交流。文章有错误或疏漏请多指正，不胜感激！</p>]]></content>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>404</title>
     <link href="/"/>
     <url>/</url>
@@ -49,17 +60,6 @@
     <url>/</url>
     
     <content type="html"><![CDATA[]]></content>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>about</title>
-    <link href="/"/>
-    <url>/</url>
-    
-    <content type="html"><![CDATA[<h1 id="ABOUT-ME"><a href="#ABOUT-ME" class="headerlink" title="ABOUT ME"></a>ABOUT ME</h1><p>📭 How to reach me: </p><ul><li><a href="mailto:1027093394@qq.com">1027093394@qq.com</a></li><li><a href="mailto:cwh1027093394@gmail.com">cwh1027093394@gmail.com</a></li></ul><p>👶 My Site:</p><ul><li><strong>Blog</strong>: <a href="https://hypocrite30.github.io/">https://hypocrite30.github.io</a></li><li><strong>JianShu</strong>: <a href="https://www.jianshu.com/u/fc4ebe02fff2">https://www.jianshu.com/u/fc4ebe02fff2</a></li><li><strong>Github</strong>: <a href="https://github.com/hypocrite30">https://github.com/hypocrite30</a></li></ul><p>🎓 Learning <strong>Computer science and technology</strong></p><p>💗 Favor: <strong>Music</strong>🎵 <strong>Guitar</strong>🎸<strong>Coding</strong>💻 <strong>Blogging</strong>🖊 <strong>Basketball</strong>🏀 <strong>Gaming</strong>🎮 <strong>Exercising</strong>💪</p><p>📙 Motto：<strong>To see the world as it is and love it.</strong></p><h1 id="ABOUT-BLOG"><a href="#ABOUT-BLOG" class="headerlink" title="ABOUT BLOG"></a>ABOUT BLOG</h1><p>博客作为学习记录，用的Hexo + Github Page搭的，搭的不好请见谅。有需求或疑问可以 mail 与我交流。文章有错误或疏漏请多指正，不胜感激！</p>]]></content>
     
   </entry>
   
