@@ -32,7 +32,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/isbl-editor-light.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/idea.min.css" />
     
   
 
@@ -163,7 +163,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-27 16:41" pubdate>
+      <time datetime="2021-03-27 17:21" pubdate>
         2021年3月27日 下午
       </time>
     </span>
@@ -175,7 +175,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      434 字
+      101 字
     </span>
   
 
@@ -185,7 +185,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      1
        分钟
     </span>
   
@@ -226,71 +226,23 @@
             <h1 style="display: none"></h1>
             
             <div class="markdown-body">
-              <h2 id="位运算-01"><a href="#位运算-01" class="headerlink" title="#位运算 01"></a>#位运算 01</h2><p>##LeetCode面试题56 - I. 数组中数字出现的次数<br><img src="https://s1.ax1x.com/2020/04/28/J5rL36.png" srcset="/img/loading.gif" lazyload alt="面试题56"><br><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/">原题链接</a>  </p>
-<blockquote>
-<p><strong>异或的性质</strong>：  </p>
-</blockquote>
-<ul>
-<li><p>交换律：p ⊕ q = q ⊕ p</p>
-</li>
-<li><p>结合律：p ⊕ (q ⊕ r) = (p ⊕ q) ⊕ r</p>
-</li>
-<li><p>恒等率：p ⊕ 0 = p</p>
-</li>
-<li><p>归零率：p ⊕ p = 0    </p>
-</li>
+              <h2 id=""><a href="#" class="headerlink" title=""></a></h2><ul>
+<li><input checked="" disabled="" type="checkbox"> 图片懒加载</li>
+<li><input checked="" disabled="" type="checkbox"> 自定义代码高亮方案</li>
+<li><input checked="" disabled="" type="checkbox"> 内置多语言</li>
+<li><input checked="" disabled="" type="checkbox"> 支持多款评论插件</li>
+<li><input checked="" disabled="" type="checkbox"> 支持使用<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/data-files">数据文件</a>存放配置</li>
+<li><input checked="" disabled="" type="checkbox"> 自定义静态资源 CDN</li>
+<li><input checked="" disabled="" type="checkbox"> 无比详实的<a target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/">用户文档</a></li>
+<li><input checked="" disabled="" type="checkbox"> 内置文章搜索</li>
+<li><input checked="" disabled="" type="checkbox"> 页脚备案信息</li>
+<li><input checked="" disabled="" type="checkbox"> 网页访问统计</li>
+<li><input checked="" disabled="" type="checkbox"> 支持脚注语法</li>
+<li><input checked="" disabled="" type="checkbox"> 支持 LaTeX 数学公式</li>
+<li><input checked="" disabled="" type="checkbox"> 支持 mermaid 流程图</li>
+<li><input checked="" disabled="" type="checkbox"> 暗色模式 </li>
+<li><input checked="" disabled="" type="checkbox"> 暗色模式 </li>
 </ul>
-<hr>
-<p>###代码如下  </p>
-<div class="hljs code-wrapper"><pre><code>/*
- * 因为数组中只有两个数是不相同的，其余相同
- * 所以将整个数组的元素都取异或，由于异或的结合律，无先后顺序
- * 所以最终相同的一对异或成0，最终结果就是两个不同数的异或结果
- * 
- * 相同的数在每一位都是相同的，所以我们要从低位向高位找到
- * 两个不同的数是从哪一位开始出现不相同的情况，就是下文的mark的作用
- * 
- * 找到mark后，遍历原数组，用“&amp;”对所有元素在该位置上鉴别
- * 分类标准是取与后为0或为1。
- * 同理在鉴别过程中，相同的数在mark位上一样也是相同的，取异或只会等于0
- * 
- * Code by Java
- */
-class Solution &#123;
-    public int[] singleNumbers(int[] nums) &#123;
-        int sum = 0;            //将所有的数都取异或
-        
-        for (int num : nums) &#123;
-            sum ^= num;
-        &#125;
-        
-        int mask = 1;            //获取sum中最低位的1；
-        
-        while((sum &amp; mask) == 0) &#123;
-            mask &lt;&lt;= 1;            //在该位是0，则mask左移一位
-        &#125;
-        
-        int a = 0, b = 0;        //用于表示数组中不同的两个数
-        
-        for (int num : nums) &#123;
-            if((num &amp; mask) == 0) &#123;
-                a ^= num;        //0与任何数取异或都等于任意数本身
-            &#125; else &#123;
-                b ^= num;        //同理找到另一个数
-            &#125;
-        &#125;
-        return new int[] &#123;a,b&#125;;
-    &#125;
-//    public static void main(String[] args) &#123;
-//        int[] aa = new int[] &#123;1,2,3,10,2,2,1,3&#125;;
-//        Solution sol = new Solution();
-//        int[] kk = sol.singleNumbers(aa);
-//        for (int i : kk) &#123;
-//            System.out.println(i);
-//        &#125;
-//    &#125;
-&#125;
-</code></pre></div>
 
             </div>
             <hr>
@@ -315,8 +267,8 @@ class Solution &#123;
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/27/%E4%BD%8D%E8%BF%90%E7%AE%97/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/">
-                        <span class="hidden-mobile"></span>
+                      <a href="/2021/02/20/hello-world/">
+                        <span class="hidden-mobile">Hello World</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
