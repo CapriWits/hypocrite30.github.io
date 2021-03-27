@@ -1,0 +1,584 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon%2032x32.ico">
+  <link rel="icon" href="/img/favicon%2032x32.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="hypocrite30">
+  <meta name="keywords" content="">
+  
+  <title>Java For-loop&amp; For-each &amp; Iterator 效率分析 - hypocrite30</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/idea.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":"b5f391eebc7eaea88e68a49d5924e381","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Hypocrite30 BLOG</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/postPage.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Java For-loop& For-each & Iterator 效率分析">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-16 10:37" pubdate>
+        2021年3月16日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.6k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      42
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Java For-loop&amp; For-each &amp; Iterator 效率分析</h1>
+            
+            <div class="markdown-body">
+              <ul>
+<li><p><code>public static native long nanoTime();</code>  来测试时间，主程序外围获取当前时间，然后作差得到运行时间。</p>
+</li>
+<li><p>程序中同时测试 <code>ArrayList</code>和 <code>LinkedList</code>两种实现方式的遍历效率，代表了数组和链表两种数据结构。</p>
+</li>
+<li><p>成员变量 <code>public static final int MAGNITUDE = 10000;</code>用来控制数据的 <code>数量级</code>。</p>
+</li>
+<li><p>初始化声明两种 <code>List&lt;String&gt;</code>，并递增变量至数量级大小，过程中转化为 String 存储到集合当中，作为实验数据。</p>
+</li>
+<li><p>测试的运行程序逻辑是：将集合中的数据取出来，并赋值给另一个元素 <code>str</code>。但是这里存在时间复杂度的区别， <code>ArrayList</code>中的 <code>get(int index)</code>在数组实现上 时间复杂度是常数级i的 <code>O(1)</code>，而 <code>LinkedList</code>中的 <code>get(int index)</code>在链表实现上 时间复杂度是线性 <code>O(n)</code>，但是测试的 <code>ArrayList</code>和 <code>LinkedList</code>的时间比较是<code>同数据结构</code>之间比较，符合控制变量法，所以不需要结果上的 数值，而关注 运行时间的 <code>时间数量级</code>，这样比较才有意义。</p>
+</li>
+</ul>
+<h2 id="测试代码："><a href="#测试代码：" class="headerlink" title="测试代码："></a>测试代码：</h2><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> MAGNITUDE = <span class="hljs-number">10000</span>;    <span class="hljs-comment">// 数量级</span><br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">long</span> <span class="hljs-title">testForloop</span><span class="hljs-params">(List&lt;String&gt; list)</span> </span>&#123;<br>        <span class="hljs-keyword">long</span> start, end;<br>        String str = <span class="hljs-keyword">null</span>;<br>        start = System.nanoTime();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; MAGNITUDE; i++) &#123;<br>            str = list.get(i);<br>        &#125;<br>        end = System.nanoTime();<br>        <span class="hljs-keyword">return</span> end - start;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">long</span> <span class="hljs-title">testForeach</span><span class="hljs-params">(List&lt;String&gt; list)</span> </span>&#123;<br>        <span class="hljs-keyword">long</span> start, end;<br>        String str = <span class="hljs-keyword">null</span>;<br>        start = System.nanoTime();<br>        <span class="hljs-keyword">for</span> (String s : list) &#123;<br>            str = s;<br>        &#125;<br>        end = System.nanoTime();<br>        <span class="hljs-keyword">return</span> end - start;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">long</span> <span class="hljs-title">testIterator</span><span class="hljs-params">(List&lt;String&gt; list)</span> </span>&#123;<br>        <span class="hljs-keyword">long</span> start, end;<br>        String str = <span class="hljs-keyword">null</span>;<br>        start = System.nanoTime();<br>        Iterator&lt;String&gt; iterator = list.iterator();<br>        <span class="hljs-keyword">while</span> (iterator.hasNext()) &#123;<br>            str = iterator.next();<br>        &#125;<br>        end = System.nanoTime();<br>        <span class="hljs-keyword">return</span> end - start;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-comment">/* initialize */</span><br>        List&lt;String&gt; arrayList = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();<br>        List&lt;String&gt; linkedList = <span class="hljs-keyword">new</span> LinkedList&lt;String&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; MAGNITUDE; i++) &#123;<br>            arrayList.add(String.valueOf(i));<br>            linkedList.add(String.valueOf(i));<br>        &#125;<br>        System.out.println(<span class="hljs-string">&quot;========Test for ArrayList========&quot;</span>);<br>        System.out.println(<span class="hljs-string">&quot;For loop: &quot;</span> + testForloop(arrayList));<br>        System.out.println(<span class="hljs-string">&quot;Foreach: &quot;</span> + testForeach(arrayList));<br>        System.out.println(<span class="hljs-string">&quot;Iterator: &quot;</span> + testIterator(arrayList));<br><br>        System.out.println(<span class="hljs-string">&quot;========Test for LinkedList========&quot;</span>);<br>        System.out.println(<span class="hljs-string">&quot;For loop: &quot;</span> + testForloop(linkedList));<br>        System.out.println(<span class="hljs-string">&quot;Foreach: &quot;</span> + testForeach(linkedList));<br>        System.out.println(<span class="hljs-string">&quot;Iterator: &quot;</span> + testIterator(linkedList));<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><ul>
+<li>如上文分析：<code>同数据结构</code> 比较原则。</li>
+</ul>
+<h3 id="数量级：1-000"><a href="#数量级：1-000" class="headerlink" title="数量级：1,000"></a>数量级：1,000</h3><blockquote>
+<p>========Test for ArrayList========<br>For loop: 99000<br>Foreach: 321700<br>Iterator: 194500<br>========Test for LinkedList========<br>For loop: 1215800<br>Foreach: 341500<br>Iterator: 94900</p>
+</blockquote>
+<h3 id="数量级：10-000"><a href="#数量级：10-000" class="headerlink" title="数量级：10,000"></a>数量级：10,000</h3><blockquote>
+<p>========Test for ArrayList========<br>For loop: 933200<br>Foreach: 942500<br>Iterator: 585800<br>========Test for LinkedList========<br>For loop: 129958500<br>Foreach: 1433000<br>Iterator: 967600</p>
+</blockquote>
+<h3 id="数量级：100-000"><a href="#数量级：100-000" class="headerlink" title="数量级：100,000"></a>数量级：100,000</h3><blockquote>
+<p>========Test for ArrayList========<br>For loop: 3730800<br>Foreach: 6669800<br>Iterator: 5215100<br>========Test for LinkedList========<br>For loop: 18907275800<br>Foreach: 7468100<br>Iterator: 5632400</p>
+</blockquote>
+<ul>
+<li><code>ArrayList</code>：在小数量级上，For-loop效率会高一点，For &lt; Iterator &lt; For-each，这里得出的结论根据时间消耗得出，无法仔细比较效率高低，数量级小时，For效率高一点，整体来说，三者速度级别差不多。</li>
+<li><code>LinkedList</code>：链表中很明显 For loop 效率就低很多了。For-each和Iterator相差不大。数量大（一般超过 100,000级别）效果更明显。Iterator &lt; For-each &lt; &lt;&lt;For-loop。Iterator和For-each效率在链表中差不多，For差一些就是了。</li>
+</ul>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><ul>
+<li><p> For-each 和 Iterator 基本都在一个数量级上，这可能与 For-each 就是基于 Iterator 实现的，至于 For-each 会稍微慢一点，可能是 For-each 隐式转换 Iterator 耗费多余时间，</p>
+</li>
+<li><p><code>ArrayList</code>基于数组，index都是确定的，在查改反面效率会高一点，自然带着下表的 For 效率会高很多。<code>LinkedList</code>基于链表，查改开销会比较大，但它是<code>双向循环带头节点的链表</code>，增删会比数组快，这两种数据结构的比较差别就在这，实际中还是要看在哪方面的应用来确定。</p>
+</li>
+</ul>
+<h2 id="工程中三种循环的使用建议。"><a href="#工程中三种循环的使用建议。" class="headerlink" title="工程中三种循环的使用建议。"></a>工程中三种循环的使用建议。</h2><ul>
+<li><code>《Effective Java》第三版第58条</code>中建议，一般采用 Foreach 进行循环，因为它在 <code>简洁性</code>和 <code>预防Bug</code>上优于For-loop 和 Iterator（确切说是 Iterator 配合 while 使用）</li>
+</ul>
+<p><code>简洁性</code>就不需要多阐述了，光看代码量和可读性，就知道 For-each 的<code>简洁性</code>特点。</p>
+<h4 id="For-each-优势于-while-loop"><a href="#For-each-优势于-while-loop" class="headerlink" title="For-each 优势于 while-loop"></a>For-each 优势于 while-loop</h4><hr>
+<h5 id="预防Bug"><a href="#预防Bug" class="headerlink" title="预防Bug"></a>预防Bug</h5><ul>
+<li>说到预防Bug，这里牵涉到 第57条 中的 <code>将局部变量的作用域最小化</code>。</li>
+</ul>
+<h5 id="为什么要“将局部变量的作用域最小化”"><a href="#为什么要“将局部变量的作用域最小化”" class="headerlink" title="为什么要“将局部变量的作用域最小化”"></a>为什么要“将局部变量的作用域最小化”</h5><p>书中提到，原因类似于 第15条的本质，<code>使类和成员的可访问性最小化</code>。将局部变量作用域最小化，可以增强代码的可读性和可维护性，并降低出错的可能性。</p>
+<blockquote>
+<p> 循环中提供了特殊的机会来将变量的作用域最小化。无论是传统的for循环，还是for-each形式的 for 循环，都允许声明<strong>循环变量</strong>，它们的作用域被限定<strong>在正好需要的范围</strong>之内。如果在循环终止之后不再需要循环变量的内容，for-loop就优先于 while loop。</p>
+</blockquote>
+<ul>
+<li>如下是一种遍历集合的首选做法：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// Preferred idiom for iterating over a collection or array</span><br><span class="hljs-keyword">for</span> (Element e : c) &#123;<br>    ... <span class="hljs-comment">// Do Someting with e</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>如果需要访问迭代器，可能要调用它的 remove 方法，首选做法是利用传统的 for 循环替代 for-each 循环：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// Idiom for iterating when you need the iterator</span><br><span class="hljs-keyword">for</span> (Iterator&lt;Element&gt; i = c.iterator(); i.hasNext(); ) &#123;<br>    Element e = i.next();<br>    ... <span class="hljs-comment">// Do someting with e and i</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>为什么有些时候不能用 for-each ，它的实现还是基于 iterator 的 <code>hasNext() + next()</code>，但是有时候需要在循环过程中对集合进行操作，此时就必须使用 iterator 对象进行操作了，因为使用 iterator 循环时，集合的操作权就交给了 iterator，虽然可以用集合对象进行操作，如 <code>romove()</code>但这样会破坏 iterator 初始化的结果，导致最终程序运行的结果与预期偏差很大，这里引用我的另一篇文章，有 Java 在 iterator 中 remove() 的 bug详解。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/642d6fd39013">https://www.jianshu.com/p/642d6fd39013</a></p>
+</blockquote>
+<ul>
+<li>至于为什么 for loop 要比 while loop 更好，参考一下代码片段，连续的两个 whIle loop，以及出现的一个 bug</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">Iterator&lt;Element&gt; i = c.iterator();<br><span class="hljs-keyword">while</span> (i.hasNext()) &#123;<br>    doSometing(i.next());<br>&#125;<br>...<br>Iterator&lt;Element&gt; i2 = c.iterator();<br><span class="hljs-keyword">while</span> (i.hasNext()) &#123;   <span class="hljs-comment">// This is bug!</span><br>    doSometing(i2.next());<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>在第二个 while loop 中，使用了 迭代器 <code>i</code> 的判断，实际操作的是 <code>i2</code> 遍历的对象，bug 就在这里，实际工程中，因为   迭代器 <code>i</code>的产生是在 while loop 外面的，作用于包含了整段程序，包括 while loop 使用结束之后，加上中间有其他的逻辑代码，难免会不小心使用到上面残余的 迭代器<code>i</code>，这就造成很严重的 bug，而不会轻易被发现，IDE也不会报错。 所以要利用好 for loop 声明迭代器，控制它的作用范围。</p>
+<p>上面的bug程序最终的结果是下面的 while loop 不会执行，因为在上面的 while loop 执行结束之后，迭代器 <code>i</code>就会遍历到尽头，这样继续判断 <code>i.hasNext()</code>只会返回 <code>false</code>。</p>
+<h4 id="For-each-优势于-For-loop"><a href="#For-each-优势于-For-loop" class="headerlink" title="For-each 优势于 For-loop"></a>For-each 优势于 For-loop</h4><hr>
+<ul>
+<li>以下面一个 两层集合嵌套迭代出现的 bug 来展开讨论</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// Can you spot the bug?</span><br><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Suit</span> </span>&#123;CLUB, DIAMOND, HEART, SPADE&#125;<br><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Rank</span> </span>&#123;<br>    ACE, DEUCE, THREE, FOUR, FIVE, SIX, SEVEN,<br>    EIGHT, NINE, TEN, JACK, QUEEN, KING<br>&#125;<br>...<br><span class="hljs-keyword">static</span> Collection&lt;Suit&gt; suits = Arrays.asList(Suit.values());<br><span class="hljs-keyword">static</span> Collection&lt;Rank&gt; ranks = Arrays.asList(Rank.values());<br><br>List&lt;Card&gt; deck = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br><span class="hljs-keyword">for</span> (Iterator&lt;Suit&gt; i = suits.iterator(); i.hasNext(); )<br>    <span class="hljs-keyword">for</span> (Iterator&lt;Rank&gt; j = ranks.iterator(); j.hasNext(); )<br>        deck.add(<span class="hljs-keyword">new</span> Card(i.next(), j.next()));<br>    <br></code></pre></div></td></tr></table></figure>
+<p>这里的bug比较难找，可能很多大师也会犯这个错误。bug在于，在迭代器上对外部的集合 suits 调用太多 <code>next</code> 方法，它应该从外部的循环进行调用，以便每种花色都调用一次，但它却是从内部循环调用，因此每次牌调用一次。在用完所有花色之后，循环就会抛出 <code>NoSuchElementException</code>异常。</p>
+<p>如果碰巧外部集合的大小是内部集合大小的几倍（可能因为它们是相同的集合），循环就会正常终止，但是实际完成情况跟预期是有出入的。</p>
+<ul>
+<li>下面是打印一对骰子出现的所有可能情况：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// Same bug, different symptom!</span><br><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Face</span> </span>&#123;ONE, TWO, THREE, FOUR, FIVE, SIX&#125;<br>Collection&lt;Face&gt; faces = EnumSet.allOf(Face.class);<br><br><span class="hljs-keyword">for</span> (Iterator&lt;Face&gt; i = faces.iterator(); i.hasNext(); )<br>    <span class="hljs-keyword">for</span> (Iterator&lt;Face&gt; j = faces.iterator(); i.hasNext(); )<br>        System.out.println(i.next() + <span class="hljs-string">&quot; &quot;</span> + j.next());<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>ONE ONE<br>TWO TWO<br>THREE THREE<br>FOUR FOUR<br>FIVE FIVE<br>SIX SIX</p>
+</blockquote>
+<p>同样的错误，也是重复调用 <code>next</code>。这种程序不会抛出异常，所以往往找bug会特别难受。</p>
+<ul>
+<li>下面开始修正此 bug</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// Fixed, but ugly - so we need for-each</span><br><span class="hljs-keyword">for</span> (Iterator&lt;Suit&gt; i = suits.iterator(); i.hasNext(); ) &#123;<br>    Suit suit = i.next();<br>    <span class="hljs-keyword">for</span> (Iterator&lt;Rank&gt; j = ranks.iterator(); j.hasNext(); )<br>        deck.add(<span class="hljs-keyword">new</span> Card(suit, j.next()));<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>至此引出 for-each ，让这个问题完全消失，并且产生的代码也能很简洁。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// Preferred idiom for neat iteration on collections and arrays</span><br><span class="hljs-keyword">for</span> (Suit suit : suits)<br>    <span class="hljs-keyword">for</span> (Rank rank : ranks)<br>        deck.add(<span class="hljs-keyword">new</span> Card(suit, rank));<br></code></pre></div></td></tr></table></figure>
+
+
+<h4 id="For-each-无法使用的地方"><a href="#For-each-无法使用的地方" class="headerlink" title="For-each 无法使用的地方"></a>For-each 无法使用的地方</h4><hr>
+<ul>
+<li><code>解构过滤</code>：如果需要遍历集合，并删除指定元素，需要使用显式的迭代器，以便使用它的 remove 方法。使用 Java 8 中添加的 Collection 的 <code>removeIf</code>，常常可以避免显式遍历。</li>
+<li><code>转换</code>：如果需要遍历列表或者数组，并取代它的部分或者全部元素值，就需要列表迭代器或者数组索引，以便设置元素的值。</li>
+<li><code>平行迭代</code>：如果需要并行地遍历多个集合，就需要显式地控制迭代器或者索引变量，以便所有迭代器或者索引变量都可以同步前进（就如上述有问题的牌和骰子的示例中无意间所示范的那样）</li>
+</ul>
+<h4 id="For-each-拓展使用"><a href="#For-each-拓展使用" class="headerlink" title="For-each 拓展使用"></a>For-each 拓展使用</h4><ul>
+<li>for-each 不止能遍历集合和数组，还能遍历实现 <code>Iterable</code>接口的任何对象，只需要实现接口对应的方法即可。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Iterable</span>&lt;<span class="hljs-title">T</span>&gt; </span>&#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Returns an iterator over elements of type &#123;<span class="hljs-doctag">@code</span> T&#125;.</span><br><span class="hljs-comment">     *</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span> an Iterator.</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function">Iterator&lt;T&gt; <span class="hljs-title">iterator</span><span class="hljs-params">()</span></span>;<br>    <br>    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">void</span> <span class="hljs-title">forEach</span><span class="hljs-params">(Consumer&lt;? <span class="hljs-keyword">super</span> T&gt; action)</span> </span>&#123;<br>        Objects.requireNonNull(action);<br>        <span class="hljs-keyword">for</span> (T t : <span class="hljs-keyword">this</span>) &#123;<br>            action.accept(t);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>总而言之，与传统的for循环相比，for-each循环在简洁性、灵活性以及出错预防性方面都占有绝对优势，并且<strong>没有性能惩罚</strong>的问题。因此，当可以选择的时候，for-each循环应该优先于for循环。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/JavaSE/">JavaSE</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/20/SSM/mybatis/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Mybatis-9.28</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/15/JavaSE/Java%20%E5%9C%A8Iterator%E4%B8%AD%20remove%20&amp;%20ConcurrentModificationException%E9%97%AE%E9%A2%98/">
+                        <span class="hidden-mobile">Java在Iterator中remove & ConcurrentModificationException问题</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     Since 2019-2021 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

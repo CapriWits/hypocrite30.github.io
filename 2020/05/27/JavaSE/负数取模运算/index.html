@@ -20,9 +20,25 @@
   <meta name="author" content="hypocrite30">
   <meta name="keywords" content="">
   
-  <title>分类 - hypocrite30</title>
+  <title>负数取模运算 - hypocrite30</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/idea.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -50,7 +66,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -144,22 +160,63 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/categoryPage.jpg') no-repeat center center;
+         style="background: url('/img/postPage.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="分类">
+            <span class="h2" id="subtitle" title="负数取模运算">
               
             </span>
 
             
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-05-27 23:27" pubdate>
+        2020年5月27日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      358 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -168,226 +225,129 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">负数取模运算</h1>
+            
+            <div class="markdown-body">
+              <h1 id="负数取模运算"><a href="#负数取模运算" class="headerlink" title="负数取模运算"></a>负数取模运算</h1><hr>
+<h2 id="一、引例"><a href="#一、引例" class="headerlink" title="一、引例"></a>一、引例</h2><div class="hljs code-wrapper"><pre><code>System.out.println(&quot;3 % 5 = &quot; + 3 % 5);
+System.out.println(&quot;-3 % 5 = &quot; + -3 % 5);
+System.out.println(&quot;3 % -5 = &quot; + 3 % -5);
+System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
+</code></pre></div>
+<blockquote>
+<p> 3 % 5 = 3<br> -3 % 5 = -3<br> 3 % -5 = 3<br> -3 % -5 = -3  </p>
+</blockquote>
+<h3 id="规律"><a href="#规律" class="headerlink" title="规律"></a>规律</h3><blockquote>
+<p>被除数是负数，则取模后符号也为负</p>
+</blockquote>
+<blockquote>
+<p>被除数是正数，则取模后符号也为正</p>
+</blockquote>
+<blockquote>
+<p>结果的符号与除数的正负号无关</p>
+</blockquote>
+<h2 id="二、整数除法问题"><a href="#二、整数除法问题" class="headerlink" title="二、整数除法问题"></a>二、整数除法问题</h2><ul>
+<li><p>向上取整(Ceiling) 向X轴正方向取整，即取比实际结果稍大的数<br>比如：17 / 8 == 3， 8 / 3 == 3，-9 / 4 == -2</p>
+</li>
+<li><p>向下取整(Floor) 向X轴负方向取整，即取比实际结果稍小的数<br>比如：17 / 8 == 2， 8 / 3 == 2，-9 / 4 == -3</p>
+</li>
+<li><p>向零取整(Truncate) 向原点方向取整，即直接省略小数部分，取整<br>比如：17 / 8 == 2， 8 / 3 == 2，-9 / 4 == -2</p>
+</li>
+</ul>
+<h2 id="三、取模通用公式"><a href="#三、取模通用公式" class="headerlink" title="三、取模通用公式"></a>三、取模通用公式</h2><blockquote>
+<p>a % b = r</p>
+</blockquote>
+<blockquote>
+<p>r = a - (a/b) * b</p>
+</blockquote>
+<h2 id="四、计算机语言差异性"><a href="#四、计算机语言差异性" class="headerlink" title="四、计算机语言差异性"></a>四、计算机语言差异性</h2><ul>
+<li><p>C/Java<br>采用Truncate除法，即向零取整</p>
+</li>
+<li><p>Python<br>采用Floor除法，即向下取整</p>
+</li>
+</ul>
+<h2 id="五、Truncate除法的问题"><a href="#五、Truncate除法的问题" class="headerlink" title="五、Truncate除法的问题"></a>五、Truncate除法的问题</h2><p>在一些题目中，数组元素可能出现负数，这样导致取模的时候，会出现取整问题的歧义</p>
+<blockquote>
+<p>在Java中，默认Truncate除法，为避免歧义可以使用：</p>
+</blockquote>
+<blockquote>
+<p>1、使用Math.floorMod方法进行Floor除法</p>
+</blockquote>
+<blockquote>
+<p>2、如在前缀和计算中，用<br>int modulus = <strong>(sum % K + K) % k</strong>;<br>而不用 <strong>sum % k</strong>，避免负数干扰结果</p>
+</blockquote>
 
-
-
-
-
-
-<div class="category-list">
-  
-  
-  
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-543b8bc8a493dcef4ec497e6abf4163b" role="tab" data-toggle="collapse" href="#collapse-543b8bc8a493dcef4ec497e6abf4163b"
-        aria-expanded="false"
-      >
-        JavaSE
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/JavaSE/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>6</span>
-      </a>
-      <div class="category-collapse">
-        
-        
-          
-  <div id="collapse-543b8bc8a493dcef4ec497e6abf4163b" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-543b8bc8a493dcef4ec497e6abf4163b">
-    
-    
-      
-      
-        <a href="/2021/03/23/JavaSE/Java%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%82(LeetCode%20341)/" class="list-group-item list-group-item-action">
-          <span class="category-post">Java手动实现迭代器。(LeetCode 341)</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2021/03/16/JavaSE/Java%20For-loop&%20For-each%20&%20Iterator%20%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90/" class="list-group-item list-group-item-action">
-          <span class="category-post">Java For-loop&amp; For-each &amp; Iterator 效率分析</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2021/03/15/JavaSE/Java%20%E5%9C%A8Iterator%E4%B8%AD%20remove%20&%20ConcurrentModificationException%E9%97%AE%E9%A2%98/" class="list-group-item list-group-item-action">
-          <span class="category-post">Java在Iterator中remove &amp; ConcurrentModificationException问题</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2021/02/10/JavaSE/Java%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/" class="list-group-item list-group-item-action">
-          <span class="category-post">Java算法竞赛常用模板</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2021/02/01/JavaSE/java%E4%B8%AD%E6%95%B0%E7%BB%84%E5%A4%9A%E7%A7%8D%E9%81%8D%E5%8E%86%E6%B1%82%E5%92%8C%E7%9A%84%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90/" class="list-group-item list-group-item-action">
-          <span class="category-post">java中数组多种遍历求和的效率分析</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2020/05/27/JavaSE/%E8%B4%9F%E6%95%B0%E5%8F%96%E6%A8%A1%E8%BF%90%E7%AE%97/" class="list-group-item list-group-item-action">
-          <span class="category-post">负数取模运算</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-edc9f0a5a5d57797bf68e37364743831" role="tab" data-toggle="collapse" href="#collapse-edc9f0a5a5d57797bf68e37364743831"
-        aria-expanded="false"
-      >
-        Linux
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/Linux/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>2</span>
-      </a>
-      <div class="category-collapse">
-        
-        
-          
-  <div id="collapse-edc9f0a5a5d57797bf68e37364743831" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-edc9f0a5a5d57797bf68e37364743831">
-    
-    
-      
-      
-        <a href="/2021/03/27/Linux/Centos%206%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8yum%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="list-group-item list-group-item-action">
-          <span class="category-post">Centos 6无法使用yum解决办法</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2021/01/23/Linux/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8BLinux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81ip%EF%BC%8C%E4%BD%BF%E5%BE%97XShell%E6%88%90%E5%8A%9F%E8%BF%9E%E6%8E%A5/" class="list-group-item list-group-item-action">
-          <span class="category-post">虚拟机下Linux配置静态ip，使得XShell成功连接</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-a7885c51c567427cd74513f0c6e0d563" role="tab" data-toggle="collapse" href="#collapse-a7885c51c567427cd74513f0c6e0d563"
-        aria-expanded="false"
-      >
-        SSM
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/SSM/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>2</span>
-      </a>
-      <div class="category-collapse">
-        
-        
-          
-  <div id="collapse-a7885c51c567427cd74513f0c6e0d563" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-a7885c51c567427cd74513f0c6e0d563">
-    
-    
-      
-      
-        <a href="/2021/03/20/SSM/mybatis-plus/" class="list-group-item list-group-item-action">
-          <span class="category-post">Mybatis-plus</span>
-        </a>
-      
-    
-      
-      
-        <a href="/2021/03/20/SSM/mybatis/" class="list-group-item list-group-item-action">
-          <span class="category-post">Mybatis-9.28</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-    
-    
-    <div class="category row">
-      <a
-        class="category-item collapsed list-group-item category-item-action col-10 col-md-11"
-        id="heading-4afa80e77a07f7488ce4d1bdd8c4977a" role="tab" data-toggle="collapse" href="#collapse-4afa80e77a07f7488ce4d1bdd8c4977a"
-        aria-expanded="false"
-      >
-        Algorithm
-        <i class="iconfont icon-arrowright"></i>
-      </a>
-      <a href="/categories/Algorithm/" class="category-count col-2 col-md-1">
-        <i class="iconfont icon-articles"></i>
-        <span>1</span>
-      </a>
-      <div class="category-collapse">
-        
-        
-          
-  <div id="collapse-4afa80e77a07f7488ce4d1bdd8c4977a" class="collapse in" role="tabpanel"
-       aria-labelledby="heading-4afa80e77a07f7488ce4d1bdd8c4977a">
-    
-    
-      
-      
-        <a href="/2021/03/27/Algorithm/Algorithm/" class="list-group-item list-group-item-action">
-          <span class="category-post">Algorithm</span>
-        </a>
-      
-    
-  </div>
-
-        
-      </div>
-    </div>
-  
-</div>
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/JavaSE/">JavaSE</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/23/Linux/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8BLinux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81ip%EF%BC%8C%E4%BD%BF%E5%BE%97XShell%E6%88%90%E5%8A%9F%E8%BF%9E%E6%8E%A5/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">虚拟机下Linux配置静态ip，使得XShell成功连接</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -492,9 +452,15 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 

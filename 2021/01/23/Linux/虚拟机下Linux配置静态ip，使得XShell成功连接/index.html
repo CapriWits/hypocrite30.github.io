@@ -1,0 +1,542 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon%2032x32.ico">
+  <link rel="icon" href="/img/favicon%2032x32.ico">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="hypocrite30">
+  <meta name="keywords" content="">
+  
+  <title>虚拟机下Linux配置静态ip，使得XShell成功连接 - hypocrite30</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/idea.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":"b5f391eebc7eaea88e68a49d5924e381","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Hypocrite30 BLOG</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/postPage.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="虚拟机下Linux配置静态ip，使得XShell成功连接">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-23 11:39" pubdate>
+        2021年1月23日 中午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      845 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      12
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">虚拟机下Linux配置静态ip，使得XShell成功连接</h1>
+            
+            <div class="markdown-body">
+              <h1 id="虚拟机下Linux配置静态ip，使得XShell成功连接"><a href="#虚拟机下Linux配置静态ip，使得XShell成功连接" class="headerlink" title="虚拟机下Linux配置静态ip，使得XShell成功连接"></a>虚拟机下Linux配置静态ip，使得XShell成功连接</h1><ul>
+<li>Linux：centOS6.7</li>
+<li>虚拟机：VMware Workstation Pro15</li>
+<li>SSH客户端：XShell6</li>
+</ul>
+<h2 id="一、配置VMware的虚拟网络编辑器"><a href="#一、配置VMware的虚拟网络编辑器" class="headerlink" title="一、配置VMware的虚拟网络编辑器"></a>一、配置VMware的虚拟网络编辑器</h2><p>进VMware之前，右键，用管理员模式打开，后面需要管理员权限，先不要开虚拟机</p>
+<blockquote>
+<p>菜单栏（最顶上一栏） -&gt; 编辑 -&gt;  虚拟网络编辑器</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/22416923-03445aa4e6907a08.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="虚拟网络编辑器"></p>
+<p>按照①②配置，<strong>把③的子网IP记住</strong>，后面要用到。</p>
+<p>然后点击④进入NAT设置。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/22416923-7f08ff1398d029ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="NAT设置"></p>
+<p>①中配置<strong>默认网关</strong>，其中前三大位要与前面记住的子网IP前面相同，后面默认会配置2，也可以自定义。然后该默认网关192.168.248.2要记住，后面需要用到。</p>
+<p>②照做就行</p>
+<p>③按确定返回上图，再点击下栏确定就可以保存虚拟网络编辑器的配置。</p>
+<h2 id="二、配置VMware-Network-Adapter-VMnet8的指定IP"><a href="#二、配置VMware-Network-Adapter-VMnet8的指定IP" class="headerlink" title="二、配置VMware Network Adapter VMnet8的指定IP"></a>二、配置VMware Network Adapter VMnet8的指定IP</h2><blockquote>
+<p> windows设置 -&gt; 网络和Internet -&gt; 更改适配器选项 -&gt;  右键VMware Network Adapter VMnet8进入属性</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sT86w6"><img src="https://upload-images.jianshu.io/upload_images/22416923-2d2b349802ab0585.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="sT86w6.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sT8vlj"><img src="https://upload-images.jianshu.io/upload_images/22416923-bf6dd63beec85e60.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="sT8vlj.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sTGUBt"><img src="https://upload-images.jianshu.io/upload_images/22416923-1dfe0107d221acb5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="VMnet8属性"></a></p>
+<p>①选择IPv4的项目，②然后进入属性。</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sTGqD1"><img src="https://upload-images.jianshu.io/upload_images/22416923-ae85ea3dceef67fd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="sTGqD1.png"></a></p>
+<p>默认是自动获得IP地址，勾选“使用下面的IP地址”自定义IP</p>
+<p>①配置IP地址，前三位同虚拟网络编辑器配置的子网IP前三位相同，最后一位的1自定义，这里我设置为1</p>
+<p>②配完①一般子网掩码会自动填好，没自动补上就填上虚拟网络编辑器里的子网掩码。</p>
+<p>③默认网关就是干菜虚拟网络编辑器里面NAT设置里的那个默认网关。</p>
+<p>④确定保存，然后再确定就保存成功了。</p>
+<h2 id="三、配置网络适配器"><a href="#三、配置网络适配器" class="headerlink" title="三、配置网络适配器"></a>三、配置网络适配器</h2><p>管理员模式进入VMware，选择要配置的那台虚拟机，进入网络适配器</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sTYOfO"><img src="https://upload-images.jianshu.io/upload_images/22416923-acc9a82762bb7318.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="sTYOfO.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sTtE9S"><img src="https://upload-images.jianshu.io/upload_images/22416923-0104ea2c0b416415.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="sTtE9S.png"></a></p>
+<p>如图配置即可。</p>
+<h2 id="四、配置ifcfg-eth0文件"><a href="#四、配置ifcfg-eth0文件" class="headerlink" title="四、配置ifcfg-eth0文件"></a>四、配置ifcfg-eth0文件</h2><p>打开虚拟机，建议用root用户登录，方便后面对ifcfg-eth0文件进行编辑。</p>
+<p>打开terminal终端，输入指令：<strong>vim /etc/sysconfig/network-scripts/ifcfg-eth0</strong></p>
+<p>这是使用终端vim的方式修改，不会vim操作的自行百度，或者根据上面的路劲去找ifcfg-eth0文件打开进行修改。</p>
+<p>下面的配置建议对字段进行复制，防止配错。</p>
+<ol>
+<li><strong>以下进行修改</strong></li>
+</ol>
+<ul>
+<li>ONBOOT=yes  # 系统启动时是否设置此网络接口，设置为yes时，系统启动时激活此设备。</li>
+<li>BOOTPROTO=static  # 静态模式</li>
+</ul>
+<ol start="2">
+<li><strong>将下面的字段追加到最后一行，根据注释进行相应的配置</strong></li>
+</ol>
+<ul>
+<li>IPADDR=192.168.248.128    # 自定义的IP地址，用XShell对服务器进行连接的IP，前三位与前面保持一致</li>
+<li>NETMASK=255.255.255.0    # 子网掩码</li>
+<li>NETWORK=192.168.248.0   #  网络地址，与虚拟网络编辑器设置的一样</li>
+<li>BROADCAST=192.168.248.255  # 广播地址，前三位与前面一致，最后一位255</li>
+<li>DNS1=192.168.248.2  # DNS地址，与默认网关相同</li>
+<li>GATEWAY=192.168.248.2  # 默认网关</li>
+</ul>
+<p>然后esc : wq保存</p>
+<p>退出后，终端输入指令：<strong>service network restart</strong>  重启网络</p>
+<p>然后 ping baidu.com，看能不能ping通，能说明能上网。</p>
+<p>输入指令：ifconfig，查看刚才自定义的静态ip地址是否配置成功。</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sTa2DJ"><img src="https://upload-images.jianshu.io/upload_images/22416923-f3df7dcc11702966.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="sTa2DJ.png"></a></p>
+<h2 id="五、SSH客户端连接服务器"><a href="#五、SSH客户端连接服务器" class="headerlink" title="五、SSH客户端连接服务器"></a>五、SSH客户端连接服务器</h2><p>可以先本地cmd中ping 一下服务器</p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sTdFbj"><img src="https://upload-images.jianshu.io/upload_images/22416923-5dead41edaf28388.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="sTdFbj.png"></a></p>
+<p>如图能ping通，接下来进入XShell，将该ip连接就可以了，至此虚拟机静态IP配置结束。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Linux/">Linux</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/01/JavaSE/java%E4%B8%AD%E6%95%B0%E7%BB%84%E5%A4%9A%E7%A7%8D%E9%81%8D%E5%8E%86%E6%B1%82%E5%92%8C%E7%9A%84%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">java中数组多种遍历求和的效率分析</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/05/27/JavaSE/%E8%B4%9F%E6%95%B0%E5%8F%96%E6%A8%A1%E8%BF%90%E7%AE%97/">
+                        <span class="hidden-mobile">负数取模运算</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     Since 2019-2021 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
