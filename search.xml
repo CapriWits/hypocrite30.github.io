@@ -4,18 +4,18 @@
     <title>Hello World</title>
     <url>/2021/02/20/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></div></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ hexo server<br></code></pre></div></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ hexo generate<br></code></pre></div></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></div></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
   </entry>
   <entry>
-    <title></title>
+    <title>背包九讲</title>
     <url>/2021/02/20/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/</url>
     <content><![CDATA[<h1 id="背包九讲"><a href="#背包九讲" class="headerlink" title="背包九讲"></a>背包九讲</h1><hr>
 <h2 id="一、01背包问题"><a href="#一、01背包问题" class="headerlink" title="一、01背包问题"></a>一、01背包问题</h2><p>有 <strong>N</strong> 件物品和一个容量是 <strong>V</strong> 的背包。每件物品只能使用一次。</p>
@@ -38,7 +38,7 @@
 <p><strong>其中f[i][j]表示在前 i 个物品中选不超过 v 容量背包大小的物品，所获得的最大价值。</strong>    </p>
 <p>初始化是f[0][0] = 0; 表示无背包容量且没有物品放入。  </p>
 <p>###代码如下：</p>
-<pre><code>#include &lt;iostream&gt;
+<div class="hljs code-wrapper"><pre><code>#include &lt;iostream&gt;
 #include &lt;cstring&gt;
 #include &lt;algorithm&gt;
 
@@ -77,12 +77,12 @@ int main() &#123;
 //    &#125;
     return 0;
 &#125;  
-</code></pre>
+</code></pre></div>
 <h3 id="01背包问题-空间优化"><a href="#01背包问题-空间优化" class="headerlink" title="01背包问题 空间优化"></a>01背包问题 空间优化</h3><p>时间空间复杂度都是O(nV)，其中时间复杂度已经无法优化，但是空间复杂度可以优化。  </p>
 <p>我们注意到状态转移方程中计算f[i][j]总是只需要f[i-1][j]左侧部分的数据（即只需要图中正上方与左上方的数据），且当计算f[i+1][]部分时，f[i-1][]的数据完全用不到了（只需要f[i][]），因此可以将二维数组转换为一维数组f[j]，枚举方向变成 i 从 1 到 n, j 从 V 到 0 ( 逆序！)。  </p>
 <p>逆序即从右向左，可以保证当前的 f 值是从上一个未更新（未选择当前物品）的 f 获得的，如果正向，则后面的 f 值获取的是前面已更新过的 f 值，不符合题意。每计算出一个f[i][j]，就相当于把f[i-1][j]覆盖，后面也用不到了，我们称这种技巧为<strong>滚动数组</strong>。  </p>
 <p>###优化后的代码如下：</p>
-<pre><code>#include &lt;iostream&gt;
+<div class="hljs code-wrapper"><pre><code>#include &lt;iostream&gt;
 #include &lt;cstring&gt;
 #include &lt;algorithm&gt;
 
@@ -110,8 +110,7 @@ int main() &#123;
 //    for (int i = 0; i &lt;= m; i++) cout &lt;&lt; f[i] &lt;&lt; &quot;  &quot;;
     return 0;
 &#125;
-    
-</code></pre>
+</code></pre></div>
 <h3 id="01背包问题-（恰好装满和仅价值最大）"><a href="#01背包问题-（恰好装满和仅价值最大）" class="headerlink" title="01背包问题 （恰好装满和仅价值最大）"></a>01背包问题 （恰好装满和仅价值最大）</h3><p>在01背包问题中，题目有两种，上述讲的01背包问题是指<strong>在不超过背包容量的情况下，获得最大价值</strong>，而没有限制一定要<strong>装满</strong>，另一种问法是<strong>在恰好装满背包的情况下，获得的最大价值</strong>。  </p>
 <p>两种问法的区别，在代码上的修改仅在于<strong>对动态规划数组的初始化</strong>。</p>
 <blockquote>
@@ -125,7 +124,7 @@ int main() &#123;
 <p>在<strong>恰好装满</strong>的情况下，不能使用这种方法。因为我们认为背包没恰好装满的话，当前背包的状态无效，即无效状态，只有恰好装满时候才是有效状态。</p>
 <p>初始化的dp 数组事实上就是在没有任何物品可以放入背包时的合法状态。如果要求背包恰好装满，那么此时只有容量为0的背包可以在什么也不装的状态下被 “恰好装满” ，此时背包价值为0。其他容量的背包均没有合法的解，属于未定义的状态，所以都应该被赋值为 <strong>负无穷</strong> 。当前的合法解，一定是从之前的合法状态推得的  </p>
 <p>当背包容量是0时，无论是否装物品，都可以**”装满”<strong>背包，都是属于</strong>有效状态**，所以f[i][0]都初始化为0，其他的都初始化为负无穷  </p>
-<h3 id="01背包问题-（恰好装满）二维表示"><a href="#01背包问题-（恰好装满）二维表示" class="headerlink" title="01背包问题 （恰好装满）二维表示"></a>01背包问题 （恰好装满）二维表示</h3><pre><code>#include &lt;iostream&gt;
+<h3 id="01背包问题-（恰好装满）二维表示"><a href="#01背包问题-（恰好装满）二维表示" class="headerlink" title="01背包问题 （恰好装满）二维表示"></a>01背包问题 （恰好装满）二维表示</h3><div class="hljs code-wrapper"><pre><code>#include &lt;iostream&gt;
 #include &lt;algorithm&gt;
 #include &lt;cstring&gt;
 
@@ -168,8 +167,8 @@ int main() &#123;
     
     return 0;
 &#125;
-</code></pre>
-<h3 id="01背包问题-（恰好装满）-一维表示"><a href="#01背包问题-（恰好装满）-一维表示" class="headerlink" title="01背包问题 （恰好装满） 一维表示"></a>01背包问题 （恰好装满） 一维表示</h3><pre><code>#include &lt;iostream&gt;
+</code></pre></div>
+<h3 id="01背包问题-（恰好装满）-一维表示"><a href="#01背包问题-（恰好装满）-一维表示" class="headerlink" title="01背包问题 （恰好装满） 一维表示"></a>01背包问题 （恰好装满） 一维表示</h3><div class="hljs code-wrapper"><pre><code>#include &lt;iostream&gt;
 #include &lt;algorithm&gt;
 #include &lt;cstring&gt;
 
@@ -213,7 +212,196 @@ int main() &#123;
     
     return 0;
 &#125;
-</code></pre>
+</code></pre></div>
+<p>​    </p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/03/27/%E4%BD%8D%E8%BF%90%E7%AE%97/136.%20%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/136.%20%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/</url>
+    <content><![CDATA[<h2 id="位运算-02"><a href="#位运算-02" class="headerlink" title="#位运算 02"></a>#位运算 02</h2><p><img src="https://s1.ax1x.com/2020/05/14/Y01iVI.png" alt="LeetCode 136">  </p>
+<p><a href="https://leetcode-cn.com/problems/single-number/">原题链接</a>  </p>
+<p>##代码如下：</p>
+<div class="hljs code-wrapper"><pre><code>/*
+    思路：
+        因为数组中，只出现唯一一个不重复的数，其他数都是两两出现
+        所以，对数组所有元素进行异或计算，相同的数异或得到零
+        零与那个待求的数取异或还是本身，所以可以找到那个数，并直接返回
+*/
+
+class Solution &#123;
+    public int singleNumber(int[] nums) &#123;
+        int single = 0;
+        for (int num : nums) &#123;
+            single ^= num;
+        &#125;
+        return single;
+    &#125;
+&#125;
+</code></pre></div>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/03/27/%E4%BD%8D%E8%BF%90%E7%AE%97/231.%202%E7%9A%84%E5%B9%82/231.%202%E7%9A%84%E5%B9%82/</url>
+    <content><![CDATA[<h1 id="位运算-04"><a href="#位运算-04" class="headerlink" title="位运算 04"></a>位运算 04</h1><hr>
+<p><a href="https://imgtu.com/i/65ygWd"><img src="https://z3.ax1x.com/2021/03/21/65ygWd.md.png" alt="LeetCode 231"></a></p>
+<p><a href="https://leetcode-cn.com/problems/power-of-two/">https://leetcode-cn.com/problems/power-of-two/</a></p>
+<h2 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h2><ul>
+<li>这里不讨论 <code>O(logN)</code> 的解法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isPowerOfTwo</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (n == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        <span class="hljs-keyword">while</span> (n % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>) n /= <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">return</span> n == <span class="hljs-number">1</span>;<br>  	&#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>首先要清楚，2的幂二进制表达是高位<strong>只有</strong>一个1，后面全是0。同时也要保证是个正数。</li>
+</ul>
+<blockquote>
+<p>以下的公式证明推到戳这里：<a href="https://www.jianshu.com/p/fec960ffb7af">https://www.jianshu.com/p/fec960ffb7af</a></p>
+</blockquote>
+<ul>
+<li>法一： <code>x &amp; (-x)</code> 可以获得 x 二进制的最后一位 <code>1</code>组成的数， <code>x &amp; (-x) == x</code>即可判断</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isPowerOfTwo</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        <span class="hljs-keyword">long</span> x = (<span class="hljs-keyword">long</span>) n;<br>        <span class="hljs-keyword">return</span> (x &amp; (-x)) == x;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>法二： <code>x &amp; (x - 1)</code>可以将最后的那个 <code>1</code>去掉，<code>x &amp; (x - 1) == 0</code>即可判断</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isPowerOfTwo</span><span class="hljs-params">(<span class="hljs-keyword">int</span> n)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        <span class="hljs-keyword">long</span> x = (<span class="hljs-keyword">long</span>) n;<br>        <span class="hljs-keyword">return</span> (x &amp; (x - <span class="hljs-number">1</span>)) == <span class="hljs-number">0</span>;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/03/27/%E4%BD%8D%E8%BF%90%E7%AE%97/338.%20%E6%AF%94%E7%89%B9%E4%BD%8D%E8%AE%A1%E6%95%B0/%E4%BD%8D%E8%BF%90%E7%AE%97%2003/</url>
+    <content><![CDATA[<h1 id="位运算-03"><a href="#位运算-03" class="headerlink" title="位运算 03"></a>位运算 03</h1><hr>
+<p><a href="https://imgtu.com/i/6A83fU"><img src="https://s3.ax1x.com/2021/03/03/6A83fU.png" alt="LeetCode 338"></a></p>
+<p><a href="https://leetcode-cn.com/problems/counting-bits/">https://leetcode-cn.com/problems/counting-bits/</a></p>
+<h2 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h2><h3 id="一、暴力法、模拟运算"><a href="#一、暴力法、模拟运算" class="headerlink" title="一、暴力法、模拟运算"></a>一、暴力法、模拟运算</h3><ul>
+<li><strong>public static int bitCount(int i)</strong> 可以直接计算int数二进制中1的个数</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] countBits(<span class="hljs-keyword">int</span> num) &#123;<br>    <span class="hljs-keyword">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[num + <span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;= num; i++) &#123;<br>        res[i] = Integer.bitCount(i);<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>自己实现bitCount(). 位运算可知 <strong>x &amp; (x - 1)</strong> 可以让<strong>最靠后</strong>的 1 变成 0，注意，这里不是最后一位的 1 ，而是最靠后面的 1 变成 0，这样循环转化，过程中计数，直到数值变成 全 0 即 0</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] countBits(<span class="hljs-keyword">int</span> num) &#123;<br>    <span class="hljs-keyword">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[num + <span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;= num; i++) &#123;<br>        res[i] = bitCount(i);<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">countOnes</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span> (x &gt; <span class="hljs-number">0</span>) &#123;<br>        x &amp;= (x - <span class="hljs-number">1</span>);<br>        count++;<br>    &#125;<br>    <span class="hljs-keyword">return</span> count;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h3 id="二、递归"><a href="#二、递归" class="headerlink" title="二、递归"></a>二、递归</h3><p>从 0 ~ num 推进的过程中，首先可知：</p>
+<ul>
+<li>偶数 x 和 x / 2 即 x &gt;&gt; 1 的 二进制 1 个数相同，因为最后一位是 0，抹去最后一位不影响统计个数</li>
+<li>奇数 x 和 x &gt;&gt; 1 的二进制 1 个数差 1，因为最后一位 1 被抹除 需要补上。这里也可以采用 x - 1 的 1 个数 + 1，道理都一样，最后一位 1 被抹去，要补上</li>
+</ul>
+<p>所以：</p>
+<p>​    <code>x为奇数: res[i] = bitCountRecusion(x - 1) + 1</code></p>
+<p>​    <code>x为偶数：res[i] = bitCountRecursion(x &gt;&gt; 1)</code></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] countBits(<span class="hljs-keyword">int</span> num) &#123;<br>    <span class="hljs-keyword">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[num + <span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;= num; i++) &#123;<br>        res[i] = bitCountRecusion(i);<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">bitCountRecusion</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (x == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span> (x % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>)<br>        <span class="hljs-keyword">return</span> bitCountRecusion(x - <span class="hljs-number">1</span>) + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-keyword">return</span> bitCountRecusion(x &gt;&gt; <span class="hljs-number">1</span>);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h3 id="三、记忆化搜索"><a href="#三、记忆化搜索" class="headerlink" title="三、记忆化搜索"></a>三、记忆化搜索</h3><p>在上面的递归方法中，重复了很多计算，比如 算 8 的 bitCount 时，一直要计算 4、2、1、0，所以添加一个memo数组来储存前面计算的bitCount，这样在下一次计算的时候可以被memo数组捕捉到，直接返回，提高递归效率。</p>
+<p><code>if (memo[x] != 0) return memo[x]</code></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] countBits(<span class="hljs-keyword">int</span> num) &#123;<br>    <span class="hljs-keyword">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[num + <span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">int</span>[] memo = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[num + <span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;= num; i++) &#123;<br>        res[i] = bitCountMemoSearch(i, memo);<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">bitCountMemoSearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x, <span class="hljs-keyword">int</span>[] memo)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (x == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span> (memo[x] != <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> memo[x];   <span class="hljs-comment">// 记录中存在，直接返回</span><br>    <span class="hljs-keyword">int</span> res = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span> (x % <span class="hljs-number">2</span> == <span class="hljs-number">1</span>)<br>        res = bitCountMemoSearch(x &gt;&gt; <span class="hljs-number">1</span>, memo) + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">else</span><br>        res = bitCountMemoSearch(x &gt;&gt; <span class="hljs-number">1</span>, memo);<br>    memo[x] = res;  <span class="hljs-comment">// 记录当前值，便于下次记忆化查找</span><br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h3 id="四、动态规划"><a href="#四、动态规划" class="headerlink" title="四、动态规划"></a>四、动态规划</h3><p>上面的记忆化搜索过程中，memo仅在一次调用递归函数就可以捕捉到，意味着递归函数就无意义了，而memo记录数组也可以在查找前面的res[] 结果中 替代，这种思想就是动态规划。</p>
+<ul>
+<li>判断奇偶数，然后查找前面记录的res值。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] countBits(<span class="hljs-keyword">int</span> num) &#123;<br>    <span class="hljs-keyword">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[num + <span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;= num; i++) &#123;<br>        <span class="hljs-keyword">if</span> (i % <span class="hljs-number">2</span> == <span class="hljs-number">0</span>)<br>            res[i] = res[i &gt;&gt; <span class="hljs-number">1</span>];<br>        <span class="hljs-keyword">else</span><br>            <span class="hljs-comment">//res[i] = res[i - 1] + 1;</span><br>            <span class="hljs-comment">//也可以这么写，前一位是偶数，最后补一个低位的1就可以</span><br>            res[i] = res[i &gt;&gt; <span class="hljs-number">1</span>] + <span class="hljs-number">1</span>;<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>不需要判断奇偶数的统一写法。最终版代码：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span>[] countBits(<span class="hljs-keyword">int</span> num) &#123;<br>    <span class="hljs-keyword">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[num + <span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt;= num; i++) &#123;<br>        res[i] = res[i &gt;&gt; <span class="hljs-number">1</span>] + (i &amp; <span class="hljs-number">1</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/03/27/%E4%BD%8D%E8%BF%90%E7%AE%97/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/%E4%BD%8D%E8%BF%90%E7%AE%97%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C/</url>
+    <content><![CDATA[<h2 id="位运算常见操作"><a href="#位运算常见操作" class="headerlink" title="位运算常见操作"></a>位运算常见操作</h2><h3 id="判断奇偶"><a href="#判断奇偶" class="headerlink" title="判断奇偶"></a>判断奇偶</h3><ul>
+<li><code>(x &amp; 1) == 1</code> == <code>x % 2 == 1</code>判断奇数</li>
+<li><code>(x &amp; 1) == 0  </code> == <code>x % 2 == 0</code>判断偶数</li>
+</ul>
+<h3 id="位运算除法"><a href="#位运算除法" class="headerlink" title="位运算除法"></a>位运算除法</h3><p><code>x / 2</code> == <code>x &gt;&gt; 1</code></p>
+<p><code>&gt;&gt;&gt;</code> 为无符号右移，高位补0。<code>&gt;&gt; </code>为有符号右移，正数高位补0，负数高位补1。</p>
+<h3 id="获取二进制最右边的-1-：x-amp-x"><a href="#获取二进制最右边的-1-：x-amp-x" class="headerlink" title="获取二进制最右边的 1 ：x &amp; (-x)"></a>获取二进制最右边的 1 ：<code>x &amp; (-x)</code></h3><ul>
+<li>求补码的方式：按位取反加1</li>
+</ul>
+<p>$$<br>-x = \lnot x + 1<br>$$</p>
+<ul>
+<li>取完补码之后，可以看出，结果是最右边的 1 不动，然后其他所有位都按位取反。</li>
+<li>要清楚，计算机计算负数的时候，会求其补码，正数的补码是自己本身，负数的补码就是上面的求法，这样互为相反数的两个补码进行 <code>&amp;</code>，就会得到最后一位 1 ，其前面和后面的1都会被过滤掉，后面的0会保留，形成新的二进制数。</li>
+</ul>
+<p><a href="https://imgtu.com/i/65cRqP"><img src="https://z3.ax1x.com/2021/03/21/65cRqP.png" alt="leetCode 231"></a></p>
+<h3 id="将二进制最右边的-1-去掉：-x-amp-x-1"><a href="#将二进制最右边的-1-去掉：-x-amp-x-1" class="headerlink" title="将二进制最右边的 1 去掉： x &amp; (x - 1)"></a>将二进制最右边的 1 去掉： <code>x &amp; (x - 1)</code></h3><ul>
+<li>首先要了解 <code>x - 1</code>会发生什么，从二进制的角度，这会影响最后的1以后的数位，前面不会影响。然后 -1 之后，最右边的 1 变成 0，后面的0都会变成 1。</li>
+<li>然后 <code>&amp;</code>操作，结果上就是把 最右边的 1 去掉。</li>
+</ul>
+<p><a href="https://imgtu.com/i/652CtS"><img src="https://z3.ax1x.com/2021/03/21/652CtS.png" alt="leetCode 231"></a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/03/27/%E4%BD%8D%E8%BF%90%E7%AE%97/%E9%9D%A2%E8%AF%95%E9%A2%9856%20-%20I.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/%E4%BD%8D%E8%BF%90%E7%AE%9701/</url>
+    <content><![CDATA[<h2 id="位运算-01"><a href="#位运算-01" class="headerlink" title="#位运算 01"></a>#位运算 01</h2><p>##LeetCode面试题56 - I. 数组中数字出现的次数<br><img src="https://s1.ax1x.com/2020/04/28/J5rL36.png" alt="面试题56"><br><a href="https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/">原题链接</a>  </p>
+<blockquote>
+<p><strong>异或的性质</strong>：  </p>
+</blockquote>
+<ul>
+<li><p>交换律：p ⊕ q = q ⊕ p</p>
+</li>
+<li><p>结合律：p ⊕ (q ⊕ r) = (p ⊕ q) ⊕ r</p>
+</li>
+<li><p>恒等率：p ⊕ 0 = p</p>
+</li>
+<li><p>归零率：p ⊕ p = 0    </p>
+</li>
+</ul>
+<hr>
+<p>###代码如下  </p>
+<div class="hljs code-wrapper"><pre><code>/*
+ * 因为数组中只有两个数是不相同的，其余相同
+ * 所以将整个数组的元素都取异或，由于异或的结合律，无先后顺序
+ * 所以最终相同的一对异或成0，最终结果就是两个不同数的异或结果
+ * 
+ * 相同的数在每一位都是相同的，所以我们要从低位向高位找到
+ * 两个不同的数是从哪一位开始出现不相同的情况，就是下文的mark的作用
+ * 
+ * 找到mark后，遍历原数组，用“&amp;”对所有元素在该位置上鉴别
+ * 分类标准是取与后为0或为1。
+ * 同理在鉴别过程中，相同的数在mark位上一样也是相同的，取异或只会等于0
+ * 
+ * Code by Java
+ */
+class Solution &#123;
+    public int[] singleNumbers(int[] nums) &#123;
+        int sum = 0;            //将所有的数都取异或
+        
+        for (int num : nums) &#123;
+            sum ^= num;
+        &#125;
+        
+        int mask = 1;            //获取sum中最低位的1；
+        
+        while((sum &amp; mask) == 0) &#123;
+            mask &lt;&lt;= 1;            //在该位是0，则mask左移一位
+        &#125;
+        
+        int a = 0, b = 0;        //用于表示数组中不同的两个数
+        
+        for (int num : nums) &#123;
+            if((num &amp; mask) == 0) &#123;
+                a ^= num;        //0与任何数取异或都等于任意数本身
+            &#125; else &#123;
+                b ^= num;        //同理找到另一个数
+            &#125;
+        &#125;
+        return new int[] &#123;a,b&#125;;
+    &#125;
+//    public static void main(String[] args) &#123;
+//        int[] aa = new int[] &#123;1,2,3,10,2,2,1,3&#125;;
+//        Solution sol = new Solution();
+//        int[] kk = sol.singleNumbers(aa);
+//        for (int i : kk) &#123;
+//            System.out.println(i);
+//        &#125;
+//    &#125;
+&#125;
+</code></pre></div>
 ]]></content>
   </entry>
 </search>

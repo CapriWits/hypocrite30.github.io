@@ -7,18 +7,20 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
-  <link rel="icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon%2032x32.ico">
+  <link rel="icon" href="/img/favicon%2032x32.ico">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   <meta name="theme-color" content="#2f4154">
   <meta name="description" content="">
   <meta name="author" content="hypocrite30">
   <meta name="keywords" content="">
   
-  <title>hypocrite30</title>
+  <title>背包九讲 - hypocrite30</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -30,7 +32,7 @@
     
     
       
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/isbl-editor-light.min.css" />
     
   
 
@@ -56,7 +58,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":"b5f391eebc7eaea88e68a49d5924e381","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -68,7 +70,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>Hypocrite30 BLOG</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -121,18 +123,6 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 关于
@@ -158,12 +148,12 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('/img/postPage.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="">
+            <span class="h2" id="subtitle" title="背包九讲">
               
             </span>
 
@@ -195,12 +185,20 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      27
+      34
        分钟
     </span>
   
 
   
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
   
 </div>
 
@@ -225,7 +223,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">背包九讲</h1>
             
             <div class="markdown-body">
               <h1 id="背包九讲"><a href="#背包九讲" class="headerlink" title="背包九讲"></a>背包九讲</h1><hr>
@@ -249,7 +247,7 @@
 <p><strong>其中f[i][j]表示在前 i 个物品中选不超过 v 容量背包大小的物品，所获得的最大价值。</strong>    </p>
 <p>初始化是f[0][0] = 0; 表示无背包容量且没有物品放入。  </p>
 <p>###代码如下：</p>
-<pre><code>#include &lt;iostream&gt;
+<div class="hljs code-wrapper"><pre><code>#include &lt;iostream&gt;
 #include &lt;cstring&gt;
 #include &lt;algorithm&gt;
 
@@ -288,12 +286,12 @@ int main() &#123;
 //    &#125;
     return 0;
 &#125;  
-</code></pre>
+</code></pre></div>
 <h3 id="01背包问题-空间优化"><a href="#01背包问题-空间优化" class="headerlink" title="01背包问题 空间优化"></a>01背包问题 空间优化</h3><p>时间空间复杂度都是O(nV)，其中时间复杂度已经无法优化，但是空间复杂度可以优化。  </p>
 <p>我们注意到状态转移方程中计算f[i][j]总是只需要f[i-1][j]左侧部分的数据（即只需要图中正上方与左上方的数据），且当计算f[i+1][]部分时，f[i-1][]的数据完全用不到了（只需要f[i][]），因此可以将二维数组转换为一维数组f[j]，枚举方向变成 i 从 1 到 n, j 从 V 到 0 ( 逆序！)。  </p>
 <p>逆序即从右向左，可以保证当前的 f 值是从上一个未更新（未选择当前物品）的 f 获得的，如果正向，则后面的 f 值获取的是前面已更新过的 f 值，不符合题意。每计算出一个f[i][j]，就相当于把f[i-1][j]覆盖，后面也用不到了，我们称这种技巧为<strong>滚动数组</strong>。  </p>
 <p>###优化后的代码如下：</p>
-<pre><code>#include &lt;iostream&gt;
+<div class="hljs code-wrapper"><pre><code>#include &lt;iostream&gt;
 #include &lt;cstring&gt;
 #include &lt;algorithm&gt;
 
@@ -321,8 +319,7 @@ int main() &#123;
 //    for (int i = 0; i &lt;= m; i++) cout &lt;&lt; f[i] &lt;&lt; &quot;  &quot;;
     return 0;
 &#125;
-    
-</code></pre>
+</code></pre></div>
 <h3 id="01背包问题-（恰好装满和仅价值最大）"><a href="#01背包问题-（恰好装满和仅价值最大）" class="headerlink" title="01背包问题 （恰好装满和仅价值最大）"></a>01背包问题 （恰好装满和仅价值最大）</h3><p>在01背包问题中，题目有两种，上述讲的01背包问题是指<strong>在不超过背包容量的情况下，获得最大价值</strong>，而没有限制一定要<strong>装满</strong>，另一种问法是<strong>在恰好装满背包的情况下，获得的最大价值</strong>。  </p>
 <p>两种问法的区别，在代码上的修改仅在于<strong>对动态规划数组的初始化</strong>。</p>
 <blockquote>
@@ -336,7 +333,7 @@ int main() &#123;
 <p>在<strong>恰好装满</strong>的情况下，不能使用这种方法。因为我们认为背包没恰好装满的话，当前背包的状态无效，即无效状态，只有恰好装满时候才是有效状态。</p>
 <p>初始化的dp 数组事实上就是在没有任何物品可以放入背包时的合法状态。如果要求背包恰好装满，那么此时只有容量为0的背包可以在什么也不装的状态下被 “恰好装满” ，此时背包价值为0。其他容量的背包均没有合法的解，属于未定义的状态，所以都应该被赋值为 <strong>负无穷</strong> 。当前的合法解，一定是从之前的合法状态推得的  </p>
 <p>当背包容量是0时，无论是否装物品，都可以**”装满”<strong>背包，都是属于</strong>有效状态**，所以f[i][0]都初始化为0，其他的都初始化为负无穷  </p>
-<h3 id="01背包问题-（恰好装满）二维表示"><a href="#01背包问题-（恰好装满）二维表示" class="headerlink" title="01背包问题 （恰好装满）二维表示"></a>01背包问题 （恰好装满）二维表示</h3><pre><code>#include &lt;iostream&gt;
+<h3 id="01背包问题-（恰好装满）二维表示"><a href="#01背包问题-（恰好装满）二维表示" class="headerlink" title="01背包问题 （恰好装满）二维表示"></a>01背包问题 （恰好装满）二维表示</h3><div class="hljs code-wrapper"><pre><code>#include &lt;iostream&gt;
 #include &lt;algorithm&gt;
 #include &lt;cstring&gt;
 
@@ -379,8 +376,8 @@ int main() &#123;
     
     return 0;
 &#125;
-</code></pre>
-<h3 id="01背包问题-（恰好装满）-一维表示"><a href="#01背包问题-（恰好装满）-一维表示" class="headerlink" title="01背包问题 （恰好装满） 一维表示"></a>01背包问题 （恰好装满） 一维表示</h3><pre><code>#include &lt;iostream&gt;
+</code></pre></div>
+<h3 id="01背包问题-（恰好装满）-一维表示"><a href="#01背包问题-（恰好装满）-一维表示" class="headerlink" title="01背包问题 （恰好装满） 一维表示"></a>01背包问题 （恰好装满） 一维表示</h3><div class="hljs code-wrapper"><pre><code>#include &lt;iostream&gt;
 #include &lt;algorithm&gt;
 #include &lt;cstring&gt;
 
@@ -424,7 +421,8 @@ int main() &#123;
     
     return 0;
 &#125;
-</code></pre>
+</code></pre></div>
+<p>​    </p>
 
             </div>
             <hr>
@@ -444,6 +442,12 @@ int main() &#123;
                 <div class="post-prevnext">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2021/03/27/%E4%BD%8D%E8%BF%90%E7%AE%97/136.%20%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/136.%20%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
@@ -520,6 +524,30 @@ int main() &#123;
      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
   </div>
   
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
 
   
 
@@ -575,6 +603,8 @@ int main() &#123;
   <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
 
 
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 

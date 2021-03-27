@@ -20,9 +20,25 @@
   <meta name="author" content="hypocrite30">
   <meta name="keywords" content="">
   
-  <title>友链 - hypocrite30</title>
+  <title>hypocrite30</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/isbl-editor-light.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -50,7 +66,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -132,14 +148,59 @@
 </nav>
 
     <div class="banner" id="banner" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('/img/postPage.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="友情链接">
+            <span class="h2" id="subtitle" title="">
               
             </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-27 16:41" pubdate>
+        2021年3月27日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      117 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      1
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
 
             
           </div>
@@ -152,82 +213,100 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            <div class="markdown-body">
+              <h2 id="位运算-02"><a href="#位运算-02" class="headerlink" title="#位运算 02"></a>#位运算 02</h2><p><img src="https://s1.ax1x.com/2020/05/14/Y01iVI.png" srcset="/img/loading.gif" lazyload alt="LeetCode 136">  </p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/single-number/">原题链接</a>  </p>
+<p>##代码如下：</p>
+<div class="hljs code-wrapper"><pre><code>/*
+    思路：
+        因为数组中，只出现唯一一个不重复的数，其他数都是两两出现
+        所以，对数组所有元素进行异或计算，相同的数异或得到零
+        零与那个待求的数取异或还是本身，所以可以找到那个数，并直接返回
+*/
+
+class Solution &#123;
+    public int singleNumber(int[] nums) &#123;
+        int single = 0;
+        for (int num : nums) &#123;
+            single ^= num;
+        &#125;
+        return single;
+    &#125;
+&#125;
+</code></pre></div>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
                 
-
-<div class="row links">
-  
-    
-    <div class="card col-lg-4 col-md-6 col-sm-12">
-      <a href="https://hexo.fluid-dev.com/" class="card-body hover-with-bg" target="_blank" rel="noopener">
-        <div class="card-content">
-          
-            <div class="link-avatar my-auto">
-              <img src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="Fluid Blog"
-                   onerror="this.onerror=null; this.srcset=null; this.src='/img/avatar.png'"/>
-            </div>
-          
-          <div class="link-text">
-            <div class="link-title">Fluid Blog</div>
-            <div class="link-intro">主题博客</div>
-          </div>
-        </div>
-      </a>
-    </div>
-  
-    
-    <div class="card col-lg-4 col-md-6 col-sm-12">
-      <a href="https://hexo.fluid-dev.com/docs/" class="card-body hover-with-bg" target="_blank" rel="noopener">
-        <div class="card-content">
-          
-            <div class="link-avatar my-auto">
-              <img src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="Fluid Docs"
-                   onerror="this.onerror=null; this.srcset=null; this.src='/img/avatar.png'"/>
-            </div>
-          
-          <div class="link-text">
-            <div class="link-title">Fluid Docs</div>
-            <div class="link-intro">主题使用指南</div>
-          </div>
-        </div>
-      </a>
-    </div>
-  
-    
-    <div class="card col-lg-4 col-md-6 col-sm-12">
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" class="card-body hover-with-bg" target="_blank" rel="noopener">
-        <div class="card-content">
-          
-            <div class="link-avatar my-auto">
-              <img src="/img/favicon.png" srcset="/img/loading.gif" lazyload alt="Fluid Repo"
-                   onerror="this.onerror=null; this.srcset=null; this.src='/img/avatar.png'"/>
-            </div>
-          
-          <div class="link-text">
-            <div class="link-title">Fluid Repo</div>
-            <div class="link-intro">主题 GitHub 仓库</div>
-          </div>
-        </div>
-      </a>
-    </div>
-  
-</div>
-
-
-
-
-
+                
               </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/27/%E4%BD%8D%E8%BF%90%E7%AE%97/231.%202%E7%9A%84%E5%B9%82/231.%202%E7%9A%84%E5%B9%82/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/20/%E8%83%8C%E5%8C%85%E4%B9%9D%E8%AE%B2/">
+                        <span class="hidden-mobile">背包九讲</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
             </div>
-          </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -332,9 +411,15 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 
