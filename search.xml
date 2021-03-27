@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>ssm</title>
+    <title>Mybatis-9.28</title>
     <url>/2021/03/20/SSM/mybatis/</url>
     <content><![CDATA[<h2 id="Mybatis-9-28"><a href="#Mybatis-9-28" class="headerlink" title="Mybatis-9.28"></a>Mybatis-9.28</h2><p>环境：</p>
 <ul>
@@ -687,5 +687,8 @@
 <p>From：<a href="https://www.kuangstudy.com/">https://www.kuangstudy.com/</a></p>
 </blockquote>
 ]]></content>
+      <categories>
+        <category>SSM</category>
+      </categories>
   </entry>
 </search>
