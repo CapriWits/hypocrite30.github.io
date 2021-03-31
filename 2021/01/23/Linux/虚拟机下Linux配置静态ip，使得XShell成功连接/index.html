@@ -247,29 +247,29 @@
 <blockquote>
 <p>菜单栏（最顶上一栏） -&gt; 编辑 -&gt;  虚拟网络编辑器</p>
 </blockquote>
-<p><img src="https://upload-images.jianshu.io/upload_images/22416923-03445aa4e6907a08.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="虚拟网络编辑器"></p>
+<p><img src="https://s3.ax1x.com/2021/01/23/sT1Epd.png" srcset="/img/loading.gif" lazyload alt="NAT设置"></p>
 <p>按照①②配置，<strong>把③的子网IP记住</strong>，后面要用到。</p>
 <p>然后点击④进入NAT设置。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/22416923-7f08ff1398d029ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="NAT设置"></p>
+<p><img src="https://s3.ax1x.com/2021/01/23/sT1Epd.png" srcset="/img/loading.gif" lazyload alt="NAT设置"></p>
 <p>①中配置<strong>默认网关</strong>，其中前三大位要与前面记住的子网IP前面相同，后面默认会配置2，也可以自定义。然后该默认网关192.168.248.2要记住，后面需要用到。</p>
 <p>②照做就行</p>
 <p>③按确定返回上图，再点击下栏确定就可以保存虚拟网络编辑器的配置。</p>
 <h2 id="二、配置VMware-Network-Adapter-VMnet8的指定IP"><a href="#二、配置VMware-Network-Adapter-VMnet8的指定IP" class="headerlink" title="二、配置VMware Network Adapter VMnet8的指定IP"></a>二、配置VMware Network Adapter VMnet8的指定IP</h2><blockquote>
 <p> windows设置 -&gt; 网络和Internet -&gt; 更改适配器选项 -&gt;  右键VMware Network Adapter VMnet8进入属性</p>
 </blockquote>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sT86w6"><img src="https://upload-images.jianshu.io/upload_images/22416923-2d2b349802ab0585.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="sT86w6.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sT8vlj"><img src="https://upload-images.jianshu.io/upload_images/22416923-bf6dd63beec85e60.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="sT8vlj.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sTGUBt"><img src="https://upload-images.jianshu.io/upload_images/22416923-1dfe0107d221acb5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="VMnet8属性"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sT86w6"><img src="https://s3.ax1x.com/2021/01/23/sT86w6.png" srcset="/img/loading.gif" lazyload alt="sT86w6.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sT8vlj"><img src="https://s3.ax1x.com/2021/01/23/sT8vlj.png" srcset="/img/loading.gif" lazyload alt="sT8vlj.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sTGUBt"><img src="https://s3.ax1x.com/2021/01/23/sTGUBt.png" srcset="/img/loading.gif" lazyload alt="VMnet8属性"></a></p>
 <p>①选择IPv4的项目，②然后进入属性。</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sTGqD1"><img src="https://upload-images.jianshu.io/upload_images/22416923-ae85ea3dceef67fd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="sTGqD1.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sTGqD1"><img src="https://s3.ax1x.com/2021/01/23/sTGqD1.png" srcset="/img/loading.gif" lazyload alt="sTGqD1.png"></a></p>
 <p>默认是自动获得IP地址，勾选“使用下面的IP地址”自定义IP</p>
 <p>①配置IP地址，前三位同虚拟网络编辑器配置的子网IP前三位相同，最后一位的1自定义，这里我设置为1</p>
 <p>②配完①一般子网掩码会自动填好，没自动补上就填上虚拟网络编辑器里的子网掩码。</p>
 <p>③默认网关就是干菜虚拟网络编辑器里面NAT设置里的那个默认网关。</p>
 <p>④确定保存，然后再确定就保存成功了。</p>
 <h2 id="三、配置网络适配器"><a href="#三、配置网络适配器" class="headerlink" title="三、配置网络适配器"></a>三、配置网络适配器</h2><p>管理员模式进入VMware，选择要配置的那台虚拟机，进入网络适配器</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sTYOfO"><img src="https://upload-images.jianshu.io/upload_images/22416923-acc9a82762bb7318.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="sTYOfO.png"></a></p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sTtE9S"><img src="https://upload-images.jianshu.io/upload_images/22416923-0104ea2c0b416415.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="sTtE9S.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sTYOfO"><img src="https://s3.ax1x.com/2021/01/23/sTYOfO.png" srcset="/img/loading.gif" lazyload alt="sTYOfO.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sTtE9S"><img src="https://s3.ax1x.com/2021/01/23/sTtE9S.png" srcset="/img/loading.gif" lazyload alt="sTtE9S.png"></a></p>
 <p>如图配置即可。</p>
 <h2 id="四、配置ifcfg-eth0文件"><a href="#四、配置ifcfg-eth0文件" class="headerlink" title="四、配置ifcfg-eth0文件"></a>四、配置ifcfg-eth0文件</h2><p>打开虚拟机，建议用root用户登录，方便后面对ifcfg-eth0文件进行编辑。</p>
 <p>打开terminal终端，输入指令：<strong>vim /etc/sysconfig/network-scripts/ifcfg-eth0</strong></p>
@@ -297,9 +297,9 @@
 <p>退出后，终端输入指令：<strong>service network restart</strong>  重启网络</p>
 <p>然后 ping baidu.com，看能不能ping通，能说明能上网。</p>
 <p>输入指令：ifconfig，查看刚才自定义的静态ip地址是否配置成功。</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sTa2DJ"><img src="https://upload-images.jianshu.io/upload_images/22416923-f3df7dcc11702966.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="sTa2DJ.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sTa2DJ"><img src="https://s3.ax1x.com/2021/01/23/sTa2DJ.png" srcset="/img/loading.gif" lazyload alt="sTa2DJ.png"></a></p>
 <h2 id="五、SSH客户端连接服务器"><a href="#五、SSH客户端连接服务器" class="headerlink" title="五、SSH客户端连接服务器"></a>五、SSH客户端连接服务器</h2><p>可以先本地cmd中ping 一下服务器</p>
-<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sTdFbj"><img src="https://upload-images.jianshu.io/upload_images/22416923-5dead41edaf28388.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" srcset="/img/loading.gif" lazyload alt="sTdFbj.png"></a></p>
+<p><a target="_blank" rel="noopener" href="https://imgchr.com/i/sTdFbj"><img src="https://s3.ax1x.com/2021/01/23/sTdFbj.png" srcset="/img/loading.gif" lazyload alt="sTdFbj.png"></a></p>
 <p>如图能ping通，接下来进入XShell，将该ip连接就可以了，至此虚拟机静态IP配置结束。</p>
 
             </div>
