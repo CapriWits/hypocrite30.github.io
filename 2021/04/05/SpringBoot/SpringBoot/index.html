@@ -58,7 +58,7 @@
 
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":"b5f391eebc7eaea88e68a49d5924e381","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"§"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":1},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":"b5f391eebc7eaea88e68a49d5924e381","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
@@ -187,7 +187,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.5k 字
+      7.3k 字
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      99
+      134
        分钟
     </span>
   
@@ -236,6 +236,12 @@
           <article class="post-content mx-auto">
             <!-- SEO header -->
             <h1 style="display: none">SpringBoot 2.3.4</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：2021年4月7日 晚上
+                
+              </p>
             
             <div class="markdown-body">
               <h1 id="SpringBoot-Notes"><a href="#SpringBoot-Notes" class="headerlink" title="SpringBoot Notes"></a>SpringBoot Notes</h1><blockquote>
@@ -736,7 +742,6 @@
 <li>ResourceHandlerRegistrationCustomizer 找到 资源处理器的<strong>自定义器</strong>。</li>
 <li>DispatcherServletPath  </li>
 <li>ServletRegistrationBean   给应用注册Servlet、Filter….</li>
-<li></li>
 </ul>
 <hr>
 <ul>
@@ -791,8 +796,147 @@
 <li>Favicon</li>
 </ul>
 <p>浏览器会自动发送 /favicon.ico 请求获取图标，整个session期间不再获取</p>
-<hr>
-<p><strong>未完待续。。。</strong></p>
+<h4 id="2-4-3-请求参数处理"><a href="#2-4-3-请求参数处理" class="headerlink" title="2.4.3 请求参数处理"></a>2.4.3 请求参数处理</h4><h5 id="2-4-3-1-请求映射"><a href="#2-4-3-1-请求映射" class="headerlink" title="2.4.3.1 请求映射"></a>2.4.3.1 请求映射</h5><ul>
+<li><p>@xxxMapping；</p>
+</li>
+<li><p>Rest风格支持（<em>使用<strong>HTTP</strong>请求方式动词来表示对资源的操作</em>）</p>
+</li>
+<li><ul>
+<li>以前：**/getUser  获取用户   /deleteUser 删除用户   /editUser  修改用户    /saveUser 保存用户</li>
+<li>现在： /user   GET-<strong>获取</strong>用户   DELETE-<strong>删除</strong>用户   PUT-<strong>修改</strong>用户     POST-<strong>保存</strong>用户</li>
+<li>核心Filter：<code>HiddenHttpMethodFilter</code></li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>用法： <strong>表单</strong>method=post，隐藏域 _method=put</li>
+<li>SpringBoot中手动开启</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>因为<form>表单请求方式method只有 GET 和 POST，所以要让过滤器HiddenHttpMethodFilter将请求参数名替换。</p>
+<p>四种测试方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(value = &quot;/user&quot;,method = RequestMethod.GET)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getUser</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;GET-张三&quot;</span>;<br>&#125;<br><br><span class="hljs-meta">@RequestMapping(value = &quot;/user&quot;,method = RequestMethod.POST)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">saveUser</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;POST-张三&quot;</span>;<br>&#125;<br><br><br><span class="hljs-meta">@RequestMapping(value = &quot;/user&quot;,method = RequestMethod.PUT)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">putUser</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;PUT-张三&quot;</span>;<br>&#125;<br><br><span class="hljs-meta">@RequestMapping(value = &quot;/user&quot;,method = RequestMethod.DELETE)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">deleteUser</span><span class="hljs-params">()</span></span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;DELETE-张三&quot;</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p><code>hiddenHttpMethodFilter</code>来控制method的请求方式。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@Bean</span><br><span class="hljs-meta">@ConditionalOnMissingBean(HiddenHttpMethodFilter.class)</span><br><span class="hljs-meta">@ConditionalOnProperty(prefix = &quot;spring.mvc.hiddenmethod.filter&quot;, name = &quot;enabled&quot;, matchIfMissing = false)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> OrderedHiddenHttpMethodFilter <span class="hljs-title">hiddenHttpMethodFilter</span><span class="hljs-params">()</span> </span>&#123;<br>   <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> OrderedHiddenHttpMethodFilter();<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OrderedHiddenHttpMethodFilter</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HiddenHttpMethodFilter</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">OrderedFilter</span></span><br></code></pre></div></td></tr></table></figure>
+<p>父类<code>HiddenHttpMethodFilter</code>里的方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doFilterInternal</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)</span> <span class="hljs-keyword">throws</span> ServletException, IOException </span>&#123;<br>        HttpServletRequest requestToUse = request;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;POST&quot;</span>.equals(request.getMethod()) &amp;&amp; request.getAttribute(<span class="hljs-string">&quot;javax.servlet.error.exception&quot;</span>) == <span class="hljs-keyword">null</span>) &#123;<br>            String paramValue = request.getParameter(<span class="hljs-keyword">this</span>.methodParam);<br>            <span class="hljs-keyword">if</span> (StringUtils.hasLength(paramValue)) &#123;<br>                String method = paramValue.toUpperCase(Locale.ENGLISH);<br>                <span class="hljs-keyword">if</span> (ALLOWED_METHODS.contains(method)) &#123;<br>                    requestToUse = <span class="hljs-keyword">new</span> HiddenHttpMethodFilter.HttpMethodRequestWrapper(request, method);<br>                &#125;<br>            &#125;<br>        &#125;<br><br>        filterChain.doFilter((ServletRequest)requestToUse, response);<br>    &#125;<br></code></pre></div></td></tr></table></figure>
+<p><code>HiddenHttpMethodFilter.HttpMethodRequestWrapper(request, method);</code>这里实现了method的转换，重写了getMethod().</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HttpMethodRequestWrapper</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">HttpServletRequestWrapper</span> </span>&#123;<br>        <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> String method;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">HttpMethodRequestWrapper</span><span class="hljs-params">(HttpServletRequest request, String method)</span> </span>&#123;<br>            <span class="hljs-keyword">super</span>(request);<br>            <span class="hljs-keyword">this</span>.method = method;<br>        &#125;<br><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getMethod</span><span class="hljs-params">()</span> </span>&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.method;<br>        &#125;<br>    &#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li><p>表单提交会带上<strong>_method=PUT</strong></p>
+</li>
+<li><p><strong>请求过来被</strong>HiddenHttpMethodFilter拦截</p>
+<ul>
+<li><p>请求是否正常，并且是POST</p>
+<ul>
+<li><p>获取到<strong>_method</strong>的值。</p>
+</li>
+<li><p>兼容以下请求；<strong>PUT</strong>.<strong>DELETE</strong>.<strong>PATCH</strong></p>
+</li>
+<li><p><strong>原生request（post），包装模式requesWrapper重写了getMethod方法，返回的是传入的值。</strong></p>
+</li>
+<li><p><strong>过滤器链放行的时候用wrapper。以后的方法调用getMethod是调用requesWrapper的。</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Rest使用客户端工具，</strong></p>
+<ul>
+<li>如PostMan直接发送Put、delete等方式请求，无需Filter。</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">mvc:</span><br>    <span class="hljs-attr">hiddenmethod:</span><br>      <span class="hljs-attr">filter:</span><br>        <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span>   <span class="hljs-comment">#开启页面表单的Rest功能</span><br></code></pre></div></td></tr></table></figure>
+
+
+<h6 id="请求映射原理"><a href="#请求映射原理" class="headerlink" title="请求映射原理"></a>请求映射原理</h6><p><img src="https://gitee.com/hypocrite30/ImgBed/raw/master/img/SpringBoot/DispatcherServlet.png" srcset="/img/loading.gif" lazyload alt="DispatcherServlet"></p>
+<p>SpringMVC功能最终都会经过 org.springframework.web.servlet.DispatcherServlet 的 <code>doDispatch</code>方法</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doDispatch</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>        HttpServletRequest processedRequest = request;<br>        HandlerExecutionChain mappedHandler = <span class="hljs-keyword">null</span>;<br>        <span class="hljs-keyword">boolean</span> multipartRequestParsed = <span class="hljs-keyword">false</span>;<br><br>        WebAsyncManager asyncManager = WebAsyncUtils.getAsyncManager(request);<br><br>        <span class="hljs-keyword">try</span> &#123;<br>            ModelAndView mv = <span class="hljs-keyword">null</span>;<br>            Exception dispatchException = <span class="hljs-keyword">null</span>;<br><br>            <span class="hljs-keyword">try</span> &#123;<br>                processedRequest = checkMultipart(request);<br>                multipartRequestParsed = (processedRequest != request);<br><br>                <span class="hljs-comment">// 找到当前请求使用哪个Handler（Controller的方法）处理</span><br>                mappedHandler = getHandler(processedRequest);<br>                <br>                <span class="hljs-comment">//HandlerMapping：处理器映射。/xxx-&gt;&gt;xxxx</span><br></code></pre></div></td></tr></table></figure>
+<p><img src="https://gitee.com/hypocrite30/ImgBed/raw/master/img/SpringBoot/handlerMappings.png" srcset="/img/loading.gif" lazyload alt="handlerMappings"></p>
+<p><strong>RequestMappingHandlerMapping</strong>：保存了所有@RequestMapping 和handler的映射规则。</p>
+<p><img src="https://gitee.com/hypocrite30/ImgBed/raw/master/img/SpringBoot/mappingRegistry.png" srcset="/img/loading.gif" lazyload alt="mappingRegistry"></p>
+<p>所有的请求映射都在HandlerMapping中。</p>
+<ul>
+<li><p>SpringBoot自动配置欢迎页的 <code>WelcomePageHandlerMapping</code> 。访问 /能访问到index.html；</p>
+</li>
+<li><p>SpringBoot自动配置了默认 的 <code>RequestMappingHandlerMapping</code></p>
+</li>
+<li><p>请求进来，挨个尝试所有的HandlerMapping看是否有请求信息。</p>
+</li>
+<li><ul>
+<li>如果有就找到这个请求对应的handler</li>
+<li>如果没有就是下一个 HandlerMapping</li>
+</ul>
+</li>
+<li><p>我们需要一些自定义的映射处理，我们也可以自己给容器中放<strong>HandlerMapping</strong>。自定义 <strong>HandlerMapping</strong></p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">protected</span> HandlerExecutionChain <span class="hljs-title">getHandler</span><span class="hljs-params">(HttpServletRequest request)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>    <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.handlerMappings != <span class="hljs-keyword">null</span>) &#123;<br>        <span class="hljs-keyword">for</span> (HandlerMapping mapping : <span class="hljs-keyword">this</span>.handlerMappings) &#123;<br>            HandlerExecutionChain handler = mapping.getHandler(request);<br>            <span class="hljs-keyword">if</span> (handler != <span class="hljs-keyword">null</span>) &#123;<br>                <span class="hljs-keyword">return</span> handler;<br>            &#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>默认使用的是 _method 这个名称的变量，用于携带请求方式<ul>
+<li>自定义变量名称要自定义 Filter</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@Configuration(proxyBeanMethods = false)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WebConfig</span></span>&#123;<br>    <span class="hljs-comment">//自定义filter</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> HiddenHttpMethodFilter <span class="hljs-title">hiddenHttpMethodFilter</span><span class="hljs-params">()</span></span>&#123;<br>        HiddenHttpMethodFilter methodFilter = <span class="hljs-keyword">new</span> HiddenHttpMethodFilter();<br>        methodFilter.setMethodParam(<span class="hljs-string">&quot;_m&quot;</span>);<br>        <span class="hljs-keyword">return</span> methodFilter;<br>    &#125;    <br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h5 id="2-4-3-2-普通参数与基本注解"><a href="#2-4-3-2-普通参数与基本注解" class="headerlink" title="2.4.3.2 普通参数与基本注解"></a>2.4.3.2 普通参数与基本注解</h5><ul>
+<li><code>@PathVariable</code> 路径变量</li>
+<li><code>@RequestHeader</code> 获取请求头</li>
+<li><code>@RequestParam</code> 获取请求参数（指问号后的参数，url?a=1&amp;b=2）</li>
+<li><code>@CookieValue</code> 获取Cookie值</li>
+<li><code>@RequestAttribute</code> 获取request域属性</li>
+<li><code>@RequestBody</code> 获取请求体[POST]</li>
+<li><code>@MatrixVariable</code> 矩阵变量</li>
+<li><code>@ModelAttribute</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ParameterTestController</span> </span>&#123;<br>    <br>    <span class="hljs-comment">//  car/2/owner/zhangsan</span><br>    <span class="hljs-meta">@GetMapping(&quot;/car/&#123;id&#125;/owner/&#123;username&#125;&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;String,Object&gt; <span class="hljs-title">getCar</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> Integer id,</span></span><br><span class="hljs-function"><span class="hljs-params">                                     <span class="hljs-meta">@PathVariable(&quot;username&quot;)</span> String name,</span></span><br><span class="hljs-function"><span class="hljs-params">                                     <span class="hljs-meta">@PathVariable</span> Map&lt;String,String&gt; pv,</span></span><br><span class="hljs-function"><span class="hljs-params">                                     <span class="hljs-meta">@RequestHeader(&quot;User-Agent&quot;)</span> String userAgent,</span></span><br><span class="hljs-function"><span class="hljs-params">                                     <span class="hljs-meta">@RequestHeader</span> Map&lt;String,String&gt; header,</span></span><br><span class="hljs-function"><span class="hljs-params">                                     <span class="hljs-meta">@RequestParam(&quot;age&quot;)</span> Integer age,</span></span><br><span class="hljs-function"><span class="hljs-params">                                     <span class="hljs-meta">@RequestParam(&quot;inters&quot;)</span> List&lt;String&gt; inters,</span></span><br><span class="hljs-function"><span class="hljs-params">                                     <span class="hljs-meta">@RequestParam</span> Map&lt;String,String&gt; params,</span></span><br><span class="hljs-function"><span class="hljs-params">                                     <span class="hljs-meta">@CookieValue(&quot;_ga&quot;)</span> String _ga,</span></span><br><span class="hljs-function"><span class="hljs-params">                                     <span class="hljs-meta">@CookieValue(&quot;_ga&quot;)</span> Cookie cookie)</span></span>&#123;<br>        Map&lt;String,Object&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br><span class="hljs-comment">//        map.put(&quot;id&quot;,id);</span><br><span class="hljs-comment">//        map.put(&quot;name&quot;,name);</span><br><span class="hljs-comment">//        map.put(&quot;pv&quot;,pv);</span><br><span class="hljs-comment">//        map.put(&quot;userAgent&quot;,userAgent);</span><br><span class="hljs-comment">//        map.put(&quot;headers&quot;,header);</span><br>        map.put(<span class="hljs-string">&quot;age&quot;</span>,age);<br>        map.put(<span class="hljs-string">&quot;inters&quot;</span>,inters);<br>        map.put(<span class="hljs-string">&quot;params&quot;</span>,params);<br>        map.put(<span class="hljs-string">&quot;_ga&quot;</span>,_ga);<br>        System.out.println(cookie.getName()+<span class="hljs-string">&quot;===&gt;&quot;</span>+cookie.getValue());<br>        <span class="hljs-keyword">return</span> map;<br>    &#125;<br><br>    <span class="hljs-meta">@PostMapping(&quot;/save&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Map <span class="hljs-title">postMethod</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> String content)</span></span>&#123;<br>        Map&lt;String,Object&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br>        map.put(<span class="hljs-string">&quot;content&quot;</span>,content);<br>        <span class="hljs-keyword">return</span> map;<br>    &#125;<br><br>    <span class="hljs-comment">//1、语法： 请求路径：/cars/sell;low=34;brand=byd,audi,yd</span><br>    <span class="hljs-comment">//2、SpringBoot默认是禁用了矩阵变量的功能</span><br>    <span class="hljs-comment">//      手动开启：原理。对于路径的处理。UrlPathHelper进行解析。</span><br>    <span class="hljs-comment">//              removeSemicolonContent（移除分号内容）支持矩阵变量的</span><br>    <span class="hljs-comment">//3、矩阵变量必须有url路径变量才能被解析</span><br>    <span class="hljs-meta">@GetMapping(&quot;/cars/&#123;path&#125;&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Map <span class="hljs-title">carsSell</span><span class="hljs-params">(<span class="hljs-meta">@MatrixVariable(&quot;low&quot;)</span> Integer low,</span></span><br><span class="hljs-function"><span class="hljs-params">                        <span class="hljs-meta">@MatrixVariable(&quot;brand&quot;)</span> List&lt;String&gt; brand,</span></span><br><span class="hljs-function"><span class="hljs-params">                        <span class="hljs-meta">@PathVariable(&quot;path&quot;)</span> String path)</span></span>&#123;<br>        Map&lt;String,Object&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br>        map.put(<span class="hljs-string">&quot;low&quot;</span>,low);<br>        map.put(<span class="hljs-string">&quot;brand&quot;</span>,brand);<br>        map.put(<span class="hljs-string">&quot;path&quot;</span>,path);<br>        <span class="hljs-keyword">return</span> map;<br>    &#125;<br><br>    <span class="hljs-comment">// /boss/1;age=20/2;age=10</span><br>    <span class="hljs-meta">@GetMapping(&quot;/boss/&#123;bossId&#125;/&#123;empId&#125;&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Map <span class="hljs-title">boss</span><span class="hljs-params">(<span class="hljs-meta">@MatrixVariable(value = &quot;age&quot;,pathVar = &quot;bossId&quot;)</span> Integer bossAge,</span></span><br><span class="hljs-function"><span class="hljs-params">                    <span class="hljs-meta">@MatrixVariable(value = &quot;age&quot;,pathVar = &quot;empId&quot;)</span> Integer empAge)</span></span>&#123;<br>        Map&lt;String,Object&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();<br><br>        map.put(<span class="hljs-string">&quot;bossAge&quot;</span>,bossAge);<br>        map.put(<span class="hljs-string">&quot;empAge&quot;</span>,empAge);<br>        <span class="hljs-keyword">return</span> map;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h3 id="2-5-数据访问"><a href="#2-5-数据访问" class="headerlink" title="2.5 数据访问"></a>2.5 数据访问</h3><h4 id="2-5-1-SQL"><a href="#2-5-1-SQL" class="headerlink" title="2.5.1 SQL"></a>2.5.1 SQL</h4><h6 id="1、数据源的自动配置-HikariDataSource"><a href="#1、数据源的自动配置-HikariDataSource" class="headerlink" title="1、数据源的自动配置 - HikariDataSource"></a>1、数据源的自动配置 - HikariDataSource</h6><figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-data-jdbc<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<p><img src="https://gitee.com/hypocrite30/ImgBed/raw/master/img/SpringBoot/jdbc-starter.png" srcset="/img/loading.gif" lazyload alt="jdbc-starter"></p>
+<p>数据库驱动？</p>
+<p>为什么导入JDBC场景，官方不导入驱动？官方不知道我们接下要操作什么数据库。</p>
+<p>数据库版本和驱动版本对应</p>
+<figure class="highlight xml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs xml">默认版本：<span class="hljs-tag">&lt;<span class="hljs-name">mysql.version</span>&gt;</span>8.0.22<span class="hljs-tag">&lt;/<span class="hljs-name">mysql.version</span>&gt;</span><br><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-comment">&lt;!--            &lt;version&gt;5.1.49&lt;/version&gt;--&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>想要修改版本<br>1、直接依赖引入具体版本（maven的就近依赖原则）<br>2、重新声明版本（maven的属性的就近优先原则）<br>    <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">java.version</span>&gt;</span>1.8<span class="hljs-tag">&lt;/<span class="hljs-name">java.version</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">mysql.version</span>&gt;</span>5.1.49<span class="hljs-tag">&lt;/<span class="hljs-name">mysql.version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span><br></code></pre></div></td></tr></table></figure>
+<h5 id="2、分析自动配置"><a href="#2、分析自动配置" class="headerlink" title="2、分析自动配置"></a>2、分析自动配置</h5><ul>
+<li><p>DataSourceAutoConfiguration ： 数据源的自动配置</p>
+</li>
+<li><ul>
+<li>修改数据源相关的配置：<strong>spring.datasource</strong></li>
+<li><strong>数据库连接池的配置，是自己容器中没有DataSource才自动配置的</strong></li>
+<li>底层配置好的连接池是：<strong>HikariDataSource</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@Configuration(proxyBeanMethods = false)</span><br><span class="hljs-meta">@Conditional(PooledDataSourceCondition.class)</span><br><span class="hljs-meta">@ConditionalOnMissingBean(&#123; DataSource.class, XADataSource.class &#125;)</span><br><span class="hljs-meta">@Import(&#123; DataSourceConfiguration.Hikari.class, DataSourceConfiguration.Tomcat.class,</span><br><span class="hljs-meta">DataSourceConfiguration.Dbcp2.class, DataSourceConfiguration.OracleUcp.class,</span><br><span class="hljs-meta">DataSourceConfiguration.Generic.class, DataSourceJmxConfiguration.class &#125;)</span><br><span class="hljs-keyword">protected</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PooledDataSourceConfiguration</span></span><br></code></pre></div></td></tr></table></figure>
+<ul>
+<li><p>DataSourceTransactionManagerAutoConfiguration： 事务管理器的自动配置</p>
+</li>
+<li><p>JdbcTemplateAutoConfiguration： <strong>JdbcTemplate的自动配置，可以来对数据库进行crud</strong></p>
+</li>
+<li><ul>
+<li>可以修改这个配置项@ConfigurationProperties(prefix = <strong>“spring.jdbc”</strong>) 来修改JdbcTemplate</li>
+<li>@Bean@Primary   JdbcTemplate；容器中有这个组件</li>
+</ul>
+</li>
+<li><p>JndiDataSourceAutoConfiguration： jndi的自动配置</p>
+</li>
+<li><p>XADataSourceAutoConfiguration： 分布式事务相关的</p>
+</li>
+</ul>
+<h5 id="3、修改配置项"><a href="#3、修改配置项" class="headerlink" title="3、修改配置项"></a>3、修改配置项</h5><figure class="highlight yaml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs yaml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">datasource:</span><br>    <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://localhost:3306/db_account</span><br>    <span class="hljs-attr">username:</span> <span class="hljs-string">root</span><br>    <span class="hljs-attr">password:</span> <span class="hljs-number">123456</span><br>    <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.jdbc.Driver</span><br></code></pre></div></td></tr></table></figure>
+<h5 id="4、测试"><a href="#4、测试" class="headerlink" title="4、测试"></a>4、测试</h5><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@Slf4j</span><br><span class="hljs-meta">@SpringBootTest</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Boot05WebAdminApplicationTests</span> </span>&#123;<br><br>    <span class="hljs-meta">@Autowired</span><br>    JdbcTemplate jdbcTemplate;<br><br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">contextLoads</span><span class="hljs-params">()</span> </span>&#123;<br><br><span class="hljs-comment">//        jdbcTemplate.queryForObject(&quot;select * from account_tbl&quot;)</span><br><span class="hljs-comment">//        jdbcTemplate.queryForList(&quot;select * from account_tbl&quot;,)</span><br>        Long aLong = jdbcTemplate.queryForObject(<span class="hljs-string">&quot;select count(*) from account_tbl&quot;</span>, Long.class);<br>        log.info(<span class="hljs-string">&quot;记录总数：&#123;&#125;&quot;</span>,aLong);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+
+
+
+
 <blockquote>
 <p>鸣谢：</p>
 <p><a target="_blank" rel="noopener" href="https://spring.io/projects/spring-boot">https://spring.io/projects/spring-boot</a></p>
