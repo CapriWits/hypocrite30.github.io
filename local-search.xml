@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>DesignPatterns</title>
+    <link href="/2021/04/15/DesignPatterns/DesignPatterns/"/>
+    <url>/2021/04/15/DesignPatterns/DesignPatterns/</url>
+    
+    <content type="html"><![CDATA[<h3 id="📌-Design-Pattern-By-Java"><a href="#📌-Design-Pattern-By-Java" class="headerlink" title="📌 Design Pattern By Java"></a>📌 Design Pattern By Java</h3><ul><li>📕 Note Book: [<a href="https://www.yuque.com/books/share/d2df87dd-ee45-4dfc-b849-909bc2795fb6#">https://www.yuque.com/books/share/d2df87dd-ee45-4dfc-b849-909bc2795fb6?#</a> 《设计模式》](<a href="https://www.yuque.com/books/share/d2df87dd-ee45-4dfc-b849-909bc2795fb6#">https://www.yuque.com/books/share/d2df87dd-ee45-4dfc-b849-909bc2795fb6?#</a> 《设计模式》)</li><li>📂 Code Repository: <a href="https://github.com/hypocrite30/DesignPatterns">https://github.com/hypocrite30/DesignPatterns</a><ul><li>In directory 「<code>src</code>」</li></ul></li><li>📚 Reference books:  「<code>设计模式之禅</code> 第二版 」<ul><li>In directory 「<code>doc</code>」</li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>DesignPatterns</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Spring Security 5.1.4</title>
     <link href="/2021/04/14/Security/Spring%20Security/"/>
     <url>/2021/04/14/Security/Spring%20Security/</url>
