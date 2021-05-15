@@ -1,200 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>DesignPatterns</title>
-    <url>/2021/04/15/DesignPatterns/DesignPatterns/</url>
-    <content><![CDATA[<h3 id="📌-Design-Pattern-By-Java"><a href="#📌-Design-Pattern-By-Java" class="headerlink" title="📌 Design Pattern By Java"></a>📌 Design Pattern By Java</h3><ul>
-<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/vf5tcx">https://www.yuque.com/hypocrite30/vf5tcx</a></p>
-</li>
-<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/DesignPatterns">https://github.com/hypocrite30/DesignPatterns</a></p>
-<ul>
-<li>In directory 「<code>src</code>」</li>
-</ul>
-</li>
-<li><p>📚 Reference books:  「<code>设计模式之禅</code> 第二版 」「重学Java设计模式 」</p>
-<ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-</ul>
-<p>🧰「创建者模式」5种</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 1 『工厂方法模式』</li>
-<li><input checked="" disabled="" type="checkbox"> 2 『抽象工厂模式』</li>
-<li><input checked="" disabled="" type="checkbox"> 3 『建造者模式』</li>
-<li><input checked="" disabled="" type="checkbox"> 4『原型模式』</li>
-<li><input checked="" disabled="" type="checkbox"> 5 『单例模式』</li>
-</ul>
-<p>🏹「结构型模式」7种</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 6 『适配器模式』</li>
-<li><input checked="" disabled="" type="checkbox"> 7 『桥梁模式』</li>
-<li><input disabled="" type="checkbox"> 8 『组合模式』</li>
-<li><input disabled="" type="checkbox"> 9 『装饰模式』</li>
-<li><input disabled="" type="checkbox"> 10 『外观模式』</li>
-<li><input disabled="" type="checkbox"> 11 『享元模式』</li>
-<li><input disabled="" type="checkbox"> 12 『代理模式』</li>
-</ul>
-<p>🧲「行为模式」10种</p>
-<ul>
-<li><p><input disabled="" type="checkbox">  13 『责任链模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  14 『命令模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  15 『迭代器模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  16 『中介者模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  17 『备忘录模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  18 『观察者模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  19 『状态模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  20 『策略模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  21 『模板方法模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  22 『访问者模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  23 『解释器模式』</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>DesignPatterns</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Redis</title>
-    <url>/2021/04/22/Redis/Redis/</url>
-    <content><![CDATA[<h3 id="📌-Redis"><a href="#📌-Redis" class="headerlink" title="📌 Redis"></a>📌 Redis</h3><ul>
-<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/oz1eni">https://www.yuque.com/hypocrite30/oz1eni</a></p>
-</li>
-<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/Redis">https://github.com/hypocrite30/Redis</a></p>
-<ul>
-<li>In directory 「<code>src</code>」</li>
-</ul>
-</li>
-<li><p>📚 Reference books:  「<strong>Redis开发与运维</strong>」「<strong>Redis设计与实现</strong>」</p>
-<ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Redis</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Algorithm</title>
-    <url>/2021/03/27/Algorithm/Algorithm/</url>
-    <content><![CDATA[<h1 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h1><p> 📕 JianShu：<a href="https://www.jianshu.com/u/fc4ebe02fff2">https://www.jianshu.com/u/fc4ebe02fff2</a> 有常见算法的题解</p>
-<p>💻 GitHub：<a href="https://github.com/hypocrite30/LeetCode">https://github.com/hypocrite30/LeetCode</a> 代码仓库</p>
-<p><strong>欢迎关注，交流学习。</strong></p>
-]]></content>
-      <categories>
-        <category>Algorithm</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Centos 6无法使用yum解决办法</title>
-    <url>/2021/03/27/Linux/Centos%206%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8yum%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="Centos-6无法使用yum解决办法"><a href="#Centos-6无法使用yum解决办法" class="headerlink" title="Centos 6无法使用yum解决办法"></a>Centos 6无法使用yum解决办法</h1><p>CentOS 6已经随着2020年11月的结束进入了EOL（Reaches End of Life），不过有一些老设备依然需要支持，CentOS官方也给这些还不想把CentOS 6扔进垃圾堆的用户保留了最后一个版本的镜像，只是这个镜像不会再有更新了</p>
-<p>官方便在12月2日正式将CentOS 6相关的软件源移出了官方源，随之而来逐级镜像也会陆续将其删除。</p>
-<p>不过有一些老设备依然需要维持在当前系统，CentOS官方也给这些还不想把CentOS 6扔进垃圾堆的用户保留了各个版本软件源的镜像，只是这个软件源不会再有更新了。</p>
-<h2 id="一、一键修复"><a href="#一、一键修复" class="headerlink" title="一、一键修复"></a>一、一键修复</h2><figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">sed -i <span class="hljs-string">&quot;s|enabled=1|enabled=0|g&quot;</span> <span class="hljs-regexp">/etc/yum</span><span class="hljs-regexp">/pluginconf.d/</span>fastestmirror.conf<br>mv <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo /</span>etc<span class="hljs-regexp">/yum.repos.d/</span>CentOS-Base.repo.backup<br>curl -o <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo https:/</span><span class="hljs-regexp">/www.xmpan.com/</span>Centos-<span class="hljs-number">6</span>-Vault-Aliyun.repo <br>yum clean all<br>yum makecache<br></code></pre></div></td></tr></table></figure>
-<h2 id="二、手动修复"><a href="#二、手动修复" class="headerlink" title="二、手动修复"></a>二、手动修复</h2><p>首先把fastestmirrors关了</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk"><span class="hljs-comment">#编辑</span><br>vi <span class="hljs-regexp">/etc/yum</span><span class="hljs-regexp">/pluginconf.d/</span>fastestmirror.conf<br><span class="hljs-comment">#修改</span><br>enable=<span class="hljs-number">0</span><br><span class="hljs-comment">#或者执行以下命令</span><br>sed -i <span class="hljs-string">&quot;s|enabled=1|enabled=0|g&quot;</span> <span class="hljs-regexp">/etc/yum</span><span class="hljs-regexp">/pluginconf.d/</span>fastestmirror.conf<br></code></pre></div></td></tr></table></figure>
-<p>先把之前的repo挪到备份，然后下面两个二选一</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">mv <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo /</span>etc<span class="hljs-regexp">/yum.repos.d/</span>CentOS-Base.repo.bak<br></code></pre></div></td></tr></table></figure>
-<p>替换为官方Vault源(海外服务器用)</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">curl -o <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo https:/</span><span class="hljs-regexp">/www.xmpan.com/</span>Centos-<span class="hljs-number">6</span>-Vault-Official.repo<br></code></pre></div></td></tr></table></figure>
-<p>或者替换为阿里云Vault镜像(国内服务器用)</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">curl -o <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo https:/</span><span class="hljs-regexp">/www.xmpan.com/</span>Centos-<span class="hljs-number">6</span>-Vault-Aliyun.repo<br></code></pre></div></td></tr></table></figure>
-
-
-<blockquote>
-<p>以上转自：熊猫畔</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>虚拟机下Linux配置静态ip，使得XShell成功连接</title>
-    <url>/2021/01/23/Linux/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8BLinux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81ip%EF%BC%8C%E4%BD%BF%E5%BE%97XShell%E6%88%90%E5%8A%9F%E8%BF%9E%E6%8E%A5/</url>
-    <content><![CDATA[<h1 id="虚拟机下Linux配置静态ip，使得XShell成功连接"><a href="#虚拟机下Linux配置静态ip，使得XShell成功连接" class="headerlink" title="虚拟机下Linux配置静态ip，使得XShell成功连接"></a>虚拟机下Linux配置静态ip，使得XShell成功连接</h1><ul>
-<li>Linux：centOS6.7</li>
-<li>虚拟机：VMware Workstation Pro15</li>
-<li>SSH客户端：XShell6</li>
-</ul>
-<h2 id="一、配置VMware的虚拟网络编辑器"><a href="#一、配置VMware的虚拟网络编辑器" class="headerlink" title="一、配置VMware的虚拟网络编辑器"></a>一、配置VMware的虚拟网络编辑器</h2><p>进VMware之前，右键，用管理员模式打开，后面需要管理员权限，先不要开虚拟机</p>
-<blockquote>
-<p>菜单栏（最顶上一栏） -&gt; 编辑 -&gt;  虚拟网络编辑器</p>
-</blockquote>
-<p><a href="https://imgtu.com/i/sTn2BF"><img src="https://z3.ax1x.com/2021/01/23/sTn2BF.png" alt="sTn2BF.png"></a></p>
-<p>按照①②配置，<strong>把③的子网IP记住</strong>，后面要用到。</p>
-<p>然后点击④进入NAT设置。</p>
-<p><img src="https://s3.ax1x.com/2021/01/23/sT1Epd.png" alt="NAT设置"></p>
-<p>①中配置<strong>默认网关</strong>，其中前三大位要与前面记住的子网IP前面相同，后面默认会配置2，也可以自定义。然后该默认网关192.168.248.2要记住，后面需要用到。</p>
-<p>②照做就行</p>
-<p>③按确定返回上图，再点击下栏确定就可以保存虚拟网络编辑器的配置。</p>
-<h2 id="二、配置VMware-Network-Adapter-VMnet8的指定IP"><a href="#二、配置VMware-Network-Adapter-VMnet8的指定IP" class="headerlink" title="二、配置VMware Network Adapter VMnet8的指定IP"></a>二、配置VMware Network Adapter VMnet8的指定IP</h2><blockquote>
-<p> windows设置 -&gt; 网络和Internet -&gt; 更改适配器选项 -&gt;  右键VMware Network Adapter VMnet8进入属性</p>
-</blockquote>
-<p><a href="https://imgchr.com/i/sT86w6"><img src="https://s3.ax1x.com/2021/01/23/sT86w6.png" alt="sT86w6.png"></a></p>
-<p><a href="https://imgchr.com/i/sT8vlj"><img src="https://s3.ax1x.com/2021/01/23/sT8vlj.png" alt="sT8vlj.png"></a></p>
-<p><a href="https://imgchr.com/i/sTGUBt"><img src="https://s3.ax1x.com/2021/01/23/sTGUBt.png" alt="VMnet8属性"></a></p>
-<p>①选择IPv4的项目，②然后进入属性。</p>
-<p><a href="https://imgchr.com/i/sTGqD1"><img src="https://s3.ax1x.com/2021/01/23/sTGqD1.png" alt="sTGqD1.png"></a></p>
-<p>默认是自动获得IP地址，勾选“使用下面的IP地址”自定义IP</p>
-<p>①配置IP地址，前三位同虚拟网络编辑器配置的子网IP前三位相同，最后一位的1自定义，这里我设置为1</p>
-<p>②配完①一般子网掩码会自动填好，没自动补上就填上虚拟网络编辑器里的子网掩码。</p>
-<p>③默认网关就是干菜虚拟网络编辑器里面NAT设置里的那个默认网关。</p>
-<p>④确定保存，然后再确定就保存成功了。</p>
-<h2 id="三、配置网络适配器"><a href="#三、配置网络适配器" class="headerlink" title="三、配置网络适配器"></a>三、配置网络适配器</h2><p>管理员模式进入VMware，选择要配置的那台虚拟机，进入网络适配器</p>
-<p><a href="https://imgchr.com/i/sTYOfO"><img src="https://s3.ax1x.com/2021/01/23/sTYOfO.png" alt="sTYOfO.png"></a></p>
-<p><a href="https://imgchr.com/i/sTtE9S"><img src="https://s3.ax1x.com/2021/01/23/sTtE9S.png" alt="sTtE9S.png"></a></p>
-<p>如图配置即可。</p>
-<h2 id="四、配置ifcfg-eth0文件"><a href="#四、配置ifcfg-eth0文件" class="headerlink" title="四、配置ifcfg-eth0文件"></a>四、配置ifcfg-eth0文件</h2><p>打开虚拟机，建议用root用户登录，方便后面对ifcfg-eth0文件进行编辑。</p>
-<p>打开terminal终端，输入指令：<strong>vim /etc/sysconfig/network-scripts/ifcfg-eth0</strong></p>
-<p>这是使用终端vim的方式修改，不会vim操作的自行百度，或者根据上面的路劲去找ifcfg-eth0文件打开进行修改。</p>
-<p>下面的配置建议对字段进行复制，防止配错。</p>
-<ol>
-<li><strong>以下进行修改</strong></li>
-</ol>
-<ul>
-<li>ONBOOT=yes  # 系统启动时是否设置此网络接口，设置为yes时，系统启动时激活此设备。</li>
-<li>BOOTPROTO=static  # 静态模式</li>
-</ul>
-<ol start="2">
-<li><strong>将下面的字段追加到最后一行，根据注释进行相应的配置</strong></li>
-</ol>
-<ul>
-<li>IPADDR=192.168.248.128    # 自定义的IP地址，用XShell对服务器进行连接的IP，前三位与前面保持一致</li>
-<li>NETMASK=255.255.255.0    # 子网掩码</li>
-<li>NETWORK=192.168.248.0   #  网络地址，与虚拟网络编辑器设置的一样</li>
-<li>BROADCAST=192.168.248.255  # 广播地址，前三位与前面一致，最后一位255</li>
-<li>DNS1=192.168.248.2  # DNS地址，与默认网关相同</li>
-<li>GATEWAY=192.168.248.2  # 默认网关</li>
-</ul>
-<p>然后esc : wq保存</p>
-<p>退出后，终端输入指令：<strong>service network restart</strong>  重启网络</p>
-<p>然后 ping baidu.com，看能不能ping通，能说明能上网。</p>
-<p>输入指令：ifconfig，查看刚才自定义的静态ip地址是否配置成功。</p>
-<p><a href="https://imgchr.com/i/sTa2DJ"><img src="https://s3.ax1x.com/2021/01/23/sTa2DJ.png" alt="sTa2DJ.png"></a></p>
-<h2 id="五、SSH客户端连接服务器"><a href="#五、SSH客户端连接服务器" class="headerlink" title="五、SSH客户端连接服务器"></a>五、SSH客户端连接服务器</h2><p>可以先本地cmd中ping 一下服务器</p>
-<p><a href="https://imgchr.com/i/sTdFbj"><img src="https://s3.ax1x.com/2021/01/23/sTdFbj.png" alt="sTdFbj.png"></a></p>
-<p>如图能ping通，接下来进入XShell，将该ip连接就可以了，至此虚拟机静态IP配置结束。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Java For-loop&amp; For-each &amp; Iterator 效率分析</title>
     <url>/2021/03/16/JavaSE/Java%20For-loop&amp;%20For-each%20&amp;%20Iterator%20%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<ul>
@@ -308,41 +114,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Java手动实现迭代器。(LeetCode 341)</title>
-    <url>/2021/03/23/JavaSE/Java%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%82(LeetCode%20341)/</url>
-    <content><![CDATA[<h1 id="341-扁平化嵌套列表迭代器"><a href="#341-扁平化嵌套列表迭代器" class="headerlink" title="341. 扁平化嵌套列表迭代器"></a>341. 扁平化嵌套列表迭代器</h1><hr>
-<p><a href="https://imgtu.com/i/6T7qHO"><img src="https://z3.ax1x.com/2021/03/23/6T7qHO.png" alt="leetCode 341"></a></p>
-<p><a href="https://leetcode-cn.com/problems/flatten-nested-list-iterator/">https://leetcode-cn.com/problems/flatten-nested-list-iterator/</a></p>
-<ul>
-<li>先声明 <code>NestedInteger</code> 的结构（题目给出）</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">NestedInteger</span> </span>&#123;<br><br>    <span class="hljs-comment">// @return true if this NestedInteger holds a single integer, rather than a nested list.</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isInteger</span><span class="hljs-params">()</span></span>;<br><br>    <span class="hljs-comment">// @return the single integer that this NestedInteger holds, if it holds a single integer</span><br>    <span class="hljs-comment">// Return null if this NestedInteger holds a nested list</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">getInteger</span><span class="hljs-params">()</span></span>;<br><br>    <span class="hljs-comment">// @return the nested list that this NestedInteger holds, if it holds a nested list</span><br>    <span class="hljs-comment">// Return null if this NestedInteger holds a single integer</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;NestedInteger&gt; <span class="hljs-title">getList</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<h2 id="迭代器（效率最高）"><a href="#迭代器（效率最高）" class="headerlink" title="迭代器（效率最高）"></a>迭代器（效率最高）</h2><ul>
-<li>手动遍历，将遍历结果存在集合中，然后生成迭代器，其他操作基于此迭代器即可。</li>
-<li>遍历方式是DFS，因为此结构可以联系到数据结构中的 <code>树</code>。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * use Java Iterator</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    <span class="hljs-keyword">private</span> Iterator&lt;Integer&gt; iterator;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedIterator</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (NestedInteger node : nestedList) &#123;<br>            DFS(node, list);<br>        &#125;<br>        <span class="hljs-keyword">this</span>.iterator = list.iterator(); <span class="hljs-comment">// all the operation use list&#x27;s iterator</span><br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> iterator.next();<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> iterator.hasNext();<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * DFS get every element into List res;</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DFS</span><span class="hljs-params">(NestedInteger node, List&lt;Integer&gt; res)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (node.isInteger()) &#123;<br>            res.add(node.getInteger());<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (NestedInteger child : node.getList()) &#123;<br>            DFS(child, res);<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<h2 id="队列-DFS（用队列实现-Iterator）"><a href="#队列-DFS（用队列实现-Iterator）" class="headerlink" title="队列 + DFS（用队列实现 Iterator）"></a>队列 + DFS（用队列实现 Iterator）</h2><ul>
-<li>道理同上，DFS手动遍历，将遍历结果存在队列中</li>
-<li>用队列手动实现 <code>iterator</code>。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * use DFS and Queue</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    Deque&lt;Integer&gt; queue = <span class="hljs-keyword">new</span> ArrayDeque&lt;Integer&gt;();<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedIterator</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        DFS(nestedList);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> hasNext() ? queue.pollFirst() : -<span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> !queue.isEmpty();<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * DFS the nestedList, offer the elements into the queue</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DFS</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (NestedInteger elem : nestedList) &#123;<br>            <span class="hljs-keyword">if</span> (elem.isInteger()) &#123; <span class="hljs-comment">// elem is Integer, offer the queue</span><br>                queue.addLast(elem.getInteger());<br>            &#125; <span class="hljs-keyword">else</span> &#123;    <span class="hljs-comment">// elem is List, DFS the list and offer the elements into queue</span><br>                DFS(elem.getList());<br>            &#125;<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<h2 id="栈-递归-Stack-Recursion"><a href="#栈-递归-Stack-Recursion" class="headerlink" title="栈 + 递归 (Stack + Recursion)"></a>栈 + 递归 (Stack + Recursion)</h2><ul>
-<li>不同于队列的是，队列要在初始化阶段，将遍历的结果全部处理好，最后按照顺序进行操作即可。</li>
-<li>利用栈的思想是，先将这些 <code>NestedInteger</code>按顺序（倒序）存放在栈中，而要使用里面的元素时，再一步步的<strong>拆封</strong>出来。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * use Stack and Recursion</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    Deque&lt;NestedInteger&gt; stack = <span class="hljs-keyword">new</span> ArrayDeque&lt;NestedInteger&gt;();<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedIterator</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = nestedList.size() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span> ; i--) &#123;<br>            stack.push(nestedList.get(i));<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> hasNext() ? stack.pop().getInteger() : -<span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (stack.isEmpty()) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;    <span class="hljs-comment">// stack not empty, judge the peek elem&#x27;s type(List/Integer)</span><br>            NestedInteger elem = stack.peek();<br>            <span class="hljs-keyword">if</span> (elem.isInteger()) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>            &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// peek elem is list, iterate the list to push elem into the stack</span><br>                elem = stack.pop();<br>                List&lt;NestedInteger&gt; list = elem.getList();<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = list.size() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>                    stack.push(list.get(i));<br>                &#125;<br>                <span class="hljs-keyword">return</span> hasNext();<br>            &#125;<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
-      <categories>
-        <category>JavaSE</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Java在Iterator中remove &amp; ConcurrentModificationException问题</title>
     <url>/2021/03/15/JavaSE/Java%20%E5%9C%A8Iterator%E4%B8%AD%20remove%20&amp;%20ConcurrentModificationException%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        List&lt;String&gt; arrayList = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();<br>        arrayList.add(<span class="hljs-string">&quot;a&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;b&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;c&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;d&quot;</span>);<br><br>        Iterator&lt;String&gt; iterator = arrayList.iterator();<br>        <span class="hljs-keyword">while</span> (iterator.hasNext()) &#123;<br>            String cur = iterator.next();<br>            <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;b&quot;</span>.equals(cur)) &#123;<br>                arrayList.remove(cur);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                System.out.println(cur + <span class="hljs-string">&quot; &quot;</span>);<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">/*for (String s : arrayList) &#123;</span><br><span class="hljs-comment">            if (&quot;b&quot;.equals(s)) &#123;</span><br><span class="hljs-comment">                arrayList.remove(s);</span><br><span class="hljs-comment">            &#125; else &#123;</span><br><span class="hljs-comment">                System.out.println(s + &quot; &quot;);</span><br><span class="hljs-comment">            &#125;</span><br><span class="hljs-comment">        &#125;*/</span><br>        System.out.println(arrayList);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
@@ -425,6 +196,253 @@
 ]]></content>
       <categories>
         <category>JavaSE</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java常见细节</title>
+    <url>/2021/05/15/JavaSE/Java%E5%B8%B8%E8%A7%81%E7%BB%86%E8%8A%82/</url>
+    <content><![CDATA[<h1 id="Java常见细节"><a href="#Java常见细节" class="headerlink" title="Java常见细节"></a>Java常见细节</h1><h2 id="1-「replace会替换所有字符？」"><a href="#1-「replace会替换所有字符？」" class="headerlink" title="1. 「replace会替换所有字符？」"></a>1. 「replace会替换所有字符？」</h2><p>如果将字符串中 <code>A</code> 替换为 <code>B</code> ，则使用 <code>replaceAll</code> 方法。</p>
+<p><code>replace</code> 会替换所有匹配字符吗？</p>
+<blockquote>
+<p>Replaces each substring of this string that matches the literal target sequence with the specified literal replacement sequence. The replacement proceeds from the beginning of the string to the end, for example, replacing “aa” with “b” in the string “aaa” will result in “ba” rather than “ab”.</p>
+</blockquote>
+<ul>
+<li>替换从字符串的开头一直进行到结尾，匹配成功就替换，然后接下去。</li>
+<li>例如：原字符串：<code>aaa</code> ，将 <code>aa</code> 替换为 <code>b</code> ，则结果是 <code>ba</code> 而不是 <code>ab</code> ，因为是从前往后。</li>
+</ul>
+<ol>
+<li><code>replace</code>  两个重载方法</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">replace</span><span class="hljs-params">(<span class="hljs-keyword">char</span> oldChar, <span class="hljs-keyword">char</span> newChar)</span> <span class="hljs-comment">/* 替换一个字符 */</span></span><br></code></pre></div></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">replace</span><span class="hljs-params">(CharSequence target, CharSequence replacement)</span> <span class="hljs-comment">/* 替换一个串 */</span></span><br></code></pre></div></td></tr></table></figure>
+<ol start="2">
+<li><code>replaceAll</code> </li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">replaceAll</span><span class="hljs-params">(String regex, String replacement)</span> <span class="hljs-comment">/* 前面正则表达式，匹配成功替换为后面字符串 */</span></span><br></code></pre></div></td></tr></table></figure>
+<p>举例🌰：原串 s 里的 <code>*</code> 替换为 <code>A</code> 两种写法：</p>
+<ul>
+<li><code>s.replaceAll(&quot;\\*&quot;, &quot;A&quot;)</code> 只能接正则表达式匹配出来替换。</li>
+<li><code>s.replace(&quot;*&quot;, &quot;A&quot;)</code> </li>
+</ul>
+<ol start="3">
+<li><code>replaceFirst</code> 只替换第一个匹配字符串</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">replaceFirst</span><span class="hljs-params">(String regex, String replacement)</span></span><br></code></pre></div></td></tr></table></figure>
+
+
+<h2 id="2-「Integer不能用-判断？」"><a href="#2-「Integer不能用-判断？」" class="headerlink" title="2. 「Integer不能用 == 判断？」"></a>2. 「Integer不能用 == 判断？」</h2><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">Integer orderStatus1 = <span class="hljs-keyword">new</span> Integer(<span class="hljs-number">1</span>);<br>Integer orderStatus2 = <span class="hljs-keyword">new</span> Integer(<span class="hljs-number">1</span>);<br>System.out.println(orderStatus1 == orderStatus2);<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>结果会返回 <code>false</code> </li>
+<li>不是说 Integer 有缓存吗，范围是 -128 ~ 127</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Integer</span><span class="hljs-params">(<span class="hljs-keyword">int</span> value)</span> </span>&#123;<br>    <span class="hljs-keyword">this</span>.value = value;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>有参构造并<strong>没有</strong>用到缓存</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Integer <span class="hljs-title">valueOf</span><span class="hljs-params">(<span class="hljs-keyword">int</span> i)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (i &gt;= IntegerCache.low &amp;&amp; i &lt;= IntegerCache.high)<br>        <span class="hljs-keyword">return</span> IntegerCache.cache[i + (-IntegerCache.low)];<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Integer(i);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>要用到缓存，就应该使用 <code>valueOf</code> 方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">String orderStatus1 = <span class="hljs-keyword">new</span> String(<span class="hljs-string">&quot;1&quot;</span>);<br>String orderStatus2 = <span class="hljs-keyword">new</span> String(<span class="hljs-string">&quot;1&quot;</span>);<br>System.out.println(Integer.valueOf(orderStatus1) == Integer.valueOf(orderStatus2));<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>这样就会返回 true</li>
+<li>只有这种特殊情况才会使判断结果相同，养成好喜欢，统一使用 <code>equals</code> 来判断相等。</li>
+</ul>
+<h2 id="3-「使用BigDecimal不丢失精度？」"><a href="#3-「使用BigDecimal不丢失精度？」" class="headerlink" title="3. 「使用BigDecimal不丢失精度？」"></a>3. 「使用BigDecimal不丢失精度？」</h2><p>涉及金融业务，不可避免接触到小数。</p>
+<p>使用Double时出现的场景：</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">double</span> amount1 = <span class="hljs-number">0.02</span>;<br><span class="hljs-keyword">double</span> amount2 = <span class="hljs-number">0.03</span>;<br>System.out.println(amount2 - amount1); <span class="hljs-comment">// 0.009999999999999998</span><br></code></pre></div></td></tr></table></figure>
+<p>结果小于预计结果。</p>
+<ul>
+<li>Double类型两个参数相减会转换为二进制，而Double有效位是16位，出现存储小数位不够。</li>
+<li>使用 <code>BigDecimal</code> 就可以避免丢失精度吗？还是要看你怎么用。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">BigDecimal amount1 = <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-number">0.02</span>);<br>BigDecimal amount2 = <span class="hljs-keyword">new</span> BigDecimal(<span class="hljs-number">0.03</span>);<br>System.out.println(amount2.subtract(amount1));<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>0.0099999999999999984734433411404097569175064563751220703125</p>
+</blockquote>
+<p>可以看到仍然丢失精度。</p>
+<p>看 <code>BigDecimal</code> 带 double 参数的构造方法上的注释</p>
+<blockquote>
+<p>Notes:</p>
+<ol>
+<li><p>The results of this constructor can be somewhat unpredictable. One might assume that writing new BigDecimal(0.1) in Java creates a BigDecimal which is exactly equal to 0.1 (an unscaled value of 1, with a scale of 1), but it is actually equal to 0.1000000000000000055511151231257827021181583404541015625. This is because 0.1 cannot be represented exactly as a double (or, for that matter, as a binary fraction of any finite length). Thus, the value that is being passed in to the constructor is not exactly equal to 0.1, appearances notwithstanding.</p>
+</li>
+<li><p>The String constructor, on the other hand, is perfectly predictable: writing new BigDecimal(“0.1”) creates a BigDecimal which is exactly equal to 0.1, as one would expect. Therefore, it is generally recommended that the String constructor be used in preference to this one.</p>
+</li>
+<li><p>When a double must be used as a source for a BigDecimal, note that this constructor provides an exact conversion; it does not give the same result as converting the double to a String using the Double.toString(double) method and then using the BigDecimal(String) constructor. To get that result, use the static valueOf(double) method.</p>
+</li>
+</ol>
+</blockquote>
+<ul>
+<li><p><code>public BigDecimal(double val)</code> 这种构造方法生成的结果不可预测(unpredictable)</p>
+</li>
+<li><p>注释举例的 0.1 无法准确替换为double，即无法替换为任何有限长度的二进制分数</p>
+</li>
+<li><p>官方推荐入参选用 <code>String</code> 字符串，这样传入多少，生成多少。</p>
+</li>
+<li><p>如果非得用 <code>double</code> 入参，则先 <code>Double.toString(double)</code> 转成String再构造。</p>
+</li>
+<li><p>或者使用 <code>public static BigDecimal valueOf(double val)</code> 静态方法生成，也是阿里巴巴开发手册推荐的构造形式。</p>
+</li>
+</ul>
+<h2 id="4-「字符串拼接不能用String？」"><a href="#4-「字符串拼接不能用String？」" class="headerlink" title="4.  「字符串拼接不能用String？」"></a>4.  「字符串拼接不能用String？」</h2><p><code>String</code>类型的字符串被称为不可变序列，在大量字符串拼接的场景中，如果对象定义为 String ，会产生很多无用的中间对象，浪费内存空间，效率低。</p>
+<p>推荐使用更高效的可变字符序列：<code>StringBuilder</code> 和 <code>StringBuffer</code> </p>
+<p><code>StringBuilder</code> 虽然线程不安全，但是多线程拼接字符串情况很少，所以就使用这个对象。<code>append</code> 方法追加字符串即可。</p>
+<p><strong>「字符串拼接时使用String类型的对象，效率一定比StringBuilder类型的对象低？」</strong></p>
+<p>否。</p>
+<p>通过 <code>javap -c</code> 反编译可知，总JDK5开始，java对String拼接字符串进行优化，编译成字节码都会变成StringBuilder的append操作。</p>
+<h2 id="5-「Map初始化注意事项」"><a href="#5-「Map初始化注意事项」" class="headerlink" title="5. 「Map初始化注意事项」"></a>5. 「Map初始化注意事项」</h2><ul>
+<li>Map初始化同时导入数据有以下三种常见方法</li>
+</ul>
+<ol>
+<li>static块初始化</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> Map&lt;String, String&gt; myMap;<br><br>    <span class="hljs-keyword">static</span> &#123;<br>        myMap = <span class="hljs-keyword">new</span> HashMap&lt;String, String&gt;();<br>        myMap.put(<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>);<br>        myMap.put(<span class="hljs-string">&quot;c&quot;</span>, <span class="hljs-string">&quot;d&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ol start="2">
+<li>Guava类库</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">// 创建一个HashMap</span><br>Map&lt;String, Object&gt; hashMap  = Maps.newHashMap();<br><span class="hljs-comment">// 创建不可变Map</span><br>Map&lt;String, Integer&gt; left = ImmutableMap.of(<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-number">1</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-number">2</span>, <span class="hljs-string">&quot;c&quot;</span>, <span class="hljs-number">3</span>);<br><span class="hljs-comment">// 或者</span><br>Map&lt;String, String&gt; test = ImmutableMap.&lt;String, String&gt;builder()<br>.put(<span class="hljs-string">&quot;k1&quot;</span>, <span class="hljs-string">&quot;v1&quot;</span>)<br>.put(<span class="hljs-string">&quot;k2&quot;</span>, <span class="hljs-string">&quot;v2&quot;</span>)<br>.build();<br></code></pre></div></td></tr></table></figure>
+<ol start="3">
+<li>使用匿名内部类</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    Map map = <span class="hljs-keyword">new</span> HashMap() &#123;&#123;<br>        put(<span class="hljs-string">&quot;map1&quot;</span>, <span class="hljs-string">&quot;value1&quot;</span>);<br>        put(<span class="hljs-string">&quot;map2&quot;</span>, <span class="hljs-string">&quot;value2&quot;</span>);<br>        put(<span class="hljs-string">&quot;map3&quot;</span>, <span class="hljs-string">&quot;value3&quot;</span>);<br>    &#125;&#125;;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>📌外层的括号是创建 <strong>匿名内部类</strong> 「Anonymous Inner Class」 ，<strong>这里会造成隐患</strong>。</li>
+<li>内层是括号是创建 <strong>实例初始化块</strong> </li>
+</ul>
+<h3 id="①验证匿名内部类"><a href="#①验证匿名内部类" class="headerlink" title="①验证匿名内部类"></a>①验证匿名内部类</h3><ul>
+<li>首先 <code>javac</code> 编译 .java 文件</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    Map map = <span class="hljs-keyword">new</span> HashMap() &#123;&#123;<br>        put(<span class="hljs-string">&quot;map1&quot;</span>, <span class="hljs-string">&quot;value1&quot;</span>);<br>        put(<span class="hljs-string">&quot;map2&quot;</span>, <span class="hljs-string">&quot;value2&quot;</span>);<br>        put(<span class="hljs-string">&quot;map3&quot;</span>, <span class="hljs-string">&quot;value3&quot;</span>);<br>    &#125;&#125;;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<img src="https://gitee.com/hypocrite30/ImgBed/raw/master/img/JavaCommons/image-20210515165844089.png" style="zoom:150%;" />
+
+<p><img src="https://gitee.com/hypocrite30/ImgBed/raw/master/img/JavaCommons/image-20210515170722679.png"></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>$1 <span class="hljs-keyword">extends</span> <span class="hljs-title">HashMap</span> </span>&#123;<br>    Solution$<span class="hljs-number">1</span>(Solution var1) &#123;<br>        <span class="hljs-keyword">this</span>.<span class="hljs-keyword">this</span>$<span class="hljs-number">0</span> = var1;<br>        <span class="hljs-keyword">this</span>.put(<span class="hljs-string">&quot;map1&quot;</span>, <span class="hljs-string">&quot;value1&quot;</span>);<br>        <span class="hljs-keyword">this</span>.put(<span class="hljs-string">&quot;map2&quot;</span>, <span class="hljs-string">&quot;value2&quot;</span>);<br>        <span class="hljs-keyword">this</span>.put(<span class="hljs-string">&quot;map3&quot;</span>, <span class="hljs-string">&quot;value3&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>说明的确是创建了一个<strong>匿名内部类</strong></li>
+</ul>
+<h3 id="②非静态内部类持有外部类引用"><a href="#②非静态内部类持有外部类引用" class="headerlink" title="②非静态内部类持有外部类引用"></a>②非静态内部类持有外部类引用</h3><ul>
+<li>Java 中<strong>非静态内部类</strong>会<strong>持有外部类的引用</strong>，从而导致 GC 无法回收这部分代码的引用，以至于造成<strong>内存溢出</strong>。</li>
+</ul>
+<ol>
+<li>🍬为什么要<strong>持有外部类</strong>？</li>
+</ol>
+<p>非静态匿名内部类的主要作用有两个。</p>
+<ul>
+<li><p>当匿名内部类只在外部类（主类）中使用时，匿名内部类可以让外部不知道它的存在，从而减少了代码的维护工作。</p>
+</li>
+<li><p>当匿名内部类持有外部类时，它就可以直接<strong>使用外部类中的变量</strong>了，这样可以很方便的完成调用：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String userName = <span class="hljs-string">&quot;hypocrite30&quot;</span>;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> NoSuchFieldException, IllegalAccessException </span>&#123;<br>        Map map = <span class="hljs-keyword">new</span> HashMap() &#123;&#123;<br>            put(<span class="hljs-string">&quot;map1&quot;</span>, <span class="hljs-string">&quot;value1&quot;</span>);<br>            put(<span class="hljs-string">&quot;map2&quot;</span>, <span class="hljs-string">&quot;value2&quot;</span>);<br>            put(<span class="hljs-string">&quot;map3&quot;</span>, <span class="hljs-string">&quot;value3&quot;</span>);<br>            put(userName, userName);<br>        &#125;&#125;;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>内部类 <code>HashMap</code>  可以直接调用外部类 <code>Solution</code> 中的成员变量 <code>userName</code>.</li>
+</ul>
+<ol start="2">
+<li>🍬它是怎么持有外部类的？</li>
+</ol>
+<ul>
+<li><code>javap -c &#39;.\Solution$1.class&#39;</code> 反编译内部类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>$1 <span class="hljs-keyword">extends</span> <span class="hljs-title">java</span>.<span class="hljs-title">util</span>.<span class="hljs-title">HashMap</span> </span>&#123;<br>  <span class="hljs-keyword">final</span> Solution <span class="hljs-keyword">this</span>$<span class="hljs-number">0</span>;<br><br>  Solution$<span class="hljs-number">1</span>(Solution);<br>    Code:<br>       <span class="hljs-number">0</span>: aload_0<br>       <span class="hljs-number">1</span>: aload_1<br>       2: putfield      #1                  // Field this$0:LSolution;<br>       <span class="hljs-number">5</span>: aload_0<br>       6: invokespecial #2                  // Method java/util/HashMap.&quot;&lt;init&gt;&quot;:()V<br>       <span class="hljs-number">9</span>: aload_0<br>      10: ldc           #3                  // String map1<br>      12: ldc           #4                  // String value1<br>      14: invokevirtual #5                  // Method put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;<br>      <span class="hljs-number">17</span>: pop<br>      <span class="hljs-number">18</span>: aload_0<br>      19: ldc           #6                  // String map2<br>      21: ldc           #7                  // String value2<br>      23: invokevirtual #5                  // Method put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;<br>      <span class="hljs-number">26</span>: pop<br>      <span class="hljs-number">27</span>: aload_0<br>      28: ldc           #8                  // String map3<br>      30: ldc           #9                  // String value3<br>      32: invokevirtual #5                  // Method put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;<br>      <span class="hljs-number">35</span>: pop<br>      <span class="hljs-number">36</span>: <span class="hljs-keyword">return</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li><p>Code2:<code>putfield</code> ：一对 <code>Solution</code> 的引用被存入 <code>this$0</code> 中，此时该匿名内部类持有外部类的引用</p>
+</li>
+<li><p>另一种直观测试</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> NoSuchFieldException, IllegalAccessException </span>&#123;<br>        Map map = <span class="hljs-keyword">new</span> Solution().createMap();<br>        Field field = map.getClass().getDeclaredField(<span class="hljs-string">&quot;this$0&quot;</span>);<br>        field.setAccessible(<span class="hljs-keyword">true</span>);<br>        System.out.println(field.get(map).getClass());<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Map <span class="hljs-title">createMap</span><span class="hljs-params">()</span> </span>&#123;<br>        Map&lt;String, String&gt; map = <span class="hljs-keyword">new</span> HashMap&lt;&gt;() &#123;&#123;<br>            put(<span class="hljs-string">&quot;k1&quot;</span>, <span class="hljs-string">&quot;v1&quot;</span>);<br>            put(<span class="hljs-string">&quot;k2&quot;</span>, <span class="hljs-string">&quot;v2&quot;</span>);<br>        &#125;&#125;;<br>        <span class="hljs-keyword">return</span> map;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p><img src="https://gitee.com/hypocrite30/ImgBed/raw/master/img/JavaCommons/image-20210515200626985.png"></p>
+<blockquote>
+<p> 执行结果：Solution</p>
+</blockquote>
+<p>结论：匿名内部类持有外部类的引用，所以使用 <code>$0</code> 可以正常获取外部类，输入相关信息。</p>
+<h3 id="③匿名内部类隐患"><a href="#③匿名内部类隐患" class="headerlink" title="③匿名内部类隐患"></a>③匿名内部类隐患</h3><ul>
+<li>正常代码：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">createMap</span><span class="hljs-params">()</span> </span>&#123;<br>    Map map = <span class="hljs-keyword">new</span> HashMap() &#123;&#123;<br>        put(<span class="hljs-string">&quot;map1&quot;</span>, <span class="hljs-string">&quot;value1&quot;</span>);<br>        put(<span class="hljs-string">&quot;map2&quot;</span>, <span class="hljs-string">&quot;value2&quot;</span>);<br>        put(<span class="hljs-string">&quot;map3&quot;</span>, <span class="hljs-string">&quot;value3&quot;</span>);<br>    &#125;&#125;;<br>    <span class="hljs-comment">// 业务逻辑</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>转换成这样就<strong>有可能</strong>造成<strong>内存泄漏</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> Map <span class="hljs-title">createMap</span><span class="hljs-params">()</span> </span>&#123;<br>    Map map = <span class="hljs-keyword">new</span> HashMap() &#123;&#123;<br>        put(<span class="hljs-string">&quot;map1&quot;</span>, <span class="hljs-string">&quot;value1&quot;</span>);<br>        put(<span class="hljs-string">&quot;map2&quot;</span>, <span class="hljs-string">&quot;value2&quot;</span>);<br>        put(<span class="hljs-string">&quot;map3&quot;</span>, <span class="hljs-string">&quot;value3&quot;</span>);<br>    &#125;&#125;;<br>    <span class="hljs-keyword">return</span> map;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>因为当此 <code>map</code> 被<strong>赋值为其他类属性</strong>时，可能会导致 GC 收集时不清理此对象，这时候才会导致<strong>内存泄漏</strong>。</p>
+<p>非静态匿名内部类持有外部类引用，因此串行化这个集合时外部类也会被串行化，当外部类没有实现<code>serialize</code>接口时，就会报错。</p>
+<ul>
+<li>把 <code>map</code> 对象声明为 <code>static</code> 静态类型就不会泄漏内存</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Map <span class="hljs-title">createMap</span><span class="hljs-params">()</span> </span>&#123;<br>    Map map = <span class="hljs-keyword">new</span> HashMap() &#123;&#123;<br>        put(<span class="hljs-string">&quot;map1&quot;</span>, <span class="hljs-string">&quot;value1&quot;</span>);<br>        put(<span class="hljs-string">&quot;map2&quot;</span>, <span class="hljs-string">&quot;value2&quot;</span>);<br>        put(<span class="hljs-string">&quot;map3&quot;</span>, <span class="hljs-string">&quot;value3&quot;</span>);<br>    &#125;&#125;;<br>    <span class="hljs-keyword">return</span> map;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>反编译查看</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>$1 <span class="hljs-keyword">extends</span> <span class="hljs-title">java</span>.<span class="hljs-title">util</span>.<span class="hljs-title">HashMap</span> </span>&#123;<br>  Solution$<span class="hljs-number">1</span>();<br>    Code:<br>       <span class="hljs-number">0</span>: aload_0<br>       1: invokespecial #1                  // Method java/util/HashMap.&quot;&lt;init&gt;&quot;:()V<br>       <span class="hljs-number">4</span>: aload_0<br>       5: ldc           #2                  // String map1<br>       7: ldc           #3                  // String value1<br>       9: invokevirtual #4                  // Method put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;<br>      <span class="hljs-number">12</span>: pop<br>      <span class="hljs-number">13</span>: aload_0<br>      14: ldc           #5                  // String map2<br>      16: ldc           #6                  // String value2<br>      18: invokevirtual #4                  // Method put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;<br>      <span class="hljs-number">21</span>: pop<br>      <span class="hljs-number">22</span>: aload_0<br>      23: ldc           #7                  // String map3<br>      25: ldc           #8                  // String value3<br>      27: invokevirtual #4                  // Method put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;<br>      <span class="hljs-number">30</span>: pop<br>      <span class="hljs-number">31</span>: <span class="hljs-keyword">return</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>没有 <code>putfield</code> 关键字，<strong>静态匿名类不会持有外部对象引用</strong> </li>
+<li>因为匿名内部类是静态的之后，它所引用的对象或属性也必须是静态的了，因此就可以直接从 JVM 的 Method Area（方法区）获取到引用而无需持久外部对象了</li>
+<li>尽管如此还是不建议使用双括号方式初始map</li>
+</ul>
+<h3 id="④替代方案"><a href="#④替代方案" class="headerlink" title="④替代方案"></a>④替代方案</h3><ol>
+<li>Stream</li>
+</ol>
+<ul>
+<li>Java8 的 Stream API</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">List list = <span class="hljs-keyword">new</span> ArrayList() &#123;&#123;<br>    add(<span class="hljs-string">&quot;Java&quot;</span>);<br>    add(<span class="hljs-string">&quot;Redis&quot;</span>);<br>&#125;&#125;;<br><span class="hljs-comment">// 替换为↓</span><br>List list = Stream.of(<span class="hljs-string">&quot;Java&quot;</span>, <span class="hljs-string">&quot;Redis&quot;</span>).collect(Collectors.toList());<br></code></pre></div></td></tr></table></figure>
+<ol start="2">
+<li>Java9集合工厂</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">Map map = <span class="hljs-keyword">new</span> HashMap() &#123;&#123;<br>    put(<span class="hljs-string">&quot;map1&quot;</span>, <span class="hljs-string">&quot;value1&quot;</span>);<br>    put(<span class="hljs-string">&quot;map2&quot;</span>, <span class="hljs-string">&quot;value2&quot;</span>);<br>&#125;&#125;;<br><span class="hljs-comment">// 替换为↓</span><br>Map map = Map.of(<span class="hljs-string">&quot;map1&quot;</span>, <span class="hljs-string">&quot;Java&quot;</span>, <span class="hljs-string">&quot;map2&quot;</span>, <span class="hljs-string">&quot;Redis&quot;</span>);<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>鸣谢：<a href="https://www.cnblogs.com/vipstone/p/12937582.html">https://www.cnblogs.com/vipstone/p/12937582.html</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java手动实现迭代器。(LeetCode 341)</title>
+    <url>/2021/03/23/JavaSE/Java%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%82(LeetCode%20341)/</url>
+    <content><![CDATA[<h1 id="341-扁平化嵌套列表迭代器"><a href="#341-扁平化嵌套列表迭代器" class="headerlink" title="341. 扁平化嵌套列表迭代器"></a>341. 扁平化嵌套列表迭代器</h1><hr>
+<p><a href="https://imgtu.com/i/6T7qHO"><img src="https://z3.ax1x.com/2021/03/23/6T7qHO.png" alt="leetCode 341"></a></p>
+<p><a href="https://leetcode-cn.com/problems/flatten-nested-list-iterator/">https://leetcode-cn.com/problems/flatten-nested-list-iterator/</a></p>
+<ul>
+<li>先声明 <code>NestedInteger</code> 的结构（题目给出）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">NestedInteger</span> </span>&#123;<br><br>    <span class="hljs-comment">// @return true if this NestedInteger holds a single integer, rather than a nested list.</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isInteger</span><span class="hljs-params">()</span></span>;<br><br>    <span class="hljs-comment">// @return the single integer that this NestedInteger holds, if it holds a single integer</span><br>    <span class="hljs-comment">// Return null if this NestedInteger holds a nested list</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">getInteger</span><span class="hljs-params">()</span></span>;<br><br>    <span class="hljs-comment">// @return the nested list that this NestedInteger holds, if it holds a nested list</span><br>    <span class="hljs-comment">// Return null if this NestedInteger holds a single integer</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;NestedInteger&gt; <span class="hljs-title">getList</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h2 id="迭代器（效率最高）"><a href="#迭代器（效率最高）" class="headerlink" title="迭代器（效率最高）"></a>迭代器（效率最高）</h2><ul>
+<li>手动遍历，将遍历结果存在集合中，然后生成迭代器，其他操作基于此迭代器即可。</li>
+<li>遍历方式是DFS，因为此结构可以联系到数据结构中的 <code>树</code>。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * use Java Iterator</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    <span class="hljs-keyword">private</span> Iterator&lt;Integer&gt; iterator;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedIterator</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (NestedInteger node : nestedList) &#123;<br>            DFS(node, list);<br>        &#125;<br>        <span class="hljs-keyword">this</span>.iterator = list.iterator(); <span class="hljs-comment">// all the operation use list&#x27;s iterator</span><br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> iterator.next();<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> iterator.hasNext();<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * DFS get every element into List res;</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DFS</span><span class="hljs-params">(NestedInteger node, List&lt;Integer&gt; res)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (node.isInteger()) &#123;<br>            res.add(node.getInteger());<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (NestedInteger child : node.getList()) &#123;<br>            DFS(child, res);<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h2 id="队列-DFS（用队列实现-Iterator）"><a href="#队列-DFS（用队列实现-Iterator）" class="headerlink" title="队列 + DFS（用队列实现 Iterator）"></a>队列 + DFS（用队列实现 Iterator）</h2><ul>
+<li>道理同上，DFS手动遍历，将遍历结果存在队列中</li>
+<li>用队列手动实现 <code>iterator</code>。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * use DFS and Queue</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    Deque&lt;Integer&gt; queue = <span class="hljs-keyword">new</span> ArrayDeque&lt;Integer&gt;();<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedIterator</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        DFS(nestedList);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> hasNext() ? queue.pollFirst() : -<span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> !queue.isEmpty();<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * DFS the nestedList, offer the elements into the queue</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DFS</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (NestedInteger elem : nestedList) &#123;<br>            <span class="hljs-keyword">if</span> (elem.isInteger()) &#123; <span class="hljs-comment">// elem is Integer, offer the queue</span><br>                queue.addLast(elem.getInteger());<br>            &#125; <span class="hljs-keyword">else</span> &#123;    <span class="hljs-comment">// elem is List, DFS the list and offer the elements into queue</span><br>                DFS(elem.getList());<br>            &#125;<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h2 id="栈-递归-Stack-Recursion"><a href="#栈-递归-Stack-Recursion" class="headerlink" title="栈 + 递归 (Stack + Recursion)"></a>栈 + 递归 (Stack + Recursion)</h2><ul>
+<li>不同于队列的是，队列要在初始化阶段，将遍历的结果全部处理好，最后按照顺序进行操作即可。</li>
+<li>利用栈的思想是，先将这些 <code>NestedInteger</code>按顺序（倒序）存放在栈中，而要使用里面的元素时，再一步步的<strong>拆封</strong>出来。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * use Stack and Recursion</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    Deque&lt;NestedInteger&gt; stack = <span class="hljs-keyword">new</span> ArrayDeque&lt;NestedInteger&gt;();<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedIterator</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = nestedList.size() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span> ; i--) &#123;<br>            stack.push(nestedList.get(i));<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> hasNext() ? stack.pop().getInteger() : -<span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (stack.isEmpty()) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;    <span class="hljs-comment">// stack not empty, judge the peek elem&#x27;s type(List/Integer)</span><br>            NestedInteger elem = stack.peek();<br>            <span class="hljs-keyword">if</span> (elem.isInteger()) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>            &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// peek elem is list, iterate the list to push elem into the stack</span><br>                elem = stack.pop();<br>                List&lt;NestedInteger&gt; list = elem.getList();<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = list.size() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>                    stack.push(list.get(i));<br>                &#125;<br>                <span class="hljs-keyword">return</span> hasNext();<br>            &#125;<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Algorithm</title>
+    <url>/2021/03/27/Algorithm/Algorithm/</url>
+    <content><![CDATA[<h1 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h1><p> 📕 JianShu：<a href="https://www.jianshu.com/u/fc4ebe02fff2">https://www.jianshu.com/u/fc4ebe02fff2</a> 有常见算法的题解</p>
+<p>💻 GitHub：<a href="https://github.com/hypocrite30/LeetCode">https://github.com/hypocrite30/LeetCode</a> 代码仓库</p>
+<p><strong>欢迎关注，交流学习。</strong></p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
       </categories>
   </entry>
   <entry>
@@ -667,6 +685,189 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
 ]]></content>
       <categories>
         <category>JavaSE</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Redis</title>
+    <url>/2021/04/22/Redis/Redis/</url>
+    <content><![CDATA[<h3 id="📌-Redis"><a href="#📌-Redis" class="headerlink" title="📌 Redis"></a>📌 Redis</h3><ul>
+<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/oz1eni">https://www.yuque.com/hypocrite30/oz1eni</a></p>
+</li>
+<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/Redis">https://github.com/hypocrite30/Redis</a></p>
+<ul>
+<li>In directory 「<code>src</code>」</li>
+</ul>
+</li>
+<li><p>📚 Reference books:  「<strong>Redis开发与运维</strong>」「<strong>Redis设计与实现</strong>」</p>
+<ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>DesignPatterns</title>
+    <url>/2021/04/15/DesignPatterns/DesignPatterns/</url>
+    <content><![CDATA[<h3 id="📌-Design-Pattern-By-Java"><a href="#📌-Design-Pattern-By-Java" class="headerlink" title="📌 Design Pattern By Java"></a>📌 Design Pattern By Java</h3><ul>
+<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/vf5tcx">https://www.yuque.com/hypocrite30/vf5tcx</a></p>
+</li>
+<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/DesignPatterns">https://github.com/hypocrite30/DesignPatterns</a></p>
+<ul>
+<li>In directory 「<code>src</code>」</li>
+</ul>
+</li>
+<li><p>📚 Reference books:  「<code>设计模式之禅</code> 第二版 」「重学Java设计模式 」</p>
+<ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+</ul>
+<p>🧰「创建者模式」5种</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 1 『工厂方法模式』</li>
+<li><input checked="" disabled="" type="checkbox"> 2 『抽象工厂模式』</li>
+<li><input checked="" disabled="" type="checkbox"> 3 『建造者模式』</li>
+<li><input checked="" disabled="" type="checkbox"> 4『原型模式』</li>
+<li><input checked="" disabled="" type="checkbox"> 5 『单例模式』</li>
+</ul>
+<p>🏹「结构型模式」7种</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 6 『适配器模式』</li>
+<li><input checked="" disabled="" type="checkbox"> 7 『桥梁模式』</li>
+<li><input disabled="" type="checkbox"> 8 『组合模式』</li>
+<li><input disabled="" type="checkbox"> 9 『装饰模式』</li>
+<li><input disabled="" type="checkbox"> 10 『外观模式』</li>
+<li><input disabled="" type="checkbox"> 11 『享元模式』</li>
+<li><input disabled="" type="checkbox"> 12 『代理模式』</li>
+</ul>
+<p>🧲「行为模式」10种</p>
+<ul>
+<li><p><input disabled="" type="checkbox">  13 『责任链模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  14 『命令模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  15 『迭代器模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  16 『中介者模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  17 『备忘录模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  18 『观察者模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  19 『状态模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  20 『策略模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  21 『模板方法模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  22 『访问者模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  23 『解释器模式』</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>DesignPatterns</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Centos 6无法使用yum解决办法</title>
+    <url>/2021/03/27/Linux/Centos%206%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8yum%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="Centos-6无法使用yum解决办法"><a href="#Centos-6无法使用yum解决办法" class="headerlink" title="Centos 6无法使用yum解决办法"></a>Centos 6无法使用yum解决办法</h1><p>CentOS 6已经随着2020年11月的结束进入了EOL（Reaches End of Life），不过有一些老设备依然需要支持，CentOS官方也给这些还不想把CentOS 6扔进垃圾堆的用户保留了最后一个版本的镜像，只是这个镜像不会再有更新了</p>
+<p>官方便在12月2日正式将CentOS 6相关的软件源移出了官方源，随之而来逐级镜像也会陆续将其删除。</p>
+<p>不过有一些老设备依然需要维持在当前系统，CentOS官方也给这些还不想把CentOS 6扔进垃圾堆的用户保留了各个版本软件源的镜像，只是这个软件源不会再有更新了。</p>
+<h2 id="一、一键修复"><a href="#一、一键修复" class="headerlink" title="一、一键修复"></a>一、一键修复</h2><figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">sed -i <span class="hljs-string">&quot;s|enabled=1|enabled=0|g&quot;</span> <span class="hljs-regexp">/etc/yum</span><span class="hljs-regexp">/pluginconf.d/</span>fastestmirror.conf<br>mv <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo /</span>etc<span class="hljs-regexp">/yum.repos.d/</span>CentOS-Base.repo.backup<br>curl -o <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo https:/</span><span class="hljs-regexp">/www.xmpan.com/</span>Centos-<span class="hljs-number">6</span>-Vault-Aliyun.repo <br>yum clean all<br>yum makecache<br></code></pre></div></td></tr></table></figure>
+<h2 id="二、手动修复"><a href="#二、手动修复" class="headerlink" title="二、手动修复"></a>二、手动修复</h2><p>首先把fastestmirrors关了</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk"><span class="hljs-comment">#编辑</span><br>vi <span class="hljs-regexp">/etc/yum</span><span class="hljs-regexp">/pluginconf.d/</span>fastestmirror.conf<br><span class="hljs-comment">#修改</span><br>enable=<span class="hljs-number">0</span><br><span class="hljs-comment">#或者执行以下命令</span><br>sed -i <span class="hljs-string">&quot;s|enabled=1|enabled=0|g&quot;</span> <span class="hljs-regexp">/etc/yum</span><span class="hljs-regexp">/pluginconf.d/</span>fastestmirror.conf<br></code></pre></div></td></tr></table></figure>
+<p>先把之前的repo挪到备份，然后下面两个二选一</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">mv <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo /</span>etc<span class="hljs-regexp">/yum.repos.d/</span>CentOS-Base.repo.bak<br></code></pre></div></td></tr></table></figure>
+<p>替换为官方Vault源(海外服务器用)</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">curl -o <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo https:/</span><span class="hljs-regexp">/www.xmpan.com/</span>Centos-<span class="hljs-number">6</span>-Vault-Official.repo<br></code></pre></div></td></tr></table></figure>
+<p>或者替换为阿里云Vault镜像(国内服务器用)</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">curl -o <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo https:/</span><span class="hljs-regexp">/www.xmpan.com/</span>Centos-<span class="hljs-number">6</span>-Vault-Aliyun.repo<br></code></pre></div></td></tr></table></figure>
+
+
+<blockquote>
+<p>以上转自：熊猫畔</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>虚拟机下Linux配置静态ip，使得XShell成功连接</title>
+    <url>/2021/01/23/Linux/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8BLinux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81ip%EF%BC%8C%E4%BD%BF%E5%BE%97XShell%E6%88%90%E5%8A%9F%E8%BF%9E%E6%8E%A5/</url>
+    <content><![CDATA[<h1 id="虚拟机下Linux配置静态ip，使得XShell成功连接"><a href="#虚拟机下Linux配置静态ip，使得XShell成功连接" class="headerlink" title="虚拟机下Linux配置静态ip，使得XShell成功连接"></a>虚拟机下Linux配置静态ip，使得XShell成功连接</h1><ul>
+<li>Linux：centOS6.7</li>
+<li>虚拟机：VMware Workstation Pro15</li>
+<li>SSH客户端：XShell6</li>
+</ul>
+<h2 id="一、配置VMware的虚拟网络编辑器"><a href="#一、配置VMware的虚拟网络编辑器" class="headerlink" title="一、配置VMware的虚拟网络编辑器"></a>一、配置VMware的虚拟网络编辑器</h2><p>进VMware之前，右键，用管理员模式打开，后面需要管理员权限，先不要开虚拟机</p>
+<blockquote>
+<p>菜单栏（最顶上一栏） -&gt; 编辑 -&gt;  虚拟网络编辑器</p>
+</blockquote>
+<p><a href="https://imgtu.com/i/sTn2BF"><img src="https://z3.ax1x.com/2021/01/23/sTn2BF.png" alt="sTn2BF.png"></a></p>
+<p>按照①②配置，<strong>把③的子网IP记住</strong>，后面要用到。</p>
+<p>然后点击④进入NAT设置。</p>
+<p><img src="https://s3.ax1x.com/2021/01/23/sT1Epd.png" alt="NAT设置"></p>
+<p>①中配置<strong>默认网关</strong>，其中前三大位要与前面记住的子网IP前面相同，后面默认会配置2，也可以自定义。然后该默认网关192.168.248.2要记住，后面需要用到。</p>
+<p>②照做就行</p>
+<p>③按确定返回上图，再点击下栏确定就可以保存虚拟网络编辑器的配置。</p>
+<h2 id="二、配置VMware-Network-Adapter-VMnet8的指定IP"><a href="#二、配置VMware-Network-Adapter-VMnet8的指定IP" class="headerlink" title="二、配置VMware Network Adapter VMnet8的指定IP"></a>二、配置VMware Network Adapter VMnet8的指定IP</h2><blockquote>
+<p> windows设置 -&gt; 网络和Internet -&gt; 更改适配器选项 -&gt;  右键VMware Network Adapter VMnet8进入属性</p>
+</blockquote>
+<p><a href="https://imgchr.com/i/sT86w6"><img src="https://s3.ax1x.com/2021/01/23/sT86w6.png" alt="sT86w6.png"></a></p>
+<p><a href="https://imgchr.com/i/sT8vlj"><img src="https://s3.ax1x.com/2021/01/23/sT8vlj.png" alt="sT8vlj.png"></a></p>
+<p><a href="https://imgchr.com/i/sTGUBt"><img src="https://s3.ax1x.com/2021/01/23/sTGUBt.png" alt="VMnet8属性"></a></p>
+<p>①选择IPv4的项目，②然后进入属性。</p>
+<p><a href="https://imgchr.com/i/sTGqD1"><img src="https://s3.ax1x.com/2021/01/23/sTGqD1.png" alt="sTGqD1.png"></a></p>
+<p>默认是自动获得IP地址，勾选“使用下面的IP地址”自定义IP</p>
+<p>①配置IP地址，前三位同虚拟网络编辑器配置的子网IP前三位相同，最后一位的1自定义，这里我设置为1</p>
+<p>②配完①一般子网掩码会自动填好，没自动补上就填上虚拟网络编辑器里的子网掩码。</p>
+<p>③默认网关就是干菜虚拟网络编辑器里面NAT设置里的那个默认网关。</p>
+<p>④确定保存，然后再确定就保存成功了。</p>
+<h2 id="三、配置网络适配器"><a href="#三、配置网络适配器" class="headerlink" title="三、配置网络适配器"></a>三、配置网络适配器</h2><p>管理员模式进入VMware，选择要配置的那台虚拟机，进入网络适配器</p>
+<p><a href="https://imgchr.com/i/sTYOfO"><img src="https://s3.ax1x.com/2021/01/23/sTYOfO.png" alt="sTYOfO.png"></a></p>
+<p><a href="https://imgchr.com/i/sTtE9S"><img src="https://s3.ax1x.com/2021/01/23/sTtE9S.png" alt="sTtE9S.png"></a></p>
+<p>如图配置即可。</p>
+<h2 id="四、配置ifcfg-eth0文件"><a href="#四、配置ifcfg-eth0文件" class="headerlink" title="四、配置ifcfg-eth0文件"></a>四、配置ifcfg-eth0文件</h2><p>打开虚拟机，建议用root用户登录，方便后面对ifcfg-eth0文件进行编辑。</p>
+<p>打开terminal终端，输入指令：<strong>vim /etc/sysconfig/network-scripts/ifcfg-eth0</strong></p>
+<p>这是使用终端vim的方式修改，不会vim操作的自行百度，或者根据上面的路劲去找ifcfg-eth0文件打开进行修改。</p>
+<p>下面的配置建议对字段进行复制，防止配错。</p>
+<ol>
+<li><strong>以下进行修改</strong></li>
+</ol>
+<ul>
+<li>ONBOOT=yes  # 系统启动时是否设置此网络接口，设置为yes时，系统启动时激活此设备。</li>
+<li>BOOTPROTO=static  # 静态模式</li>
+</ul>
+<ol start="2">
+<li><strong>将下面的字段追加到最后一行，根据注释进行相应的配置</strong></li>
+</ol>
+<ul>
+<li>IPADDR=192.168.248.128    # 自定义的IP地址，用XShell对服务器进行连接的IP，前三位与前面保持一致</li>
+<li>NETMASK=255.255.255.0    # 子网掩码</li>
+<li>NETWORK=192.168.248.0   #  网络地址，与虚拟网络编辑器设置的一样</li>
+<li>BROADCAST=192.168.248.255  # 广播地址，前三位与前面一致，最后一位255</li>
+<li>DNS1=192.168.248.2  # DNS地址，与默认网关相同</li>
+<li>GATEWAY=192.168.248.2  # 默认网关</li>
+</ul>
+<p>然后esc : wq保存</p>
+<p>退出后，终端输入指令：<strong>service network restart</strong>  重启网络</p>
+<p>然后 ping baidu.com，看能不能ping通，能说明能上网。</p>
+<p>输入指令：ifconfig，查看刚才自定义的静态ip地址是否配置成功。</p>
+<p><a href="https://imgchr.com/i/sTa2DJ"><img src="https://s3.ax1x.com/2021/01/23/sTa2DJ.png" alt="sTa2DJ.png"></a></p>
+<h2 id="五、SSH客户端连接服务器"><a href="#五、SSH客户端连接服务器" class="headerlink" title="五、SSH客户端连接服务器"></a>五、SSH客户端连接服务器</h2><p>可以先本地cmd中ping 一下服务器</p>
+<p><a href="https://imgchr.com/i/sTdFbj"><img src="https://s3.ax1x.com/2021/01/23/sTdFbj.png" alt="sTdFbj.png"></a></p>
+<p>如图能ping通，接下来进入XShell，将该ip连接就可以了，至此虚拟机静态IP配置结束。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
       </categories>
   </entry>
   <entry>
