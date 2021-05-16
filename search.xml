@@ -1,6 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Algorithm</title>
+    <url>/2021/03/27/Algorithm/Algorithm/</url>
+    <content><![CDATA[<h1 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h1><p> 📕 JianShu：<a href="https://www.jianshu.com/u/fc4ebe02fff2">https://www.jianshu.com/u/fc4ebe02fff2</a> 有常见算法的题解</p>
+<p>💻 GitHub：<a href="https://github.com/hypocrite30/LeetCode">https://github.com/hypocrite30/LeetCode</a> 代码仓库</p>
+<p><strong>欢迎关注，交流学习。</strong></p>
+]]></content>
+      <categories>
+        <category>Algorithm</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Redis</title>
+    <url>/2021/04/22/Redis/Redis/</url>
+    <content><![CDATA[<h3 id="📌-Redis"><a href="#📌-Redis" class="headerlink" title="📌 Redis"></a>📌 Redis</h3><ul>
+<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/oz1eni">https://www.yuque.com/hypocrite30/oz1eni</a></p>
+</li>
+<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/Redis">https://github.com/hypocrite30/Redis</a></p>
+<ul>
+<li>In directory 「<code>src</code>」</li>
+</ul>
+</li>
+<li><p>📚 Reference books:  「<strong>Redis开发与运维</strong>」「<strong>Redis设计与实现</strong>」</p>
+<ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>DesignPatterns</title>
+    <url>/2021/04/15/DesignPatterns/DesignPatterns/</url>
+    <content><![CDATA[<h3 id="📌-Design-Pattern-By-Java"><a href="#📌-Design-Pattern-By-Java" class="headerlink" title="📌 Design Pattern By Java"></a>📌 Design Pattern By Java</h3><ul>
+<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/vf5tcx">https://www.yuque.com/hypocrite30/vf5tcx</a></p>
+</li>
+<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/DesignPatterns">https://github.com/hypocrite30/DesignPatterns</a></p>
+<ul>
+<li>In directory 「<code>src</code>」</li>
+</ul>
+</li>
+<li><p>📚 Reference books:  「<code>设计模式之禅</code> 第二版 」「重学Java设计模式 」</p>
+<ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+</ul>
+<p>🧰「创建者模式」5种</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 1 『工厂方法模式』</li>
+<li><input checked="" disabled="" type="checkbox"> 2 『抽象工厂模式』</li>
+<li><input checked="" disabled="" type="checkbox"> 3 『建造者模式』</li>
+<li><input checked="" disabled="" type="checkbox"> 4『原型模式』</li>
+<li><input checked="" disabled="" type="checkbox"> 5 『单例模式』</li>
+</ul>
+<p>🏹「结构型模式」7种</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 6 『适配器模式』</li>
+<li><input checked="" disabled="" type="checkbox"> 7 『桥梁模式』</li>
+<li><input disabled="" type="checkbox"> 8 『组合模式』</li>
+<li><input disabled="" type="checkbox"> 9 『装饰模式』</li>
+<li><input disabled="" type="checkbox"> 10 『外观模式』</li>
+<li><input disabled="" type="checkbox"> 11 『享元模式』</li>
+<li><input disabled="" type="checkbox"> 12 『代理模式』</li>
+</ul>
+<p>🧲「行为模式」10种</p>
+<ul>
+<li><p><input disabled="" type="checkbox">  13 『责任链模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  14 『命令模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  15 『迭代器模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  16 『中介者模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  17 『备忘录模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  18 『观察者模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  19 『状态模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  20 『策略模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  21 『模板方法模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  22 『访问者模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  23 『解释器模式』</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>DesignPatterns</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Java For-loop&amp; For-each &amp; Iterator 效率分析</title>
     <url>/2021/03/16/JavaSE/Java%20For-loop&amp;%20For-each%20&amp;%20Iterator%20%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<ul>
@@ -435,14 +533,99 @@
       </categories>
   </entry>
   <entry>
-    <title>Algorithm</title>
-    <url>/2021/03/27/Algorithm/Algorithm/</url>
-    <content><![CDATA[<h1 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h1><p> 📕 JianShu：<a href="https://www.jianshu.com/u/fc4ebe02fff2">https://www.jianshu.com/u/fc4ebe02fff2</a> 有常见算法的题解</p>
-<p>💻 GitHub：<a href="https://github.com/hypocrite30/LeetCode">https://github.com/hypocrite30/LeetCode</a> 代码仓库</p>
-<p><strong>欢迎关注，交流学习。</strong></p>
+    <title>Centos 6无法使用yum解决办法</title>
+    <url>/2021/03/27/Linux/Centos%206%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8yum%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="Centos-6无法使用yum解决办法"><a href="#Centos-6无法使用yum解决办法" class="headerlink" title="Centos 6无法使用yum解决办法"></a>Centos 6无法使用yum解决办法</h1><p>CentOS 6已经随着2020年11月的结束进入了EOL（Reaches End of Life），不过有一些老设备依然需要支持，CentOS官方也给这些还不想把CentOS 6扔进垃圾堆的用户保留了最后一个版本的镜像，只是这个镜像不会再有更新了</p>
+<p>官方便在12月2日正式将CentOS 6相关的软件源移出了官方源，随之而来逐级镜像也会陆续将其删除。</p>
+<p>不过有一些老设备依然需要维持在当前系统，CentOS官方也给这些还不想把CentOS 6扔进垃圾堆的用户保留了各个版本软件源的镜像，只是这个软件源不会再有更新了。</p>
+<h2 id="一、一键修复"><a href="#一、一键修复" class="headerlink" title="一、一键修复"></a>一、一键修复</h2><figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">sed -i <span class="hljs-string">&quot;s|enabled=1|enabled=0|g&quot;</span> <span class="hljs-regexp">/etc/yum</span><span class="hljs-regexp">/pluginconf.d/</span>fastestmirror.conf<br>mv <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo /</span>etc<span class="hljs-regexp">/yum.repos.d/</span>CentOS-Base.repo.backup<br>curl -o <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo https:/</span><span class="hljs-regexp">/www.xmpan.com/</span>Centos-<span class="hljs-number">6</span>-Vault-Aliyun.repo <br>yum clean all<br>yum makecache<br></code></pre></div></td></tr></table></figure>
+<h2 id="二、手动修复"><a href="#二、手动修复" class="headerlink" title="二、手动修复"></a>二、手动修复</h2><p>首先把fastestmirrors关了</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk"><span class="hljs-comment">#编辑</span><br>vi <span class="hljs-regexp">/etc/yum</span><span class="hljs-regexp">/pluginconf.d/</span>fastestmirror.conf<br><span class="hljs-comment">#修改</span><br>enable=<span class="hljs-number">0</span><br><span class="hljs-comment">#或者执行以下命令</span><br>sed -i <span class="hljs-string">&quot;s|enabled=1|enabled=0|g&quot;</span> <span class="hljs-regexp">/etc/yum</span><span class="hljs-regexp">/pluginconf.d/</span>fastestmirror.conf<br></code></pre></div></td></tr></table></figure>
+<p>先把之前的repo挪到备份，然后下面两个二选一</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">mv <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo /</span>etc<span class="hljs-regexp">/yum.repos.d/</span>CentOS-Base.repo.bak<br></code></pre></div></td></tr></table></figure>
+<p>替换为官方Vault源(海外服务器用)</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">curl -o <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo https:/</span><span class="hljs-regexp">/www.xmpan.com/</span>Centos-<span class="hljs-number">6</span>-Vault-Official.repo<br></code></pre></div></td></tr></table></figure>
+<p>或者替换为阿里云Vault镜像(国内服务器用)</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">curl -o <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo https:/</span><span class="hljs-regexp">/www.xmpan.com/</span>Centos-<span class="hljs-number">6</span>-Vault-Aliyun.repo<br></code></pre></div></td></tr></table></figure>
+
+
+<blockquote>
+<p>以上转自：熊猫畔</p>
+</blockquote>
 ]]></content>
       <categories>
-        <category>Algorithm</category>
+        <category>Linux</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>虚拟机下Linux配置静态ip，使得XShell成功连接</title>
+    <url>/2021/01/23/Linux/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8BLinux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81ip%EF%BC%8C%E4%BD%BF%E5%BE%97XShell%E6%88%90%E5%8A%9F%E8%BF%9E%E6%8E%A5/</url>
+    <content><![CDATA[<h1 id="虚拟机下Linux配置静态ip，使得XShell成功连接"><a href="#虚拟机下Linux配置静态ip，使得XShell成功连接" class="headerlink" title="虚拟机下Linux配置静态ip，使得XShell成功连接"></a>虚拟机下Linux配置静态ip，使得XShell成功连接</h1><ul>
+<li>Linux：centOS6.7</li>
+<li>虚拟机：VMware Workstation Pro15</li>
+<li>SSH客户端：XShell6</li>
+</ul>
+<h2 id="一、配置VMware的虚拟网络编辑器"><a href="#一、配置VMware的虚拟网络编辑器" class="headerlink" title="一、配置VMware的虚拟网络编辑器"></a>一、配置VMware的虚拟网络编辑器</h2><p>进VMware之前，右键，用管理员模式打开，后面需要管理员权限，先不要开虚拟机</p>
+<blockquote>
+<p>菜单栏（最顶上一栏） -&gt; 编辑 -&gt;  虚拟网络编辑器</p>
+</blockquote>
+<p><a href="https://imgtu.com/i/sTn2BF"><img src="https://z3.ax1x.com/2021/01/23/sTn2BF.png" alt="sTn2BF.png"></a></p>
+<p>按照①②配置，<strong>把③的子网IP记住</strong>，后面要用到。</p>
+<p>然后点击④进入NAT设置。</p>
+<p><img src="https://s3.ax1x.com/2021/01/23/sT1Epd.png" alt="NAT设置"></p>
+<p>①中配置<strong>默认网关</strong>，其中前三大位要与前面记住的子网IP前面相同，后面默认会配置2，也可以自定义。然后该默认网关192.168.248.2要记住，后面需要用到。</p>
+<p>②照做就行</p>
+<p>③按确定返回上图，再点击下栏确定就可以保存虚拟网络编辑器的配置。</p>
+<h2 id="二、配置VMware-Network-Adapter-VMnet8的指定IP"><a href="#二、配置VMware-Network-Adapter-VMnet8的指定IP" class="headerlink" title="二、配置VMware Network Adapter VMnet8的指定IP"></a>二、配置VMware Network Adapter VMnet8的指定IP</h2><blockquote>
+<p> windows设置 -&gt; 网络和Internet -&gt; 更改适配器选项 -&gt;  右键VMware Network Adapter VMnet8进入属性</p>
+</blockquote>
+<p><a href="https://imgchr.com/i/sT86w6"><img src="https://s3.ax1x.com/2021/01/23/sT86w6.png" alt="sT86w6.png"></a></p>
+<p><a href="https://imgchr.com/i/sT8vlj"><img src="https://s3.ax1x.com/2021/01/23/sT8vlj.png" alt="sT8vlj.png"></a></p>
+<p><a href="https://imgchr.com/i/sTGUBt"><img src="https://s3.ax1x.com/2021/01/23/sTGUBt.png" alt="VMnet8属性"></a></p>
+<p>①选择IPv4的项目，②然后进入属性。</p>
+<p><a href="https://imgchr.com/i/sTGqD1"><img src="https://s3.ax1x.com/2021/01/23/sTGqD1.png" alt="sTGqD1.png"></a></p>
+<p>默认是自动获得IP地址，勾选“使用下面的IP地址”自定义IP</p>
+<p>①配置IP地址，前三位同虚拟网络编辑器配置的子网IP前三位相同，最后一位的1自定义，这里我设置为1</p>
+<p>②配完①一般子网掩码会自动填好，没自动补上就填上虚拟网络编辑器里的子网掩码。</p>
+<p>③默认网关就是干菜虚拟网络编辑器里面NAT设置里的那个默认网关。</p>
+<p>④确定保存，然后再确定就保存成功了。</p>
+<h2 id="三、配置网络适配器"><a href="#三、配置网络适配器" class="headerlink" title="三、配置网络适配器"></a>三、配置网络适配器</h2><p>管理员模式进入VMware，选择要配置的那台虚拟机，进入网络适配器</p>
+<p><a href="https://imgchr.com/i/sTYOfO"><img src="https://s3.ax1x.com/2021/01/23/sTYOfO.png" alt="sTYOfO.png"></a></p>
+<p><a href="https://imgchr.com/i/sTtE9S"><img src="https://s3.ax1x.com/2021/01/23/sTtE9S.png" alt="sTtE9S.png"></a></p>
+<p>如图配置即可。</p>
+<h2 id="四、配置ifcfg-eth0文件"><a href="#四、配置ifcfg-eth0文件" class="headerlink" title="四、配置ifcfg-eth0文件"></a>四、配置ifcfg-eth0文件</h2><p>打开虚拟机，建议用root用户登录，方便后面对ifcfg-eth0文件进行编辑。</p>
+<p>打开terminal终端，输入指令：<strong>vim /etc/sysconfig/network-scripts/ifcfg-eth0</strong></p>
+<p>这是使用终端vim的方式修改，不会vim操作的自行百度，或者根据上面的路劲去找ifcfg-eth0文件打开进行修改。</p>
+<p>下面的配置建议对字段进行复制，防止配错。</p>
+<ol>
+<li><strong>以下进行修改</strong></li>
+</ol>
+<ul>
+<li>ONBOOT=yes  # 系统启动时是否设置此网络接口，设置为yes时，系统启动时激活此设备。</li>
+<li>BOOTPROTO=static  # 静态模式</li>
+</ul>
+<ol start="2">
+<li><strong>将下面的字段追加到最后一行，根据注释进行相应的配置</strong></li>
+</ol>
+<ul>
+<li>IPADDR=192.168.248.128    # 自定义的IP地址，用XShell对服务器进行连接的IP，前三位与前面保持一致</li>
+<li>NETMASK=255.255.255.0    # 子网掩码</li>
+<li>NETWORK=192.168.248.0   #  网络地址，与虚拟网络编辑器设置的一样</li>
+<li>BROADCAST=192.168.248.255  # 广播地址，前三位与前面一致，最后一位255</li>
+<li>DNS1=192.168.248.2  # DNS地址，与默认网关相同</li>
+<li>GATEWAY=192.168.248.2  # 默认网关</li>
+</ul>
+<p>然后esc : wq保存</p>
+<p>退出后，终端输入指令：<strong>service network restart</strong>  重启网络</p>
+<p>然后 ping baidu.com，看能不能ping通，能说明能上网。</p>
+<p>输入指令：ifconfig，查看刚才自定义的静态ip地址是否配置成功。</p>
+<p><a href="https://imgchr.com/i/sTa2DJ"><img src="https://s3.ax1x.com/2021/01/23/sTa2DJ.png" alt="sTa2DJ.png"></a></p>
+<h2 id="五、SSH客户端连接服务器"><a href="#五、SSH客户端连接服务器" class="headerlink" title="五、SSH客户端连接服务器"></a>五、SSH客户端连接服务器</h2><p>可以先本地cmd中ping 一下服务器</p>
+<p><a href="https://imgchr.com/i/sTdFbj"><img src="https://s3.ax1x.com/2021/01/23/sTdFbj.png" alt="sTdFbj.png"></a></p>
+<p>如图能ping通，接下来进入XShell，将该ip连接就可以了，至此虚拟机静态IP配置结束。</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
       </categories>
   </entry>
   <entry>
@@ -685,189 +868,6 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
 ]]></content>
       <categories>
         <category>JavaSE</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Redis</title>
-    <url>/2021/04/22/Redis/Redis/</url>
-    <content><![CDATA[<h3 id="📌-Redis"><a href="#📌-Redis" class="headerlink" title="📌 Redis"></a>📌 Redis</h3><ul>
-<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/oz1eni">https://www.yuque.com/hypocrite30/oz1eni</a></p>
-</li>
-<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/Redis">https://github.com/hypocrite30/Redis</a></p>
-<ul>
-<li>In directory 「<code>src</code>」</li>
-</ul>
-</li>
-<li><p>📚 Reference books:  「<strong>Redis开发与运维</strong>」「<strong>Redis设计与实现</strong>」</p>
-<ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Redis</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>DesignPatterns</title>
-    <url>/2021/04/15/DesignPatterns/DesignPatterns/</url>
-    <content><![CDATA[<h3 id="📌-Design-Pattern-By-Java"><a href="#📌-Design-Pattern-By-Java" class="headerlink" title="📌 Design Pattern By Java"></a>📌 Design Pattern By Java</h3><ul>
-<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/vf5tcx">https://www.yuque.com/hypocrite30/vf5tcx</a></p>
-</li>
-<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/DesignPatterns">https://github.com/hypocrite30/DesignPatterns</a></p>
-<ul>
-<li>In directory 「<code>src</code>」</li>
-</ul>
-</li>
-<li><p>📚 Reference books:  「<code>设计模式之禅</code> 第二版 」「重学Java设计模式 」</p>
-<ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-</ul>
-<p>🧰「创建者模式」5种</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 1 『工厂方法模式』</li>
-<li><input checked="" disabled="" type="checkbox"> 2 『抽象工厂模式』</li>
-<li><input checked="" disabled="" type="checkbox"> 3 『建造者模式』</li>
-<li><input checked="" disabled="" type="checkbox"> 4『原型模式』</li>
-<li><input checked="" disabled="" type="checkbox"> 5 『单例模式』</li>
-</ul>
-<p>🏹「结构型模式」7种</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 6 『适配器模式』</li>
-<li><input checked="" disabled="" type="checkbox"> 7 『桥梁模式』</li>
-<li><input disabled="" type="checkbox"> 8 『组合模式』</li>
-<li><input disabled="" type="checkbox"> 9 『装饰模式』</li>
-<li><input disabled="" type="checkbox"> 10 『外观模式』</li>
-<li><input disabled="" type="checkbox"> 11 『享元模式』</li>
-<li><input disabled="" type="checkbox"> 12 『代理模式』</li>
-</ul>
-<p>🧲「行为模式」10种</p>
-<ul>
-<li><p><input disabled="" type="checkbox">  13 『责任链模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  14 『命令模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  15 『迭代器模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  16 『中介者模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  17 『备忘录模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  18 『观察者模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  19 『状态模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  20 『策略模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  21 『模板方法模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  22 『访问者模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  23 『解释器模式』</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>DesignPatterns</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Centos 6无法使用yum解决办法</title>
-    <url>/2021/03/27/Linux/Centos%206%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8yum%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="Centos-6无法使用yum解决办法"><a href="#Centos-6无法使用yum解决办法" class="headerlink" title="Centos 6无法使用yum解决办法"></a>Centos 6无法使用yum解决办法</h1><p>CentOS 6已经随着2020年11月的结束进入了EOL（Reaches End of Life），不过有一些老设备依然需要支持，CentOS官方也给这些还不想把CentOS 6扔进垃圾堆的用户保留了最后一个版本的镜像，只是这个镜像不会再有更新了</p>
-<p>官方便在12月2日正式将CentOS 6相关的软件源移出了官方源，随之而来逐级镜像也会陆续将其删除。</p>
-<p>不过有一些老设备依然需要维持在当前系统，CentOS官方也给这些还不想把CentOS 6扔进垃圾堆的用户保留了各个版本软件源的镜像，只是这个软件源不会再有更新了。</p>
-<h2 id="一、一键修复"><a href="#一、一键修复" class="headerlink" title="一、一键修复"></a>一、一键修复</h2><figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">sed -i <span class="hljs-string">&quot;s|enabled=1|enabled=0|g&quot;</span> <span class="hljs-regexp">/etc/yum</span><span class="hljs-regexp">/pluginconf.d/</span>fastestmirror.conf<br>mv <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo /</span>etc<span class="hljs-regexp">/yum.repos.d/</span>CentOS-Base.repo.backup<br>curl -o <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo https:/</span><span class="hljs-regexp">/www.xmpan.com/</span>Centos-<span class="hljs-number">6</span>-Vault-Aliyun.repo <br>yum clean all<br>yum makecache<br></code></pre></div></td></tr></table></figure>
-<h2 id="二、手动修复"><a href="#二、手动修复" class="headerlink" title="二、手动修复"></a>二、手动修复</h2><p>首先把fastestmirrors关了</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk"><span class="hljs-comment">#编辑</span><br>vi <span class="hljs-regexp">/etc/yum</span><span class="hljs-regexp">/pluginconf.d/</span>fastestmirror.conf<br><span class="hljs-comment">#修改</span><br>enable=<span class="hljs-number">0</span><br><span class="hljs-comment">#或者执行以下命令</span><br>sed -i <span class="hljs-string">&quot;s|enabled=1|enabled=0|g&quot;</span> <span class="hljs-regexp">/etc/yum</span><span class="hljs-regexp">/pluginconf.d/</span>fastestmirror.conf<br></code></pre></div></td></tr></table></figure>
-<p>先把之前的repo挪到备份，然后下面两个二选一</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">mv <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo /</span>etc<span class="hljs-regexp">/yum.repos.d/</span>CentOS-Base.repo.bak<br></code></pre></div></td></tr></table></figure>
-<p>替换为官方Vault源(海外服务器用)</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">curl -o <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo https:/</span><span class="hljs-regexp">/www.xmpan.com/</span>Centos-<span class="hljs-number">6</span>-Vault-Official.repo<br></code></pre></div></td></tr></table></figure>
-<p>或者替换为阿里云Vault镜像(国内服务器用)</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">curl -o <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo https:/</span><span class="hljs-regexp">/www.xmpan.com/</span>Centos-<span class="hljs-number">6</span>-Vault-Aliyun.repo<br></code></pre></div></td></tr></table></figure>
-
-
-<blockquote>
-<p>以上转自：熊猫畔</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>虚拟机下Linux配置静态ip，使得XShell成功连接</title>
-    <url>/2021/01/23/Linux/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8BLinux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81ip%EF%BC%8C%E4%BD%BF%E5%BE%97XShell%E6%88%90%E5%8A%9F%E8%BF%9E%E6%8E%A5/</url>
-    <content><![CDATA[<h1 id="虚拟机下Linux配置静态ip，使得XShell成功连接"><a href="#虚拟机下Linux配置静态ip，使得XShell成功连接" class="headerlink" title="虚拟机下Linux配置静态ip，使得XShell成功连接"></a>虚拟机下Linux配置静态ip，使得XShell成功连接</h1><ul>
-<li>Linux：centOS6.7</li>
-<li>虚拟机：VMware Workstation Pro15</li>
-<li>SSH客户端：XShell6</li>
-</ul>
-<h2 id="一、配置VMware的虚拟网络编辑器"><a href="#一、配置VMware的虚拟网络编辑器" class="headerlink" title="一、配置VMware的虚拟网络编辑器"></a>一、配置VMware的虚拟网络编辑器</h2><p>进VMware之前，右键，用管理员模式打开，后面需要管理员权限，先不要开虚拟机</p>
-<blockquote>
-<p>菜单栏（最顶上一栏） -&gt; 编辑 -&gt;  虚拟网络编辑器</p>
-</blockquote>
-<p><a href="https://imgtu.com/i/sTn2BF"><img src="https://z3.ax1x.com/2021/01/23/sTn2BF.png" alt="sTn2BF.png"></a></p>
-<p>按照①②配置，<strong>把③的子网IP记住</strong>，后面要用到。</p>
-<p>然后点击④进入NAT设置。</p>
-<p><img src="https://s3.ax1x.com/2021/01/23/sT1Epd.png" alt="NAT设置"></p>
-<p>①中配置<strong>默认网关</strong>，其中前三大位要与前面记住的子网IP前面相同，后面默认会配置2，也可以自定义。然后该默认网关192.168.248.2要记住，后面需要用到。</p>
-<p>②照做就行</p>
-<p>③按确定返回上图，再点击下栏确定就可以保存虚拟网络编辑器的配置。</p>
-<h2 id="二、配置VMware-Network-Adapter-VMnet8的指定IP"><a href="#二、配置VMware-Network-Adapter-VMnet8的指定IP" class="headerlink" title="二、配置VMware Network Adapter VMnet8的指定IP"></a>二、配置VMware Network Adapter VMnet8的指定IP</h2><blockquote>
-<p> windows设置 -&gt; 网络和Internet -&gt; 更改适配器选项 -&gt;  右键VMware Network Adapter VMnet8进入属性</p>
-</blockquote>
-<p><a href="https://imgchr.com/i/sT86w6"><img src="https://s3.ax1x.com/2021/01/23/sT86w6.png" alt="sT86w6.png"></a></p>
-<p><a href="https://imgchr.com/i/sT8vlj"><img src="https://s3.ax1x.com/2021/01/23/sT8vlj.png" alt="sT8vlj.png"></a></p>
-<p><a href="https://imgchr.com/i/sTGUBt"><img src="https://s3.ax1x.com/2021/01/23/sTGUBt.png" alt="VMnet8属性"></a></p>
-<p>①选择IPv4的项目，②然后进入属性。</p>
-<p><a href="https://imgchr.com/i/sTGqD1"><img src="https://s3.ax1x.com/2021/01/23/sTGqD1.png" alt="sTGqD1.png"></a></p>
-<p>默认是自动获得IP地址，勾选“使用下面的IP地址”自定义IP</p>
-<p>①配置IP地址，前三位同虚拟网络编辑器配置的子网IP前三位相同，最后一位的1自定义，这里我设置为1</p>
-<p>②配完①一般子网掩码会自动填好，没自动补上就填上虚拟网络编辑器里的子网掩码。</p>
-<p>③默认网关就是干菜虚拟网络编辑器里面NAT设置里的那个默认网关。</p>
-<p>④确定保存，然后再确定就保存成功了。</p>
-<h2 id="三、配置网络适配器"><a href="#三、配置网络适配器" class="headerlink" title="三、配置网络适配器"></a>三、配置网络适配器</h2><p>管理员模式进入VMware，选择要配置的那台虚拟机，进入网络适配器</p>
-<p><a href="https://imgchr.com/i/sTYOfO"><img src="https://s3.ax1x.com/2021/01/23/sTYOfO.png" alt="sTYOfO.png"></a></p>
-<p><a href="https://imgchr.com/i/sTtE9S"><img src="https://s3.ax1x.com/2021/01/23/sTtE9S.png" alt="sTtE9S.png"></a></p>
-<p>如图配置即可。</p>
-<h2 id="四、配置ifcfg-eth0文件"><a href="#四、配置ifcfg-eth0文件" class="headerlink" title="四、配置ifcfg-eth0文件"></a>四、配置ifcfg-eth0文件</h2><p>打开虚拟机，建议用root用户登录，方便后面对ifcfg-eth0文件进行编辑。</p>
-<p>打开terminal终端，输入指令：<strong>vim /etc/sysconfig/network-scripts/ifcfg-eth0</strong></p>
-<p>这是使用终端vim的方式修改，不会vim操作的自行百度，或者根据上面的路劲去找ifcfg-eth0文件打开进行修改。</p>
-<p>下面的配置建议对字段进行复制，防止配错。</p>
-<ol>
-<li><strong>以下进行修改</strong></li>
-</ol>
-<ul>
-<li>ONBOOT=yes  # 系统启动时是否设置此网络接口，设置为yes时，系统启动时激活此设备。</li>
-<li>BOOTPROTO=static  # 静态模式</li>
-</ul>
-<ol start="2">
-<li><strong>将下面的字段追加到最后一行，根据注释进行相应的配置</strong></li>
-</ol>
-<ul>
-<li>IPADDR=192.168.248.128    # 自定义的IP地址，用XShell对服务器进行连接的IP，前三位与前面保持一致</li>
-<li>NETMASK=255.255.255.0    # 子网掩码</li>
-<li>NETWORK=192.168.248.0   #  网络地址，与虚拟网络编辑器设置的一样</li>
-<li>BROADCAST=192.168.248.255  # 广播地址，前三位与前面一致，最后一位255</li>
-<li>DNS1=192.168.248.2  # DNS地址，与默认网关相同</li>
-<li>GATEWAY=192.168.248.2  # 默认网关</li>
-</ul>
-<p>然后esc : wq保存</p>
-<p>退出后，终端输入指令：<strong>service network restart</strong>  重启网络</p>
-<p>然后 ping baidu.com，看能不能ping通，能说明能上网。</p>
-<p>输入指令：ifconfig，查看刚才自定义的静态ip地址是否配置成功。</p>
-<p><a href="https://imgchr.com/i/sTa2DJ"><img src="https://s3.ax1x.com/2021/01/23/sTa2DJ.png" alt="sTa2DJ.png"></a></p>
-<h2 id="五、SSH客户端连接服务器"><a href="#五、SSH客户端连接服务器" class="headerlink" title="五、SSH客户端连接服务器"></a>五、SSH客户端连接服务器</h2><p>可以先本地cmd中ping 一下服务器</p>
-<p><a href="https://imgchr.com/i/sTdFbj"><img src="https://s3.ax1x.com/2021/01/23/sTdFbj.png" alt="sTdFbj.png"></a></p>
-<p>如图能ping通，接下来进入XShell，将该ip连接就可以了，至此虚拟机静态IP配置结束。</p>
-]]></content>
-      <categories>
-        <category>Linux</category>
       </categories>
   </entry>
   <entry>
