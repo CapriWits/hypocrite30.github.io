@@ -674,6 +674,29 @@
       </categories>
   </entry>
   <entry>
+    <title>java中数组多种遍历求和的效率分析</title>
+    <url>/2021/02/01/JavaSE/java%E4%B8%AD%E6%95%B0%E7%BB%84%E5%A4%9A%E7%A7%8D%E9%81%8D%E5%8E%86%E6%B1%82%E5%92%8C%E7%9A%84%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<h1 id="java中数组多种遍历求和的效率分析"><a href="#java中数组多种遍历求和的效率分析" class="headerlink" title="java中数组多种遍历求和的效率分析"></a>java中数组多种遍历求和的效率分析</h1><h2 id="int型数组的遍历求和效率分析"><a href="#int型数组的遍历求和效率分析" class="headerlink" title="int型数组的遍历求和效率分析"></a>int型数组的遍历求和效率分析</h2><ul>
+<li>转换成流的形式，再求和。IntStream.of(a).sum();</li>
+<li>另一种转换流求和的方式，Arrays.stream(a).sum();</li>
+<li>普通for loop 求和：for i</li>
+<li>增强for loop 求和：for-each</li>
+</ul>
+<p>测试方法使用的是 System.nanoTime() 求出求和段的运行时间，单位为纳秒(10^-9 s)</p>
+<h3 id="测试代码如下："><a href="#测试代码如下：" class="headerlink" title="测试代码如下："></a>测试代码如下：</h3><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span>[] a = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">100</span>];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            a[i] = i + <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">long</span> l1, l2;<br>        <span class="hljs-keyword">int</span> sum1, sum2, sum3 = <span class="hljs-number">0</span>, sum4 = <span class="hljs-number">0</span>;<br><br>        l1 = System.nanoTime();<br>        sum1 = IntStream.of(a).sum();<br>        l2 = System.nanoTime();<br>        System.out.print(<span class="hljs-string">&quot;IntStream.of(a).sum(): &quot;</span>);<br>        System.out.println(sum1);<br>        System.out.println(l2 - l1);<br><br>        l1 = System.nanoTime();<br>        sum2 = Arrays.stream(a).sum();<br>        l2 = System.nanoTime();<br>        System.out.print(<span class="hljs-string">&quot;Arrays.stream(a).sum(): &quot;</span>);<br>        System.out.println(sum2);<br>        System.out.println(l2 - l1);<br><br>        l1 = System.nanoTime();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; a.length; i++) &#123;<br>            sum3 += a[i];<br>        &#125;<br>        l2 = System.nanoTime();<br>        System.out.print(<span class="hljs-string">&quot;for loop: &quot;</span>);<br>        System.out.println(sum3);<br>        System.out.println(l2 - l1);<br><br>        l1 = System.nanoTime();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i : a) &#123;<br>            sum4 += i;<br>        &#125;<br>        l2 = System.nanoTime();<br>        System.out.print(<span class="hljs-string">&quot;iterator loop: &quot;</span>);<br>        System.out.println(sum4);<br>        System.out.println(l2 - l1);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>IntStream.of(a).sum(): 5050<br>24215600<br>Arrays.stream(a).sum(): 5050<br>184000<br>for loop: 5050<br>1600<br>iterator loop: 5050<br>1800</p>
+</blockquote>
+<p>求和结果都是正确的。所以根据最后求和速度进行排序，效率从低到高：</p>
+<blockquote>
+<p>IntStream.of(A).sum() &lt; Arrays.stream(A).sum() &lt; iterator loop &lt; for loop</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+  </entry>
+  <entry>
     <title>负数取模运算</title>
     <url>/2020/05/27/JavaSE/%E8%B4%9F%E6%95%B0%E5%8F%96%E6%A8%A1%E8%BF%90%E7%AE%97/</url>
     <content><![CDATA[<h1 id="负数取模运算"><a href="#负数取模运算" class="headerlink" title="负数取模运算"></a>负数取模运算</h1><hr>
@@ -730,6 +753,28 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
       </categories>
   </entry>
   <entry>
+    <title>Redis</title>
+    <url>/2021/04/22/Redis/Redis/</url>
+    <content><![CDATA[<h3 id="📌-Redis"><a href="#📌-Redis" class="headerlink" title="📌 Redis"></a>📌 Redis</h3><ul>
+<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/oz1eni">https://www.yuque.com/hypocrite30/oz1eni</a></p>
+</li>
+<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/Redis">https://github.com/hypocrite30/Redis</a></p>
+<ul>
+<li>In directory 「<code>src</code>」</li>
+</ul>
+</li>
+<li><p>📚 Reference books:  「<strong>Redis开发与运维</strong>」「<strong>Redis设计与实现</strong>」</p>
+<ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Centos 6无法使用yum解决办法</title>
     <url>/2021/03/27/Linux/Centos%206%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8yum%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
     <content><![CDATA[<h1 id="Centos-6无法使用yum解决办法"><a href="#Centos-6无法使用yum解决办法" class="headerlink" title="Centos 6无法使用yum解决办法"></a>Centos 6无法使用yum解决办法</h1><p>CentOS 6已经随着2020年11月的结束进入了EOL（Reaches End of Life），不过有一些老设备依然需要支持，CentOS官方也给这些还不想把CentOS 6扔进垃圾堆的用户保留了最后一个版本的镜像，只是这个镜像不会再有更新了</p>
@@ -752,29 +797,6 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
 ]]></content>
       <categories>
         <category>Linux</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>java中数组多种遍历求和的效率分析</title>
-    <url>/2021/02/01/JavaSE/java%E4%B8%AD%E6%95%B0%E7%BB%84%E5%A4%9A%E7%A7%8D%E9%81%8D%E5%8E%86%E6%B1%82%E5%92%8C%E7%9A%84%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<h1 id="java中数组多种遍历求和的效率分析"><a href="#java中数组多种遍历求和的效率分析" class="headerlink" title="java中数组多种遍历求和的效率分析"></a>java中数组多种遍历求和的效率分析</h1><h2 id="int型数组的遍历求和效率分析"><a href="#int型数组的遍历求和效率分析" class="headerlink" title="int型数组的遍历求和效率分析"></a>int型数组的遍历求和效率分析</h2><ul>
-<li>转换成流的形式，再求和。IntStream.of(a).sum();</li>
-<li>另一种转换流求和的方式，Arrays.stream(a).sum();</li>
-<li>普通for loop 求和：for i</li>
-<li>增强for loop 求和：for-each</li>
-</ul>
-<p>测试方法使用的是 System.nanoTime() 求出求和段的运行时间，单位为纳秒(10^-9 s)</p>
-<h3 id="测试代码如下："><a href="#测试代码如下：" class="headerlink" title="测试代码如下："></a>测试代码如下：</h3><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span>[] a = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">100</span>];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            a[i] = i + <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">long</span> l1, l2;<br>        <span class="hljs-keyword">int</span> sum1, sum2, sum3 = <span class="hljs-number">0</span>, sum4 = <span class="hljs-number">0</span>;<br><br>        l1 = System.nanoTime();<br>        sum1 = IntStream.of(a).sum();<br>        l2 = System.nanoTime();<br>        System.out.print(<span class="hljs-string">&quot;IntStream.of(a).sum(): &quot;</span>);<br>        System.out.println(sum1);<br>        System.out.println(l2 - l1);<br><br>        l1 = System.nanoTime();<br>        sum2 = Arrays.stream(a).sum();<br>        l2 = System.nanoTime();<br>        System.out.print(<span class="hljs-string">&quot;Arrays.stream(a).sum(): &quot;</span>);<br>        System.out.println(sum2);<br>        System.out.println(l2 - l1);<br><br>        l1 = System.nanoTime();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; a.length; i++) &#123;<br>            sum3 += a[i];<br>        &#125;<br>        l2 = System.nanoTime();<br>        System.out.print(<span class="hljs-string">&quot;for loop: &quot;</span>);<br>        System.out.println(sum3);<br>        System.out.println(l2 - l1);<br><br>        l1 = System.nanoTime();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i : a) &#123;<br>            sum4 += i;<br>        &#125;<br>        l2 = System.nanoTime();<br>        System.out.print(<span class="hljs-string">&quot;iterator loop: &quot;</span>);<br>        System.out.println(sum4);<br>        System.out.println(l2 - l1);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<blockquote>
-<p>IntStream.of(a).sum(): 5050<br>24215600<br>Arrays.stream(a).sum(): 5050<br>184000<br>for loop: 5050<br>1600<br>iterator loop: 5050<br>1800</p>
-</blockquote>
-<p>求和结果都是正确的。所以根据最后求和速度进行排序，效率从低到高：</p>
-<blockquote>
-<p>IntStream.of(A).sum() &lt; Arrays.stream(A).sum() &lt; iterator loop &lt; for loop</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaSE</category>
       </categories>
   </entry>
   <entry>
@@ -846,28 +868,6 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
 ]]></content>
       <categories>
         <category>Linux</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Redis</title>
-    <url>/2021/04/22/Redis/Redis/</url>
-    <content><![CDATA[<h3 id="📌-Redis"><a href="#📌-Redis" class="headerlink" title="📌 Redis"></a>📌 Redis</h3><ul>
-<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/oz1eni">https://www.yuque.com/hypocrite30/oz1eni</a></p>
-</li>
-<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/Redis">https://github.com/hypocrite30/Redis</a></p>
-<ul>
-<li>In directory 「<code>src</code>」</li>
-</ul>
-</li>
-<li><p>📚 Reference books:  「<strong>Redis开发与运维</strong>」「<strong>Redis设计与实现</strong>」</p>
-<ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Redis</category>
       </categories>
   </entry>
   <entry>
