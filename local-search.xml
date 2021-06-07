@@ -8,7 +8,7 @@
     <link href="/2021/06/02/JVM/JVM%E3%80%8CHotSpot%20VM%E3%80%8D/"/>
     <url>/2021/06/02/JVM/JVM%E3%80%8CHotSpot%20VM%E3%80%8D/</url>
     
-    <content type="html"><![CDATA[<h3 id="📌-JVM「HotSpot-VM」"><a href="#📌-JVM「HotSpot-VM」" class="headerlink" title="📌 JVM「HotSpot VM」"></a>📌 JVM「HotSpot VM」</h3><ul><li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/JVM-demonstrate">https://github.com/hypocrite30/JVM-demonstrate</a></p><ul><li>In directory 「<code>src</code>」</li></ul></li><li><p>📚 Reference :  </p><ul><li>「<a href="https://book.douban.com/subject/34907497/">深入理解Java虚拟机（第3版）</a>」<ul><li>In directory 「<code>doc</code>」</li></ul></li><li>「<a href="https://www.bilibili.com/video/BV1PJ411n7xZ">尚硅谷JVM教程</a>」</li></ul></li><li><p>🍬Thanks：</p><ul><li>「<a href="https://gitee.com/vectorx/NOTE_JVM%E3%80%8D">https://gitee.com/vectorx/NOTE_JVM」</a><ul><li>In directory 「<code>doc</code>」</li></ul></li><li>「<a href="https://github.com/TangBean/understanding-the-jvm%E3%80%8D">https://github.com/TangBean/understanding-the-jvm」</a><ul><li>In directory 「<code>doc</code>」</li></ul></li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<h3 id="📌-JVM「HotSpot-VM」"><a href="#📌-JVM「HotSpot-VM」" class="headerlink" title="📌 JVM「HotSpot VM」"></a>📌 JVM「HotSpot VM」</h3><ul><li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/JVM-demonstrate">https://github.com/hypocrite30/JVM-demonstrate</a></p><ul><li>In directory 「<code>src</code>」</li></ul></li><li><p>📚 Reference :  </p><ul><li>「<a href="https://book.douban.com/subject/34907497/">深入理解Java虚拟机（第3版）</a>」<ul><li>In directory 「<code>doc</code>」</li></ul></li><li>「<a href="https://www.bilibili.com/video/BV1PJ411n7xZ">尚硅谷JVM教程</a>」</li></ul></li><li><p>🍬Thanks：</p><ul><li><a href="https://gitee.com/vectorx/NOTE_JVM">https://gitee.com/vectorx/NOTE_JVM</a><ul><li>In directory 「<code>doc</code>」</li></ul></li><li><a href="https://github.com/TangBean/understanding-the-jvm">https://github.com/TangBean/understanding-the-jvm</a><ul><li>In directory 「<code>doc</code>」</li></ul></li></ul></li></ul>]]></content>
     
     
     <categories>
@@ -341,22 +341,22 @@
   
   
   <entry>
-    <title>about</title>
+    <title>分类</title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[<h1 id="ABOUT-ME"><a href="#ABOUT-ME" class="headerlink" title="ABOUT ME"></a>ABOUT ME</h1><p>📭 How to reach me: </p><ul><li><a href="mailto:1027093394@qq.com">1027093394@qq.com</a></li><li><a href="mailto:cwh1027093394@gmail.com">cwh1027093394@gmail.com</a></li></ul><p>👶 My Site:</p><ul><li><strong>Blog</strong>: <a href="https://hypocrite30.top/">https://hypocrite30.top/</a></li><li><strong>JianShu</strong>: <a href="https://www.jianshu.com/u/fc4ebe02fff2">https://www.jianshu.com/u/fc4ebe02fff2</a></li><li><strong>Github</strong>: <a href="https://github.com/hypocrite30">https://github.com/hypocrite30</a></li></ul><p>🎓 Learning <strong>Computer science and technology</strong></p><p>💗 Favor: <strong>Music</strong>🎵 <strong>Guitar</strong>🎸<strong>Coding</strong>💻 <strong>Blogging</strong>🖊 <strong>Basketball</strong>🏀 <strong>Gaming</strong>🎮 <strong>Exercising</strong>💪</p><p>📙 Motto：<strong>To see the world as it is and love it.</strong></p><h1 id="ABOUT-BLOG"><a href="#ABOUT-BLOG" class="headerlink" title="ABOUT BLOG"></a>ABOUT BLOG</h1><p>博客作为学习记录，用的Hexo + Github Page搭的，搭的不好请见谅。有需求或疑问可以 mail 与我交流。文章有错误或疏漏请多指正，不胜感激！</p>]]></content>
+    <content type="html"><![CDATA[]]></content>
     
   </entry>
   
   
   
   <entry>
-    <title>分类</title>
+    <title>about</title>
     <link href="/"/>
     <url>/</url>
     
-    <content type="html"><![CDATA[]]></content>
+    <content type="html"><![CDATA[<h1 id="ABOUT-ME"><a href="#ABOUT-ME" class="headerlink" title="ABOUT ME"></a>ABOUT ME</h1><p>📭 How to reach me: </p><ul><li><a href="mailto:1027093394@qq.com">1027093394@qq.com</a></li><li><a href="mailto:cwh1027093394@gmail.com">cwh1027093394@gmail.com</a></li></ul><p>👶 My Site:</p><ul><li><strong>Blog</strong>: <a href="https://hypocrite30.top/">https://hypocrite30.top/</a></li><li><strong>JianShu</strong>: <a href="https://www.jianshu.com/u/fc4ebe02fff2">https://www.jianshu.com/u/fc4ebe02fff2</a></li><li><strong>Github</strong>: <a href="https://github.com/hypocrite30">https://github.com/hypocrite30</a></li></ul><p>🎓 Learning <strong>Computer science and technology</strong></p><p>💗 Favor: <strong>Music</strong>🎵 <strong>Guitar</strong>🎸<strong>Coding</strong>💻 <strong>Blogging</strong>🖊 <strong>Basketball</strong>🏀 <strong>Gaming</strong>🎮 <strong>Exercising</strong>💪</p><p>📙 Motto：<strong>To see the world as it is and love it.</strong></p><h1 id="ABOUT-BLOG"><a href="#ABOUT-BLOG" class="headerlink" title="ABOUT BLOG"></a>ABOUT BLOG</h1><p>博客作为学习记录，用的Hexo + Github Page搭的，搭的不好请见谅。有需求或疑问可以 mail 与我交流。文章有错误或疏漏请多指正，不胜感激！</p>]]></content>
     
   </entry>
   
