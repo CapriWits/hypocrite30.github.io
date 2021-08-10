@@ -77,6 +77,42 @@
       </categories>
   </entry>
   <entry>
+    <title>JVM「HotSpot VM」</title>
+    <url>/2021/06/02/JVM/JVM%E3%80%8CHotSpot%20VM%E3%80%8D/</url>
+    <content><![CDATA[<h3 id="📌-JVM「HotSpot-VM」"><a href="#📌-JVM「HotSpot-VM」" class="headerlink" title="📌 JVM「HotSpot VM」"></a>📌 JVM「HotSpot VM」</h3><ul>
+<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/JVM-demonstrate">https://github.com/hypocrite30/JVM-demonstrate</a></p>
+<ul>
+<li>In directory 「<code>src</code>」</li>
+</ul>
+</li>
+<li><p>📚 Reference :  </p>
+<ul>
+<li>「<a href="https://book.douban.com/subject/34907497/">深入理解Java虚拟机（第3版）</a>」<ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+<li>「<a href="https://www.bilibili.com/video/BV1PJ411n7xZ">尚硅谷JVM教程</a>」</li>
+</ul>
+</li>
+<li><p>🍬Thanks：</p>
+<ul>
+<li><a href="https://gitee.com/vectorx/NOTE_JVM">https://gitee.com/vectorx/NOTE_JVM</a><ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+<li><a href="https://github.com/TangBean/understanding-the-jvm">https://github.com/TangBean/understanding-the-jvm</a><ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JVM</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Java For-loop&amp; For-each &amp; Iterator 效率分析</title>
     <url>/2021/03/16/JavaSE/Java%20For-loop&amp;%20For-each%20&amp;%20Iterator%20%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<ul>
@@ -187,42 +223,6 @@
 ]]></content>
       <categories>
         <category>JavaSE</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>JVM「HotSpot VM」</title>
-    <url>/2021/06/02/JVM/JVM%E3%80%8CHotSpot%20VM%E3%80%8D/</url>
-    <content><![CDATA[<h3 id="📌-JVM「HotSpot-VM」"><a href="#📌-JVM「HotSpot-VM」" class="headerlink" title="📌 JVM「HotSpot VM」"></a>📌 JVM「HotSpot VM」</h3><ul>
-<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/JVM-demonstrate">https://github.com/hypocrite30/JVM-demonstrate</a></p>
-<ul>
-<li>In directory 「<code>src</code>」</li>
-</ul>
-</li>
-<li><p>📚 Reference :  </p>
-<ul>
-<li>「<a href="https://book.douban.com/subject/34907497/">深入理解Java虚拟机（第3版）</a>」<ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-<li>「<a href="https://www.bilibili.com/video/BV1PJ411n7xZ">尚硅谷JVM教程</a>」</li>
-</ul>
-</li>
-<li><p>🍬Thanks：</p>
-<ul>
-<li><a href="https://gitee.com/vectorx/NOTE_JVM">https://gitee.com/vectorx/NOTE_JVM</a><ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-<li><a href="https://github.com/TangBean/understanding-the-jvm">https://github.com/TangBean/understanding-the-jvm</a><ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>JVM</category>
       </categories>
   </entry>
   <entry>
@@ -512,41 +512,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Java手动实现迭代器。(LeetCode 341)</title>
-    <url>/2021/03/23/JavaSE/Java%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%82(LeetCode%20341)/</url>
-    <content><![CDATA[<h1 id="341-扁平化嵌套列表迭代器"><a href="#341-扁平化嵌套列表迭代器" class="headerlink" title="341. 扁平化嵌套列表迭代器"></a>341. 扁平化嵌套列表迭代器</h1><hr>
-<p><a href="https://imgtu.com/i/6T7qHO"><img src="https://z3.ax1x.com/2021/03/23/6T7qHO.png" alt="leetCode 341"></a></p>
-<p><a href="https://leetcode-cn.com/problems/flatten-nested-list-iterator/">https://leetcode-cn.com/problems/flatten-nested-list-iterator/</a></p>
-<ul>
-<li>先声明 <code>NestedInteger</code> 的结构（题目给出）</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">NestedInteger</span> </span>&#123;<br><br>    <span class="hljs-comment">// @return true if this NestedInteger holds a single integer, rather than a nested list.</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isInteger</span><span class="hljs-params">()</span></span>;<br><br>    <span class="hljs-comment">// @return the single integer that this NestedInteger holds, if it holds a single integer</span><br>    <span class="hljs-comment">// Return null if this NestedInteger holds a nested list</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">getInteger</span><span class="hljs-params">()</span></span>;<br><br>    <span class="hljs-comment">// @return the nested list that this NestedInteger holds, if it holds a nested list</span><br>    <span class="hljs-comment">// Return null if this NestedInteger holds a single integer</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;NestedInteger&gt; <span class="hljs-title">getList</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<h2 id="迭代器（效率最高）"><a href="#迭代器（效率最高）" class="headerlink" title="迭代器（效率最高）"></a>迭代器（效率最高）</h2><ul>
-<li>手动遍历，将遍历结果存在集合中，然后生成迭代器，其他操作基于此迭代器即可。</li>
-<li>遍历方式是DFS，因为此结构可以联系到数据结构中的 <code>树</code>。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * use Java Iterator</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    <span class="hljs-keyword">private</span> Iterator&lt;Integer&gt; iterator;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedIterator</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (NestedInteger node : nestedList) &#123;<br>            DFS(node, list);<br>        &#125;<br>        <span class="hljs-keyword">this</span>.iterator = list.iterator(); <span class="hljs-comment">// all the operation use list&#x27;s iterator</span><br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> iterator.next();<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> iterator.hasNext();<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * DFS get every element into List res;</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DFS</span><span class="hljs-params">(NestedInteger node, List&lt;Integer&gt; res)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (node.isInteger()) &#123;<br>            res.add(node.getInteger());<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (NestedInteger child : node.getList()) &#123;<br>            DFS(child, res);<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<h2 id="队列-DFS（用队列实现-Iterator）"><a href="#队列-DFS（用队列实现-Iterator）" class="headerlink" title="队列 + DFS（用队列实现 Iterator）"></a>队列 + DFS（用队列实现 Iterator）</h2><ul>
-<li>道理同上，DFS手动遍历，将遍历结果存在队列中</li>
-<li>用队列手动实现 <code>iterator</code>。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * use DFS and Queue</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    Deque&lt;Integer&gt; queue = <span class="hljs-keyword">new</span> ArrayDeque&lt;Integer&gt;();<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedIterator</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        DFS(nestedList);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> hasNext() ? queue.pollFirst() : -<span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> !queue.isEmpty();<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * DFS the nestedList, offer the elements into the queue</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DFS</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (NestedInteger elem : nestedList) &#123;<br>            <span class="hljs-keyword">if</span> (elem.isInteger()) &#123; <span class="hljs-comment">// elem is Integer, offer the queue</span><br>                queue.addLast(elem.getInteger());<br>            &#125; <span class="hljs-keyword">else</span> &#123;    <span class="hljs-comment">// elem is List, DFS the list and offer the elements into queue</span><br>                DFS(elem.getList());<br>            &#125;<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<h2 id="栈-递归-Stack-Recursion"><a href="#栈-递归-Stack-Recursion" class="headerlink" title="栈 + 递归 (Stack + Recursion)"></a>栈 + 递归 (Stack + Recursion)</h2><ul>
-<li>不同于队列的是，队列要在初始化阶段，将遍历的结果全部处理好，最后按照顺序进行操作即可。</li>
-<li>利用栈的思想是，先将这些 <code>NestedInteger</code>按顺序（倒序）存放在栈中，而要使用里面的元素时，再一步步的<strong>拆封</strong>出来。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * use Stack and Recursion</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    Deque&lt;NestedInteger&gt; stack = <span class="hljs-keyword">new</span> ArrayDeque&lt;NestedInteger&gt;();<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedIterator</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = nestedList.size() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span> ; i--) &#123;<br>            stack.push(nestedList.get(i));<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> hasNext() ? stack.pop().getInteger() : -<span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (stack.isEmpty()) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;    <span class="hljs-comment">// stack not empty, judge the peek elem&#x27;s type(List/Integer)</span><br>            NestedInteger elem = stack.peek();<br>            <span class="hljs-keyword">if</span> (elem.isInteger()) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>            &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// peek elem is list, iterate the list to push elem into the stack</span><br>                elem = stack.pop();<br>                List&lt;NestedInteger&gt; list = elem.getList();<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = list.size() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>                    stack.push(list.get(i));<br>                &#125;<br>                <span class="hljs-keyword">return</span> hasNext();<br>            &#125;<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
-      <categories>
-        <category>JavaSE</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Java算法竞赛常用模板</title>
     <url>/2021/02/10/JavaSE/Java%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<h1 id="Java算法竞赛常用模板"><a href="#Java算法竞赛常用模板" class="headerlink" title="Java算法竞赛常用模板"></a>Java算法竞赛常用模板</h1><h2 id="一、输入输出"><a href="#一、输入输出" class="headerlink" title="一、输入输出"></a>一、输入输出</h2><h3 id="简单输入"><a href="#简单输入" class="headerlink" title="简单输入"></a>简单输入</h3><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner <br><span class="hljs-keyword">import</span> java.io.BufferedInputStream;<br><br>Scanner sc1 = <span class="hljs-keyword">new</span> Scanner(System.in);<br>Scanner sc2 = <span class="hljs-keyword">new</span> Scanner(<span class="hljs-keyword">new</span> BufferedInputStream(System.in));<br><span class="hljs-comment">// sc2用到缓冲流，读入更快</span><br></code></pre></div></td></tr></table></figure>
@@ -710,6 +675,41 @@
       </categories>
   </entry>
   <entry>
+    <title>Java手动实现迭代器。(LeetCode 341)</title>
+    <url>/2021/03/23/JavaSE/Java%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%82(LeetCode%20341)/</url>
+    <content><![CDATA[<h1 id="341-扁平化嵌套列表迭代器"><a href="#341-扁平化嵌套列表迭代器" class="headerlink" title="341. 扁平化嵌套列表迭代器"></a>341. 扁平化嵌套列表迭代器</h1><hr>
+<p><a href="https://imgtu.com/i/6T7qHO"><img src="https://z3.ax1x.com/2021/03/23/6T7qHO.png" alt="leetCode 341"></a></p>
+<p><a href="https://leetcode-cn.com/problems/flatten-nested-list-iterator/">https://leetcode-cn.com/problems/flatten-nested-list-iterator/</a></p>
+<ul>
+<li>先声明 <code>NestedInteger</code> 的结构（题目给出）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">NestedInteger</span> </span>&#123;<br><br>    <span class="hljs-comment">// @return true if this NestedInteger holds a single integer, rather than a nested list.</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isInteger</span><span class="hljs-params">()</span></span>;<br><br>    <span class="hljs-comment">// @return the single integer that this NestedInteger holds, if it holds a single integer</span><br>    <span class="hljs-comment">// Return null if this NestedInteger holds a nested list</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">getInteger</span><span class="hljs-params">()</span></span>;<br><br>    <span class="hljs-comment">// @return the nested list that this NestedInteger holds, if it holds a nested list</span><br>    <span class="hljs-comment">// Return null if this NestedInteger holds a single integer</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;NestedInteger&gt; <span class="hljs-title">getList</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h2 id="迭代器（效率最高）"><a href="#迭代器（效率最高）" class="headerlink" title="迭代器（效率最高）"></a>迭代器（效率最高）</h2><ul>
+<li>手动遍历，将遍历结果存在集合中，然后生成迭代器，其他操作基于此迭代器即可。</li>
+<li>遍历方式是DFS，因为此结构可以联系到数据结构中的 <code>树</code>。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * use Java Iterator</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    <span class="hljs-keyword">private</span> Iterator&lt;Integer&gt; iterator;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedIterator</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (NestedInteger node : nestedList) &#123;<br>            DFS(node, list);<br>        &#125;<br>        <span class="hljs-keyword">this</span>.iterator = list.iterator(); <span class="hljs-comment">// all the operation use list&#x27;s iterator</span><br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> iterator.next();<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> iterator.hasNext();<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * DFS get every element into List res;</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DFS</span><span class="hljs-params">(NestedInteger node, List&lt;Integer&gt; res)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (node.isInteger()) &#123;<br>            res.add(node.getInteger());<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (NestedInteger child : node.getList()) &#123;<br>            DFS(child, res);<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h2 id="队列-DFS（用队列实现-Iterator）"><a href="#队列-DFS（用队列实现-Iterator）" class="headerlink" title="队列 + DFS（用队列实现 Iterator）"></a>队列 + DFS（用队列实现 Iterator）</h2><ul>
+<li>道理同上，DFS手动遍历，将遍历结果存在队列中</li>
+<li>用队列手动实现 <code>iterator</code>。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * use DFS and Queue</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    Deque&lt;Integer&gt; queue = <span class="hljs-keyword">new</span> ArrayDeque&lt;Integer&gt;();<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedIterator</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        DFS(nestedList);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> hasNext() ? queue.pollFirst() : -<span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> !queue.isEmpty();<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * DFS the nestedList, offer the elements into the queue</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DFS</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (NestedInteger elem : nestedList) &#123;<br>            <span class="hljs-keyword">if</span> (elem.isInteger()) &#123; <span class="hljs-comment">// elem is Integer, offer the queue</span><br>                queue.addLast(elem.getInteger());<br>            &#125; <span class="hljs-keyword">else</span> &#123;    <span class="hljs-comment">// elem is List, DFS the list and offer the elements into queue</span><br>                DFS(elem.getList());<br>            &#125;<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h2 id="栈-递归-Stack-Recursion"><a href="#栈-递归-Stack-Recursion" class="headerlink" title="栈 + 递归 (Stack + Recursion)"></a>栈 + 递归 (Stack + Recursion)</h2><ul>
+<li>不同于队列的是，队列要在初始化阶段，将遍历的结果全部处理好，最后按照顺序进行操作即可。</li>
+<li>利用栈的思想是，先将这些 <code>NestedInteger</code>按顺序（倒序）存放在栈中，而要使用里面的元素时，再一步步的<strong>拆封</strong>出来。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * use Stack and Recursion</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    Deque&lt;NestedInteger&gt; stack = <span class="hljs-keyword">new</span> ArrayDeque&lt;NestedInteger&gt;();<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedIterator</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = nestedList.size() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span> ; i--) &#123;<br>            stack.push(nestedList.get(i));<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> hasNext() ? stack.pop().getInteger() : -<span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (stack.isEmpty()) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;    <span class="hljs-comment">// stack not empty, judge the peek elem&#x27;s type(List/Integer)</span><br>            NestedInteger elem = stack.peek();<br>            <span class="hljs-keyword">if</span> (elem.isInteger()) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>            &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// peek elem is list, iterate the list to push elem into the stack</span><br>                elem = stack.pop();<br>                List&lt;NestedInteger&gt; list = elem.getList();<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = list.size() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>                    stack.push(list.get(i));<br>                &#125;<br>                <span class="hljs-keyword">return</span> hasNext();<br>            &#125;<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+  </entry>
+  <entry>
     <title>java中数组多种遍历求和的效率分析</title>
     <url>/2021/02/01/JavaSE/java%E4%B8%AD%E6%95%B0%E7%BB%84%E5%A4%9A%E7%A7%8D%E9%81%8D%E5%8E%86%E6%B1%82%E5%92%8C%E7%9A%84%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<h1 id="java中数组多种遍历求和的效率分析"><a href="#java中数组多种遍历求和的效率分析" class="headerlink" title="java中数组多种遍历求和的效率分析"></a>java中数组多种遍历求和的效率分析</h1><h2 id="int型数组的遍历求和效率分析"><a href="#int型数组的遍历求和效率分析" class="headerlink" title="int型数组的遍历求和效率分析"></a>int型数组的遍历求和效率分析</h2><ul>
@@ -789,28 +789,6 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
       </categories>
   </entry>
   <entry>
-    <title>Redis</title>
-    <url>/2021/04/22/Redis/Redis/</url>
-    <content><![CDATA[<h3 id="📌-Redis"><a href="#📌-Redis" class="headerlink" title="📌 Redis"></a>📌 Redis</h3><ul>
-<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/oz1eni">https://www.yuque.com/hypocrite30/oz1eni</a></p>
-</li>
-<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/Redis">https://github.com/hypocrite30/Redis</a></p>
-<ul>
-<li>In directory 「<code>src</code>」</li>
-</ul>
-</li>
-<li><p>📚 Reference books:  「<strong>Redis开发与运维</strong>」「<strong>Redis设计与实现</strong>」「<strong>Redis深度历险</strong>」</p>
-<ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Redis</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Centos 6无法使用yum解决办法</title>
     <url>/2021/03/27/Linux/Centos%206%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8yum%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
     <content><![CDATA[<h1 id="Centos-6无法使用yum解决办法"><a href="#Centos-6无法使用yum解决办法" class="headerlink" title="Centos 6无法使用yum解决办法"></a>Centos 6无法使用yum解决办法</h1><p>CentOS 6已经随着2020年11月的结束进入了EOL（Reaches End of Life），不过有一些老设备依然需要支持，CentOS官方也给这些还不想把CentOS 6扔进垃圾堆的用户保留了最后一个版本的镜像，只是这个镜像不会再有更新了</p>
@@ -833,6 +811,28 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
 ]]></content>
       <categories>
         <category>Linux</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Redis</title>
+    <url>/2021/04/22/Redis/Redis/</url>
+    <content><![CDATA[<h3 id="📌-Redis"><a href="#📌-Redis" class="headerlink" title="📌 Redis"></a>📌 Redis</h3><ul>
+<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/oz1eni">https://www.yuque.com/hypocrite30/oz1eni</a></p>
+</li>
+<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/Redis">https://github.com/hypocrite30/Redis</a></p>
+<ul>
+<li>In directory 「<code>src</code>」</li>
+</ul>
+</li>
+<li><p>📚 Reference books:  「<strong>Redis开发与运维</strong>」「<strong>Redis设计与实现</strong>」「<strong>Redis深度历险</strong>」</p>
+<ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Redis</category>
       </categories>
   </entry>
   <entry>
@@ -1059,7 +1059,7 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
       </categories>
   </entry>
   <entry>
-    <title>Java常见细节</title>
+    <title>Java常用集合源码分析 Ⅰ</title>
     <url>/2021/08/10/JavaSE/Java%E5%B8%B8%E7%94%A8%E9%9B%86%E5%90%88%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90%20%E2%85%A0/</url>
     <content><![CDATA[<h1 id="Java常用集合源码分析-Ⅰ"><a href="#Java常用集合源码分析-Ⅰ" class="headerlink" title="Java常用集合源码分析 Ⅰ"></a>Java常用集合源码分析 Ⅰ</h1><blockquote>
 <p>@Version: JDK 1.8</p>
