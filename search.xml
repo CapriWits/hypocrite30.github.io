@@ -77,42 +77,6 @@
       </categories>
   </entry>
   <entry>
-    <title>JVM「HotSpot VM」</title>
-    <url>/2021/06/02/JVM/JVM%E3%80%8CHotSpot%20VM%E3%80%8D/</url>
-    <content><![CDATA[<h3 id="📌-JVM「HotSpot-VM」"><a href="#📌-JVM「HotSpot-VM」" class="headerlink" title="📌 JVM「HotSpot VM」"></a>📌 JVM「HotSpot VM」</h3><ul>
-<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/JVM-demonstrate">https://github.com/hypocrite30/JVM-demonstrate</a></p>
-<ul>
-<li>In directory 「<code>src</code>」</li>
-</ul>
-</li>
-<li><p>📚 Reference :  </p>
-<ul>
-<li>「<a href="https://book.douban.com/subject/34907497/">深入理解Java虚拟机（第3版）</a>」<ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-<li>「<a href="https://www.bilibili.com/video/BV1PJ411n7xZ">尚硅谷JVM教程</a>」</li>
-</ul>
-</li>
-<li><p>🍬Thanks：</p>
-<ul>
-<li><a href="https://gitee.com/vectorx/NOTE_JVM">https://gitee.com/vectorx/NOTE_JVM</a><ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-<li><a href="https://github.com/TangBean/understanding-the-jvm">https://github.com/TangBean/understanding-the-jvm</a><ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>JVM</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Java For-loop&amp; For-each &amp; Iterator 效率分析</title>
     <url>/2021/03/16/JavaSE/Java%20For-loop&amp;%20For-each%20&amp;%20Iterator%20%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<ul>
@@ -223,6 +187,42 @@
 ]]></content>
       <categories>
         <category>JavaSE</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>JVM「HotSpot VM」</title>
+    <url>/2021/06/02/JVM/JVM%E3%80%8CHotSpot%20VM%E3%80%8D/</url>
+    <content><![CDATA[<h3 id="📌-JVM「HotSpot-VM」"><a href="#📌-JVM「HotSpot-VM」" class="headerlink" title="📌 JVM「HotSpot VM」"></a>📌 JVM「HotSpot VM」</h3><ul>
+<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/JVM-demonstrate">https://github.com/hypocrite30/JVM-demonstrate</a></p>
+<ul>
+<li>In directory 「<code>src</code>」</li>
+</ul>
+</li>
+<li><p>📚 Reference :  </p>
+<ul>
+<li>「<a href="https://book.douban.com/subject/34907497/">深入理解Java虚拟机（第3版）</a>」<ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+<li>「<a href="https://www.bilibili.com/video/BV1PJ411n7xZ">尚硅谷JVM教程</a>」</li>
+</ul>
+</li>
+<li><p>🍬Thanks：</p>
+<ul>
+<li><a href="https://gitee.com/vectorx/NOTE_JVM">https://gitee.com/vectorx/NOTE_JVM</a><ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+<li><a href="https://github.com/TangBean/understanding-the-jvm">https://github.com/TangBean/understanding-the-jvm</a><ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JVM</category>
       </categories>
   </entry>
   <entry>
@@ -547,87 +547,6 @@
       </categories>
   </entry>
   <entry>
-    <title>负数取模运算</title>
-    <url>/2020/05/27/JavaSE/%E8%B4%9F%E6%95%B0%E5%8F%96%E6%A8%A1%E8%BF%90%E7%AE%97/</url>
-    <content><![CDATA[<h1 id="负数取模运算"><a href="#负数取模运算" class="headerlink" title="负数取模运算"></a>负数取模运算</h1><hr>
-<h2 id="一、引例"><a href="#一、引例" class="headerlink" title="一、引例"></a>一、引例</h2><div class="hljs code-wrapper"><pre><code>System.out.println(&quot;3 % 5 = &quot; + 3 % 5);
-System.out.println(&quot;-3 % 5 = &quot; + -3 % 5);
-System.out.println(&quot;3 % -5 = &quot; + 3 % -5);
-System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
-</code></pre></div>
-<blockquote>
-<p> 3 % 5 = 3<br> -3 % 5 = -3<br> 3 % -5 = 3<br> -3 % -5 = -3  </p>
-</blockquote>
-<h3 id="规律"><a href="#规律" class="headerlink" title="规律"></a>规律</h3><blockquote>
-<p>被除数是负数，则取模后符号也为负</p>
-</blockquote>
-<blockquote>
-<p>被除数是正数，则取模后符号也为正</p>
-</blockquote>
-<blockquote>
-<p>结果的符号与除数的正负号无关</p>
-</blockquote>
-<h2 id="二、整数除法问题"><a href="#二、整数除法问题" class="headerlink" title="二、整数除法问题"></a>二、整数除法问题</h2><ul>
-<li><p>向上取整(Ceiling) 向X轴正方向取整，即取比实际结果稍大的数<br>比如：17 / 8 == 3， 8 / 3 == 3，-9 / 4 == -2</p>
-</li>
-<li><p>向下取整(Floor) 向X轴负方向取整，即取比实际结果稍小的数<br>比如：17 / 8 == 2， 8 / 3 == 2，-9 / 4 == -3</p>
-</li>
-<li><p>向零取整(Truncate) 向原点方向取整，即直接省略小数部分，取整<br>比如：17 / 8 == 2， 8 / 3 == 2，-9 / 4 == -2</p>
-</li>
-</ul>
-<h2 id="三、取模通用公式"><a href="#三、取模通用公式" class="headerlink" title="三、取模通用公式"></a>三、取模通用公式</h2><blockquote>
-<p>a % b = r</p>
-</blockquote>
-<blockquote>
-<p>r = a - (a/b) * b</p>
-</blockquote>
-<h2 id="四、计算机语言差异性"><a href="#四、计算机语言差异性" class="headerlink" title="四、计算机语言差异性"></a>四、计算机语言差异性</h2><ul>
-<li><p>C/Java<br>采用Truncate除法，即向零取整</p>
-</li>
-<li><p>Python<br>采用Floor除法，即向下取整</p>
-</li>
-</ul>
-<h2 id="五、Truncate除法的问题"><a href="#五、Truncate除法的问题" class="headerlink" title="五、Truncate除法的问题"></a>五、Truncate除法的问题</h2><p>在一些题目中，数组元素可能出现负数，这样导致取模的时候，会出现取整问题的歧义</p>
-<blockquote>
-<p>在Java中，默认Truncate除法，为避免歧义可以使用：</p>
-</blockquote>
-<blockquote>
-<p>1、使用Math.floorMod方法进行Floor除法</p>
-</blockquote>
-<blockquote>
-<p>2、如在前缀和计算中，用<br>int modulus = <strong>(sum % K + K) % k</strong>;<br>而不用 <strong>sum % k</strong>，避免负数干扰结果</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaSE</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Centos 6无法使用yum解决办法</title>
-    <url>/2021/03/27/Linux/Centos%206%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8yum%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="Centos-6无法使用yum解决办法"><a href="#Centos-6无法使用yum解决办法" class="headerlink" title="Centos 6无法使用yum解决办法"></a>Centos 6无法使用yum解决办法</h1><p>CentOS 6已经随着2020年11月的结束进入了EOL（Reaches End of Life），不过有一些老设备依然需要支持，CentOS官方也给这些还不想把CentOS 6扔进垃圾堆的用户保留了最后一个版本的镜像，只是这个镜像不会再有更新了</p>
-<p>官方便在12月2日正式将CentOS 6相关的软件源移出了官方源，随之而来逐级镜像也会陆续将其删除。</p>
-<p>不过有一些老设备依然需要维持在当前系统，CentOS官方也给这些还不想把CentOS 6扔进垃圾堆的用户保留了各个版本软件源的镜像，只是这个软件源不会再有更新了。</p>
-<h2 id="一、一键修复"><a href="#一、一键修复" class="headerlink" title="一、一键修复"></a>一、一键修复</h2><figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">sed -i <span class="hljs-string">&quot;s|enabled=1|enabled=0|g&quot;</span> <span class="hljs-regexp">/etc/yum</span><span class="hljs-regexp">/pluginconf.d/</span>fastestmirror.conf<br>mv <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo /</span>etc<span class="hljs-regexp">/yum.repos.d/</span>CentOS-Base.repo.backup<br>curl -o <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo https:/</span><span class="hljs-regexp">/www.xmpan.com/</span>Centos-<span class="hljs-number">6</span>-Vault-Aliyun.repo <br>yum clean all<br>yum makecache<br></code></pre></div></td></tr></table></figure>
-<h2 id="二、手动修复"><a href="#二、手动修复" class="headerlink" title="二、手动修复"></a>二、手动修复</h2><p>首先把fastestmirrors关了</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk"><span class="hljs-comment">#编辑</span><br>vi <span class="hljs-regexp">/etc/yum</span><span class="hljs-regexp">/pluginconf.d/</span>fastestmirror.conf<br><span class="hljs-comment">#修改</span><br>enable=<span class="hljs-number">0</span><br><span class="hljs-comment">#或者执行以下命令</span><br>sed -i <span class="hljs-string">&quot;s|enabled=1|enabled=0|g&quot;</span> <span class="hljs-regexp">/etc/yum</span><span class="hljs-regexp">/pluginconf.d/</span>fastestmirror.conf<br></code></pre></div></td></tr></table></figure>
-<p>先把之前的repo挪到备份，然后下面两个二选一</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">mv <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo /</span>etc<span class="hljs-regexp">/yum.repos.d/</span>CentOS-Base.repo.bak<br></code></pre></div></td></tr></table></figure>
-<p>替换为官方Vault源(海外服务器用)</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">curl -o <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo https:/</span><span class="hljs-regexp">/www.xmpan.com/</span>Centos-<span class="hljs-number">6</span>-Vault-Official.repo<br></code></pre></div></td></tr></table></figure>
-<p>或者替换为阿里云Vault镜像(国内服务器用)</p>
-<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">curl -o <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo https:/</span><span class="hljs-regexp">/www.xmpan.com/</span>Centos-<span class="hljs-number">6</span>-Vault-Aliyun.repo<br></code></pre></div></td></tr></table></figure>
-
-
-<blockquote>
-<p>以上转自：熊猫畔</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Java算法竞赛常用模板</title>
     <url>/2021/02/10/JavaSE/Java%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<h1 id="Java算法竞赛常用模板"><a href="#Java算法竞赛常用模板" class="headerlink" title="Java算法竞赛常用模板"></a>Java算法竞赛常用模板</h1><h2 id="一、输入输出"><a href="#一、输入输出" class="headerlink" title="一、输入输出"></a>一、输入输出</h2><h3 id="简单输入"><a href="#简单输入" class="headerlink" title="简单输入"></a>简单输入</h3><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner <br><span class="hljs-keyword">import</span> java.io.BufferedInputStream;<br><br>Scanner sc1 = <span class="hljs-keyword">new</span> Scanner(System.in);<br>Scanner sc2 = <span class="hljs-keyword">new</span> Scanner(<span class="hljs-keyword">new</span> BufferedInputStream(System.in));<br><span class="hljs-comment">// sc2用到缓冲流，读入更快</span><br></code></pre></div></td></tr></table></figure>
@@ -814,6 +733,109 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
       </categories>
   </entry>
   <entry>
+    <title>负数取模运算</title>
+    <url>/2020/05/27/JavaSE/%E8%B4%9F%E6%95%B0%E5%8F%96%E6%A8%A1%E8%BF%90%E7%AE%97/</url>
+    <content><![CDATA[<h1 id="负数取模运算"><a href="#负数取模运算" class="headerlink" title="负数取模运算"></a>负数取模运算</h1><hr>
+<h2 id="一、引例"><a href="#一、引例" class="headerlink" title="一、引例"></a>一、引例</h2><div class="hljs code-wrapper"><pre><code>System.out.println(&quot;3 % 5 = &quot; + 3 % 5);
+System.out.println(&quot;-3 % 5 = &quot; + -3 % 5);
+System.out.println(&quot;3 % -5 = &quot; + 3 % -5);
+System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
+</code></pre></div>
+<blockquote>
+<p> 3 % 5 = 3<br> -3 % 5 = -3<br> 3 % -5 = 3<br> -3 % -5 = -3  </p>
+</blockquote>
+<h3 id="规律"><a href="#规律" class="headerlink" title="规律"></a>规律</h3><blockquote>
+<p>被除数是负数，则取模后符号也为负</p>
+</blockquote>
+<blockquote>
+<p>被除数是正数，则取模后符号也为正</p>
+</blockquote>
+<blockquote>
+<p>结果的符号与除数的正负号无关</p>
+</blockquote>
+<h2 id="二、整数除法问题"><a href="#二、整数除法问题" class="headerlink" title="二、整数除法问题"></a>二、整数除法问题</h2><ul>
+<li><p>向上取整(Ceiling) 向X轴正方向取整，即取比实际结果稍大的数<br>比如：17 / 8 == 3， 8 / 3 == 3，-9 / 4 == -2</p>
+</li>
+<li><p>向下取整(Floor) 向X轴负方向取整，即取比实际结果稍小的数<br>比如：17 / 8 == 2， 8 / 3 == 2，-9 / 4 == -3</p>
+</li>
+<li><p>向零取整(Truncate) 向原点方向取整，即直接省略小数部分，取整<br>比如：17 / 8 == 2， 8 / 3 == 2，-9 / 4 == -2</p>
+</li>
+</ul>
+<h2 id="三、取模通用公式"><a href="#三、取模通用公式" class="headerlink" title="三、取模通用公式"></a>三、取模通用公式</h2><blockquote>
+<p>a % b = r</p>
+</blockquote>
+<blockquote>
+<p>r = a - (a/b) * b</p>
+</blockquote>
+<h2 id="四、计算机语言差异性"><a href="#四、计算机语言差异性" class="headerlink" title="四、计算机语言差异性"></a>四、计算机语言差异性</h2><ul>
+<li><p>C/Java<br>采用Truncate除法，即向零取整</p>
+</li>
+<li><p>Python<br>采用Floor除法，即向下取整</p>
+</li>
+</ul>
+<h2 id="五、Truncate除法的问题"><a href="#五、Truncate除法的问题" class="headerlink" title="五、Truncate除法的问题"></a>五、Truncate除法的问题</h2><p>在一些题目中，数组元素可能出现负数，这样导致取模的时候，会出现取整问题的歧义</p>
+<blockquote>
+<p>在Java中，默认Truncate除法，为避免歧义可以使用：</p>
+</blockquote>
+<blockquote>
+<p>1、使用Math.floorMod方法进行Floor除法</p>
+</blockquote>
+<blockquote>
+<p>2、如在前缀和计算中，用<br>int modulus = <strong>(sum % K + K) % k</strong>;<br>而不用 <strong>sum % k</strong>，避免负数干扰结果</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Redis</title>
+    <url>/2021/04/22/Redis/Redis/</url>
+    <content><![CDATA[<h3 id="📌-Redis"><a href="#📌-Redis" class="headerlink" title="📌 Redis"></a>📌 Redis</h3><ul>
+<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/oz1eni">https://www.yuque.com/hypocrite30/oz1eni</a></p>
+</li>
+<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/Redis">https://github.com/hypocrite30/Redis</a></p>
+<ul>
+<li>In directory 「<code>src</code>」</li>
+</ul>
+</li>
+<li><p>📚 Reference books:  「<strong>Redis开发与运维</strong>」「<strong>Redis设计与实现</strong>」「<strong>Redis深度历险</strong>」</p>
+<ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Centos 6无法使用yum解决办法</title>
+    <url>/2021/03/27/Linux/Centos%206%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8yum%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="Centos-6无法使用yum解决办法"><a href="#Centos-6无法使用yum解决办法" class="headerlink" title="Centos 6无法使用yum解决办法"></a>Centos 6无法使用yum解决办法</h1><p>CentOS 6已经随着2020年11月的结束进入了EOL（Reaches End of Life），不过有一些老设备依然需要支持，CentOS官方也给这些还不想把CentOS 6扔进垃圾堆的用户保留了最后一个版本的镜像，只是这个镜像不会再有更新了</p>
+<p>官方便在12月2日正式将CentOS 6相关的软件源移出了官方源，随之而来逐级镜像也会陆续将其删除。</p>
+<p>不过有一些老设备依然需要维持在当前系统，CentOS官方也给这些还不想把CentOS 6扔进垃圾堆的用户保留了各个版本软件源的镜像，只是这个软件源不会再有更新了。</p>
+<h2 id="一、一键修复"><a href="#一、一键修复" class="headerlink" title="一、一键修复"></a>一、一键修复</h2><figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">sed -i <span class="hljs-string">&quot;s|enabled=1|enabled=0|g&quot;</span> <span class="hljs-regexp">/etc/yum</span><span class="hljs-regexp">/pluginconf.d/</span>fastestmirror.conf<br>mv <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo /</span>etc<span class="hljs-regexp">/yum.repos.d/</span>CentOS-Base.repo.backup<br>curl -o <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo https:/</span><span class="hljs-regexp">/www.xmpan.com/</span>Centos-<span class="hljs-number">6</span>-Vault-Aliyun.repo <br>yum clean all<br>yum makecache<br></code></pre></div></td></tr></table></figure>
+<h2 id="二、手动修复"><a href="#二、手动修复" class="headerlink" title="二、手动修复"></a>二、手动修复</h2><p>首先把fastestmirrors关了</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk"><span class="hljs-comment">#编辑</span><br>vi <span class="hljs-regexp">/etc/yum</span><span class="hljs-regexp">/pluginconf.d/</span>fastestmirror.conf<br><span class="hljs-comment">#修改</span><br>enable=<span class="hljs-number">0</span><br><span class="hljs-comment">#或者执行以下命令</span><br>sed -i <span class="hljs-string">&quot;s|enabled=1|enabled=0|g&quot;</span> <span class="hljs-regexp">/etc/yum</span><span class="hljs-regexp">/pluginconf.d/</span>fastestmirror.conf<br></code></pre></div></td></tr></table></figure>
+<p>先把之前的repo挪到备份，然后下面两个二选一</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">mv <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo /</span>etc<span class="hljs-regexp">/yum.repos.d/</span>CentOS-Base.repo.bak<br></code></pre></div></td></tr></table></figure>
+<p>替换为官方Vault源(海外服务器用)</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">curl -o <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo https:/</span><span class="hljs-regexp">/www.xmpan.com/</span>Centos-<span class="hljs-number">6</span>-Vault-Official.repo<br></code></pre></div></td></tr></table></figure>
+<p>或者替换为阿里云Vault镜像(国内服务器用)</p>
+<figure class="highlight awk"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs awk">curl -o <span class="hljs-regexp">/etc/yum</span>.repos.d<span class="hljs-regexp">/CentOS-Base.repo https:/</span><span class="hljs-regexp">/www.xmpan.com/</span>Centos-<span class="hljs-number">6</span>-Vault-Aliyun.repo<br></code></pre></div></td></tr></table></figure>
+
+
+<blockquote>
+<p>以上转自：熊猫畔</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+  </entry>
+  <entry>
     <title>虚拟机下Linux配置静态ip，使得XShell成功连接</title>
     <url>/2021/01/23/Linux/%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8BLinux%E9%85%8D%E7%BD%AE%E9%9D%99%E6%80%81ip%EF%BC%8C%E4%BD%BF%E5%BE%97XShell%E6%88%90%E5%8A%9F%E8%BF%9E%E6%8E%A5/</url>
     <content><![CDATA[<h1 id="虚拟机下Linux配置静态ip，使得XShell成功连接"><a href="#虚拟机下Linux配置静态ip，使得XShell成功连接" class="headerlink" title="虚拟机下Linux配置静态ip，使得XShell成功连接"></a>虚拟机下Linux配置静态ip，使得XShell成功连接</h1><ul>
@@ -882,28 +904,6 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
 ]]></content>
       <categories>
         <category>Linux</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Redis</title>
-    <url>/2021/04/22/Redis/Redis/</url>
-    <content><![CDATA[<h3 id="📌-Redis"><a href="#📌-Redis" class="headerlink" title="📌 Redis"></a>📌 Redis</h3><ul>
-<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/oz1eni">https://www.yuque.com/hypocrite30/oz1eni</a></p>
-</li>
-<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/Redis">https://github.com/hypocrite30/Redis</a></p>
-<ul>
-<li>In directory 「<code>src</code>」</li>
-</ul>
-</li>
-<li><p>📚 Reference books:  「<strong>Redis开发与运维</strong>」「<strong>Redis设计与实现</strong>」「<strong>Redis深度历险</strong>」</p>
-<ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Redis</category>
       </categories>
   </entry>
   <entry>
