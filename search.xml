@@ -12,192 +12,6 @@
       </categories>
   </entry>
   <entry>
-    <title>JVM「HotSpot VM」</title>
-    <url>/2021/06/02/JVM/JVM%E3%80%8CHotSpot%20VM%E3%80%8D/</url>
-    <content><![CDATA[<h3 id="📌-JVM「HotSpot-VM」"><a href="#📌-JVM「HotSpot-VM」" class="headerlink" title="📌 JVM「HotSpot VM」"></a>📌 JVM「HotSpot VM」</h3><ul>
-<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/JVM-demonstrate">https://github.com/hypocrite30/JVM-demonstrate</a></p>
-<ul>
-<li>In directory 「<code>src</code>」</li>
-</ul>
-</li>
-<li><p>📚 Reference :  </p>
-<ul>
-<li>「<a href="https://book.douban.com/subject/34907497/">深入理解Java虚拟机（第3版）</a>」<ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-<li>「<a href="https://www.bilibili.com/video/BV1PJ411n7xZ">尚硅谷JVM教程</a>」</li>
-</ul>
-</li>
-<li><p>🍬Thanks：</p>
-<ul>
-<li><a href="https://gitee.com/vectorx/NOTE_JVM">https://gitee.com/vectorx/NOTE_JVM</a><ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-<li><a href="https://github.com/TangBean/understanding-the-jvm">https://github.com/TangBean/understanding-the-jvm</a><ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>JVM</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Java在Iterator中remove &amp; ConcurrentModificationException问题</title>
-    <url>/2021/03/15/JavaSE/Java%20%E5%9C%A8Iterator%E4%B8%AD%20remove%20&amp;%20ConcurrentModificationException%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        List&lt;String&gt; arrayList = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();<br>        arrayList.add(<span class="hljs-string">&quot;a&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;b&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;c&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;d&quot;</span>);<br><br>        Iterator&lt;String&gt; iterator = arrayList.iterator();<br>        <span class="hljs-keyword">while</span> (iterator.hasNext()) &#123;<br>            String cur = iterator.next();<br>            <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;b&quot;</span>.equals(cur)) &#123;<br>                arrayList.remove(cur);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                System.out.println(cur + <span class="hljs-string">&quot; &quot;</span>);<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">/*for (String s : arrayList) &#123;</span><br><span class="hljs-comment">            if (&quot;b&quot;.equals(s)) &#123;</span><br><span class="hljs-comment">                arrayList.remove(s);</span><br><span class="hljs-comment">            &#125; else &#123;</span><br><span class="hljs-comment">                System.out.println(s + &quot; &quot;);</span><br><span class="hljs-comment">            &#125;</span><br><span class="hljs-comment">        &#125;*/</span><br>        System.out.println(arrayList);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<ul>
-<li>for-each实际就是隐式使用 iterator 遍历集合，上面的例子会抛出异常，并删除失败。</li>
-</ul>
-<blockquote>
-<p>a<br>Exception in thread “main” java.util.ConcurrentModificationException<br>    at java.base/java.util.ArrayList$Itr.checkForComodification(ArrayList.java:937)<br>    at java.base/java.util.ArrayList$Itr.next(ArrayList.java:891)<br>    at Solution.main(Solution.java:14)</p>
-</blockquote>
-<ul>
-<li>然而删除<strong>倒数第二个</strong>元素却不会报错</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        List&lt;String&gt; arrayList = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();<br>        arrayList.add(<span class="hljs-string">&quot;a&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;b&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;c&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;d&quot;</span>);<br><br>        Iterator&lt;String&gt; iterator = arrayList.iterator();<br>        <span class="hljs-keyword">while</span> (iterator.hasNext()) &#123;<br>            String cur = iterator.next();<br>            <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;c&quot;</span>.equals(cur)) &#123;<br>                arrayList.remove(cur);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                System.out.println(cur + <span class="hljs-string">&quot; &quot;</span>);<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">/*for (String s : arrayList) &#123;</span><br><span class="hljs-comment">            if (&quot;c&quot;.equals(s)) &#123;</span><br><span class="hljs-comment">                arrayList.remove(s);</span><br><span class="hljs-comment">            &#125; else &#123;</span><br><span class="hljs-comment">                System.out.println(s + &quot; &quot;);</span><br><span class="hljs-comment">            &#125;</span><br><span class="hljs-comment">        &#125;*/</span><br>        System.out.println(arrayList);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<blockquote>
-<p>a<br>b<br>[a, b, d]</p>
-</blockquote>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul>
-<li><p>首先先观察 ArrayList 的 <code>iterator()</code>，看迭代器怎么构造。</p>
-</li>
-<li><p>ArrayList 的 父类 <code>AbstractList</code>中</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> Iterator&lt;E&gt; <span class="hljs-title">iterator</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Itr();<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<ul>
-<li>Itr 是里面的内部类</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Itr</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">E</span>&gt; </span>&#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Index of element to be returned by subsequent call to next.</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">int</span> cursor = <span class="hljs-number">0</span>;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Index of element returned by most recent call to next or</span><br><span class="hljs-comment">     * previous.  Reset to -1 if this element is deleted by a call</span><br><span class="hljs-comment">     * to remove.</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">int</span> lastRet = -<span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * The modCount value that the iterator believes that the backing</span><br><span class="hljs-comment">     * List should have.  If this expectation is violated, the iterator</span><br><span class="hljs-comment">     * has detected concurrent modification.</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">int</span> expectedModCount = modCount;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> cursor != size();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> E <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        checkForComodification();<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-keyword">int</span> i = cursor;<br>            E next = get(i);<br>            lastRet = i;<br>            cursor = i + <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">return</span> next;<br>        &#125; <span class="hljs-keyword">catch</span> (IndexOutOfBoundsException e) &#123;<br>            checkForComodification();<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NoSuchElementException();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">remove</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (lastRet &lt; <span class="hljs-number">0</span>)<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException();<br>        checkForComodification();<br><br>        <span class="hljs-keyword">try</span> &#123;<br>            AbstractList.<span class="hljs-keyword">this</span>.remove(lastRet);<br>            <span class="hljs-keyword">if</span> (lastRet &lt; cursor)<br>                cursor--;<br>            lastRet = -<span class="hljs-number">1</span>;<br>            expectedModCount = modCount;<br>        &#125; <span class="hljs-keyword">catch</span> (IndexOutOfBoundsException e) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ConcurrentModificationException();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">checkForComodification</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (modCount != expectedModCount)<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ConcurrentModificationException();<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<ul>
-<li><p><code>cursor</code>：下一个要访问的元素的索引</p>
-</li>
-<li><p><code>lastRet</code>：上一个访问的元素的索引</p>
-</li>
-<li><p><code>expectedModCount</code>是期望的该 List 被修改的次数，初始化为<code>modCount</code></p>
-</li>
-<li><p><code>modCount</code>是AbstractList 的一个成员变量。</p>
-</li>
-</ul>
-<blockquote>
-<p>The number of times this list has been structurally modified. Structural modifications are those that change the size of the list, or otherwise perturb it in such a fashion that iterations in progress may yield incorrect results.<br>This field is used by the iterator and list iterator implementation returned by the iterator and listIterator methods. If the value of this field changes unexpectedly, the iterator (or list iterator) will throw a ConcurrentModificationException in response to the next, remove, previous, set or add operations. This provides fail-fast behavior, rather than non-deterministic behavior in the face of concurrent modification during iteration.<br>Use of this field by subclasses is optional. If a subclass wishes to provide fail-fast iterators (and list iterators), then it merely has to increment this field in its add(int, E) and remove(int) methods (and any other methods that it overrides that result in structural modifications to the list). A single call to add(int, E) or remove(int) must add no more than one to this field, or the iterators (and list iterators) will throw bogus ConcurrentModificationExceptions. If an implementation does not wish to provide fail-fast iterators, this field may be ignored.</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">transient</span> <span class="hljs-keyword">int</span> modCount = <span class="hljs-number">0</span>;<br></code></pre></div></td></tr></table></figure>
-<ul>
-<li>结构修改是指那些改变列表大小的修改，或者以某种方式扰乱列表，使得正在进行的迭代可能产生不正确的结果。</li>
-<li>此字段由迭代器和<code>listIterator</code>方法返回的迭代器和列表迭代器实现使用。如果此字段的值意外更改，迭代器（或列表迭代器）将抛出<code>ConcurrentModificationException</code>以响应<code>next</code>、<code>remove</code>、previous、<code>set</code>或<code>add</code>操作。这提供了<code>快速失败</code>的行为。</li>
-</ul>
-<ul>
-<li>深入 ArrayList 里观察 <code>next()</code></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> E <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>    checkForComodification();<br>    <span class="hljs-keyword">int</span> i = cursor;<br>    <span class="hljs-keyword">if</span> (i &gt;= size)<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NoSuchElementException();<br>    Object[] elementData = ArrayList.<span class="hljs-keyword">this</span>.elementData;<br>    <span class="hljs-keyword">if</span> (i &gt;= elementData.length)<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ConcurrentModificationException();<br>    cursor = i + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">return</span> (E) elementData[lastRet = i];<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">checkForComodification</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (modCount != expectedModCount)<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ConcurrentModificationException();<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<ul>
-<li><p>抛出的<code>ConcurrentModificationException</code>异常是<code>checkForComodification()</code>抛出的。</p>
-</li>
-<li><p>条件是：<code>modCount != expectedModCount</code></p>
-</li>
-</ul>
-<p>所以在 add remove 的过程中 <code>modCount</code>会自增自减。如果用集合的 <code>remove</code>则 List 的<code>modCount</code>减少一，而 Iterator 的 <code>expectedModCount</code>不变，就会抛出异常。</p>
-<ul>
-<li>至于为什么倒数第二个元素删除不会报错，我们要先了解 Iterator 遍历的特点。</li>
-</ul>
-<p>while + iterator 的组合是需要先判空 <code>hasNext()</code>，然后再<code>next()</code>，最后才 <code>remove()</code>，否则会报错，可以自行实验，调换 next 和 remove。</p>
-<p>因为要先 next，将游标<code>越过</code>当前的元素，然后再决定要怎么操作当前的（游标前面的）这个元素，即游标是插在 当前元素 和 下一个元素的中间（可以这么理解）。</p>
-<p>删除倒数第二个元素的时候，cursor指向<code>最后一个元素</code>，而此时删掉了倒数第二个元素后，cursor和size()正好相等了，所以<code>hasNext()</code>返回false，遍历结束，成功的删除了倒数第二个元素。</p>
-<h2 id="建议用法"><a href="#建议用法" class="headerlink" title="建议用法"></a>建议用法</h2><ul>
-<li><p>一个原则是，尽量在遍历的过程中不要对原集合进行增删，容易改变原结构，可以用 immutable 的思想，重新封装一个集合。</p>
-</li>
-<li><p>要 remove() ，则要在 <code>iterator()</code>上面来进行 <code>remove()</code>，因为Iterator迭代，就把操作权交给了 Iterator，就不要再用原集合进行操作了。</p>
-</li>
-<li><p>正确用法：</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        List&lt;String&gt; arrayList = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();<br>        arrayList.add(<span class="hljs-string">&quot;a&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;b&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;c&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;d&quot;</span>);<br><br>        Iterator&lt;String&gt; iterator = arrayList.iterator();<br>        <span class="hljs-keyword">while</span> (iterator.hasNext()) &#123;<br>            String cur = iterator.next();<br>            <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;a&quot;</span>.equals(cur)) &#123;<br>                iterator.remove();<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                System.out.println(cur + <span class="hljs-string">&quot; &quot;</span>);<br>            &#125;<br>        &#125;<br>        System.out.println(arrayList);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<blockquote>
-<p>b<br>c<br>d<br>[b, c, d]</p>
-</blockquote>
-<ul>
-<li>以上分析是基于 <code>ArrayList</code>，基于链表的 LinkedList道理大同小异，思想不变，测试的结果也是不变的。</li>
-<li>既然正确是 使用 iterator 来操作集合，就应该去阅读 iterator 里的 next() 实现，而不应该去看 ArrayList 里的实现，要更深入了解就去阅读源码吧。</li>
-</ul>
-]]></content>
-      <categories>
-        <category>JavaSE</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>DesignPatterns</title>
-    <url>/2021/04/15/DesignPatterns/DesignPatterns/</url>
-    <content><![CDATA[<h3 id="📌-Design-Pattern-By-Java"><a href="#📌-Design-Pattern-By-Java" class="headerlink" title="📌 Design Pattern By Java"></a>📌 Design Pattern By Java</h3><ul>
-<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/vf5tcx">https://www.yuque.com/hypocrite30/vf5tcx</a></p>
-</li>
-<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/DesignPatterns">https://github.com/hypocrite30/DesignPatterns</a></p>
-<ul>
-<li>In directory 「<code>src</code>」</li>
-</ul>
-</li>
-<li><p>📚 Reference books:  「<code>设计模式之禅</code> 第二版 」「重学Java设计模式 」</p>
-<ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-</ul>
-<p>🧰「创建者模式」5种</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 1 『工厂方法模式』</li>
-<li><input checked="" disabled="" type="checkbox"> 2 『抽象工厂模式』</li>
-<li><input checked="" disabled="" type="checkbox"> 3 『建造者模式』</li>
-<li><input checked="" disabled="" type="checkbox"> 4『原型模式』</li>
-<li><input checked="" disabled="" type="checkbox"> 5 『单例模式』</li>
-</ul>
-<p>🏹「结构型模式」7种</p>
-<ul>
-<li><input checked="" disabled="" type="checkbox"> 6 『适配器模式』</li>
-<li><input checked="" disabled="" type="checkbox"> 7 『桥梁模式』</li>
-<li><input disabled="" type="checkbox"> 8 『组合模式』</li>
-<li><input disabled="" type="checkbox"> 9 『装饰模式』</li>
-<li><input disabled="" type="checkbox"> 10 『外观模式』</li>
-<li><input disabled="" type="checkbox"> 11 『享元模式』</li>
-<li><input disabled="" type="checkbox"> 12 『代理模式』</li>
-</ul>
-<p>🧲「行为模式」10种</p>
-<ul>
-<li><p><input disabled="" type="checkbox">  13 『责任链模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  14 『命令模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  15 『迭代器模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  16 『中介者模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  17 『备忘录模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  18 『观察者模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  19 『状态模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  20 『策略模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  21 『模板方法模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  22 『访问者模式』</p>
-</li>
-<li><p><input disabled="" type="checkbox">  23 『解释器模式』</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>DesignPatterns</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Java For-loop&amp; For-each &amp; Iterator 效率分析</title>
     <url>/2021/03/16/JavaSE/Java%20For-loop&amp;%20For-each%20&amp;%20Iterator%20%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<ul>
@@ -305,6 +119,91 @@
 
 
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>总而言之，与传统的for循环相比，for-each循环在简洁性、灵活性以及出错预防性方面都占有绝对优势，并且<strong>没有性能惩罚</strong>的问题。因此，当可以选择的时候，for-each循环应该优先于for循环。</p>
+]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java在Iterator中remove &amp; ConcurrentModificationException问题</title>
+    <url>/2021/03/15/JavaSE/Java%20%E5%9C%A8Iterator%E4%B8%AD%20remove%20&amp;%20ConcurrentModificationException%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        List&lt;String&gt; arrayList = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();<br>        arrayList.add(<span class="hljs-string">&quot;a&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;b&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;c&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;d&quot;</span>);<br><br>        Iterator&lt;String&gt; iterator = arrayList.iterator();<br>        <span class="hljs-keyword">while</span> (iterator.hasNext()) &#123;<br>            String cur = iterator.next();<br>            <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;b&quot;</span>.equals(cur)) &#123;<br>                arrayList.remove(cur);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                System.out.println(cur + <span class="hljs-string">&quot; &quot;</span>);<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">/*for (String s : arrayList) &#123;</span><br><span class="hljs-comment">            if (&quot;b&quot;.equals(s)) &#123;</span><br><span class="hljs-comment">                arrayList.remove(s);</span><br><span class="hljs-comment">            &#125; else &#123;</span><br><span class="hljs-comment">                System.out.println(s + &quot; &quot;);</span><br><span class="hljs-comment">            &#125;</span><br><span class="hljs-comment">        &#125;*/</span><br>        System.out.println(arrayList);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>for-each实际就是隐式使用 iterator 遍历集合，上面的例子会抛出异常，并删除失败。</li>
+</ul>
+<blockquote>
+<p>a<br>Exception in thread “main” java.util.ConcurrentModificationException<br>    at java.base/java.util.ArrayList$Itr.checkForComodification(ArrayList.java:937)<br>    at java.base/java.util.ArrayList$Itr.next(ArrayList.java:891)<br>    at Solution.main(Solution.java:14)</p>
+</blockquote>
+<ul>
+<li>然而删除<strong>倒数第二个</strong>元素却不会报错</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        List&lt;String&gt; arrayList = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();<br>        arrayList.add(<span class="hljs-string">&quot;a&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;b&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;c&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;d&quot;</span>);<br><br>        Iterator&lt;String&gt; iterator = arrayList.iterator();<br>        <span class="hljs-keyword">while</span> (iterator.hasNext()) &#123;<br>            String cur = iterator.next();<br>            <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;c&quot;</span>.equals(cur)) &#123;<br>                arrayList.remove(cur);<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                System.out.println(cur + <span class="hljs-string">&quot; &quot;</span>);<br>            &#125;<br>        &#125;<br>        <span class="hljs-comment">/*for (String s : arrayList) &#123;</span><br><span class="hljs-comment">            if (&quot;c&quot;.equals(s)) &#123;</span><br><span class="hljs-comment">                arrayList.remove(s);</span><br><span class="hljs-comment">            &#125; else &#123;</span><br><span class="hljs-comment">                System.out.println(s + &quot; &quot;);</span><br><span class="hljs-comment">            &#125;</span><br><span class="hljs-comment">        &#125;*/</span><br>        System.out.println(arrayList);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>a<br>b<br>[a, b, d]</p>
+</blockquote>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul>
+<li><p>首先先观察 ArrayList 的 <code>iterator()</code>，看迭代器怎么构造。</p>
+</li>
+<li><p>ArrayList 的 父类 <code>AbstractList</code>中</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> Iterator&lt;E&gt; <span class="hljs-title">iterator</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Itr();<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>Itr 是里面的内部类</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Itr</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">E</span>&gt; </span>&#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Index of element to be returned by subsequent call to next.</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">int</span> cursor = <span class="hljs-number">0</span>;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * Index of element returned by most recent call to next or</span><br><span class="hljs-comment">     * previous.  Reset to -1 if this element is deleted by a call</span><br><span class="hljs-comment">     * to remove.</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">int</span> lastRet = -<span class="hljs-number">1</span>;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * The modCount value that the iterator believes that the backing</span><br><span class="hljs-comment">     * List should have.  If this expectation is violated, the iterator</span><br><span class="hljs-comment">     * has detected concurrent modification.</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">int</span> expectedModCount = modCount;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> cursor != size();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> E <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        checkForComodification();<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-keyword">int</span> i = cursor;<br>            E next = get(i);<br>            lastRet = i;<br>            cursor = i + <span class="hljs-number">1</span>;<br>            <span class="hljs-keyword">return</span> next;<br>        &#125; <span class="hljs-keyword">catch</span> (IndexOutOfBoundsException e) &#123;<br>            checkForComodification();<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NoSuchElementException();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">remove</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (lastRet &lt; <span class="hljs-number">0</span>)<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalStateException();<br>        checkForComodification();<br><br>        <span class="hljs-keyword">try</span> &#123;<br>            AbstractList.<span class="hljs-keyword">this</span>.remove(lastRet);<br>            <span class="hljs-keyword">if</span> (lastRet &lt; cursor)<br>                cursor--;<br>            lastRet = -<span class="hljs-number">1</span>;<br>            expectedModCount = modCount;<br>        &#125; <span class="hljs-keyword">catch</span> (IndexOutOfBoundsException e) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ConcurrentModificationException();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">checkForComodification</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (modCount != expectedModCount)<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ConcurrentModificationException();<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li><p><code>cursor</code>：下一个要访问的元素的索引</p>
+</li>
+<li><p><code>lastRet</code>：上一个访问的元素的索引</p>
+</li>
+<li><p><code>expectedModCount</code>是期望的该 List 被修改的次数，初始化为<code>modCount</code></p>
+</li>
+<li><p><code>modCount</code>是AbstractList 的一个成员变量。</p>
+</li>
+</ul>
+<blockquote>
+<p>The number of times this list has been structurally modified. Structural modifications are those that change the size of the list, or otherwise perturb it in such a fashion that iterations in progress may yield incorrect results.<br>This field is used by the iterator and list iterator implementation returned by the iterator and listIterator methods. If the value of this field changes unexpectedly, the iterator (or list iterator) will throw a ConcurrentModificationException in response to the next, remove, previous, set or add operations. This provides fail-fast behavior, rather than non-deterministic behavior in the face of concurrent modification during iteration.<br>Use of this field by subclasses is optional. If a subclass wishes to provide fail-fast iterators (and list iterators), then it merely has to increment this field in its add(int, E) and remove(int) methods (and any other methods that it overrides that result in structural modifications to the list). A single call to add(int, E) or remove(int) must add no more than one to this field, or the iterators (and list iterators) will throw bogus ConcurrentModificationExceptions. If an implementation does not wish to provide fail-fast iterators, this field may be ignored.</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">transient</span> <span class="hljs-keyword">int</span> modCount = <span class="hljs-number">0</span>;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>结构修改是指那些改变列表大小的修改，或者以某种方式扰乱列表，使得正在进行的迭代可能产生不正确的结果。</li>
+<li>此字段由迭代器和<code>listIterator</code>方法返回的迭代器和列表迭代器实现使用。如果此字段的值意外更改，迭代器（或列表迭代器）将抛出<code>ConcurrentModificationException</code>以响应<code>next</code>、<code>remove</code>、previous、<code>set</code>或<code>add</code>操作。这提供了<code>快速失败</code>的行为。</li>
+</ul>
+<ul>
+<li>深入 ArrayList 里观察 <code>next()</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> E <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>    checkForComodification();<br>    <span class="hljs-keyword">int</span> i = cursor;<br>    <span class="hljs-keyword">if</span> (i &gt;= size)<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> NoSuchElementException();<br>    Object[] elementData = ArrayList.<span class="hljs-keyword">this</span>.elementData;<br>    <span class="hljs-keyword">if</span> (i &gt;= elementData.length)<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ConcurrentModificationException();<br>    cursor = i + <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">return</span> (E) elementData[lastRet = i];<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title">checkForComodification</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (modCount != expectedModCount)<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> ConcurrentModificationException();<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li><p>抛出的<code>ConcurrentModificationException</code>异常是<code>checkForComodification()</code>抛出的。</p>
+</li>
+<li><p>条件是：<code>modCount != expectedModCount</code></p>
+</li>
+</ul>
+<p>所以在 add remove 的过程中 <code>modCount</code>会自增自减。如果用集合的 <code>remove</code>则 List 的<code>modCount</code>减少一，而 Iterator 的 <code>expectedModCount</code>不变，就会抛出异常。</p>
+<ul>
+<li>至于为什么倒数第二个元素删除不会报错，我们要先了解 Iterator 遍历的特点。</li>
+</ul>
+<p>while + iterator 的组合是需要先判空 <code>hasNext()</code>，然后再<code>next()</code>，最后才 <code>remove()</code>，否则会报错，可以自行实验，调换 next 和 remove。</p>
+<p>因为要先 next，将游标<code>越过</code>当前的元素，然后再决定要怎么操作当前的（游标前面的）这个元素，即游标是插在 当前元素 和 下一个元素的中间（可以这么理解）。</p>
+<p>删除倒数第二个元素的时候，cursor指向<code>最后一个元素</code>，而此时删掉了倒数第二个元素后，cursor和size()正好相等了，所以<code>hasNext()</code>返回false，遍历结束，成功的删除了倒数第二个元素。</p>
+<h2 id="建议用法"><a href="#建议用法" class="headerlink" title="建议用法"></a>建议用法</h2><ul>
+<li><p>一个原则是，尽量在遍历的过程中不要对原集合进行增删，容易改变原结构，可以用 immutable 的思想，重新封装一个集合。</p>
+</li>
+<li><p>要 remove() ，则要在 <code>iterator()</code>上面来进行 <code>remove()</code>，因为Iterator迭代，就把操作权交给了 Iterator，就不要再用原集合进行操作了。</p>
+</li>
+<li><p>正确用法：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        List&lt;String&gt; arrayList = <span class="hljs-keyword">new</span> ArrayList&lt;String&gt;();<br>        arrayList.add(<span class="hljs-string">&quot;a&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;b&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;c&quot;</span>);<br>        arrayList.add(<span class="hljs-string">&quot;d&quot;</span>);<br><br>        Iterator&lt;String&gt; iterator = arrayList.iterator();<br>        <span class="hljs-keyword">while</span> (iterator.hasNext()) &#123;<br>            String cur = iterator.next();<br>            <span class="hljs-keyword">if</span> (<span class="hljs-string">&quot;a&quot;</span>.equals(cur)) &#123;<br>                iterator.remove();<br>            &#125; <span class="hljs-keyword">else</span> &#123;<br>                System.out.println(cur + <span class="hljs-string">&quot; &quot;</span>);<br>            &#125;<br>        &#125;<br>        System.out.println(arrayList);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>b<br>c<br>d<br>[b, c, d]</p>
+</blockquote>
+<ul>
+<li>以上分析是基于 <code>ArrayList</code>，基于链表的 LinkedList道理大同小异，思想不变，测试的结果也是不变的。</li>
+<li>既然正确是 使用 iterator 来操作集合，就应该去阅读 iterator 里的 next() 实现，而不应该去看 ArrayList 里的实现，要更深入了解就去阅读源码吧。</li>
+</ul>
 ]]></content>
       <categories>
         <category>JavaSE</category>
@@ -710,6 +609,29 @@
       </categories>
   </entry>
   <entry>
+    <title>java中数组多种遍历求和的效率分析</title>
+    <url>/2021/02/01/JavaSE/java%E4%B8%AD%E6%95%B0%E7%BB%84%E5%A4%9A%E7%A7%8D%E9%81%8D%E5%8E%86%E6%B1%82%E5%92%8C%E7%9A%84%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[<h1 id="java中数组多种遍历求和的效率分析"><a href="#java中数组多种遍历求和的效率分析" class="headerlink" title="java中数组多种遍历求和的效率分析"></a>java中数组多种遍历求和的效率分析</h1><h2 id="int型数组的遍历求和效率分析"><a href="#int型数组的遍历求和效率分析" class="headerlink" title="int型数组的遍历求和效率分析"></a>int型数组的遍历求和效率分析</h2><ul>
+<li>转换成流的形式，再求和。IntStream.of(a).sum();</li>
+<li>另一种转换流求和的方式，Arrays.stream(a).sum();</li>
+<li>普通for loop 求和：for i</li>
+<li>增强for loop 求和：for-each</li>
+</ul>
+<p>测试方法使用的是 System.nanoTime() 求出求和段的运行时间，单位为纳秒(10^-9 s)</p>
+<h3 id="测试代码如下："><a href="#测试代码如下：" class="headerlink" title="测试代码如下："></a>测试代码如下：</h3><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span>[] a = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">100</span>];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            a[i] = i + <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">long</span> l1, l2;<br>        <span class="hljs-keyword">int</span> sum1, sum2, sum3 = <span class="hljs-number">0</span>, sum4 = <span class="hljs-number">0</span>;<br><br>        l1 = System.nanoTime();<br>        sum1 = IntStream.of(a).sum();<br>        l2 = System.nanoTime();<br>        System.out.print(<span class="hljs-string">&quot;IntStream.of(a).sum(): &quot;</span>);<br>        System.out.println(sum1);<br>        System.out.println(l2 - l1);<br><br>        l1 = System.nanoTime();<br>        sum2 = Arrays.stream(a).sum();<br>        l2 = System.nanoTime();<br>        System.out.print(<span class="hljs-string">&quot;Arrays.stream(a).sum(): &quot;</span>);<br>        System.out.println(sum2);<br>        System.out.println(l2 - l1);<br><br>        l1 = System.nanoTime();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; a.length; i++) &#123;<br>            sum3 += a[i];<br>        &#125;<br>        l2 = System.nanoTime();<br>        System.out.print(<span class="hljs-string">&quot;for loop: &quot;</span>);<br>        System.out.println(sum3);<br>        System.out.println(l2 - l1);<br><br>        l1 = System.nanoTime();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i : a) &#123;<br>            sum4 += i;<br>        &#125;<br>        l2 = System.nanoTime();<br>        System.out.print(<span class="hljs-string">&quot;iterator loop: &quot;</span>);<br>        System.out.println(sum4);<br>        System.out.println(l2 - l1);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<blockquote>
+<p>IntStream.of(a).sum(): 5050<br>24215600<br>Arrays.stream(a).sum(): 5050<br>184000<br>for loop: 5050<br>1600<br>iterator loop: 5050<br>1800</p>
+</blockquote>
+<p>求和结果都是正确的。所以根据最后求和速度进行排序，效率从低到高：</p>
+<blockquote>
+<p>IntStream.of(A).sum() &lt; Arrays.stream(A).sum() &lt; iterator loop &lt; for loop</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+  </entry>
+  <entry>
     <title>负数取模运算</title>
     <url>/2020/05/27/JavaSE/%E8%B4%9F%E6%95%B0%E5%8F%96%E6%A8%A1%E8%BF%90%E7%AE%97/</url>
     <content><![CDATA[<h1 id="负数取模运算"><a href="#负数取模运算" class="headerlink" title="负数取模运算"></a>负数取模运算</h1><hr>
@@ -766,25 +688,104 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
       </categories>
   </entry>
   <entry>
-    <title>Redis</title>
-    <url>/2021/04/22/Redis/Redis/</url>
-    <content><![CDATA[<h3 id="📌-Redis"><a href="#📌-Redis" class="headerlink" title="📌 Redis"></a>📌 Redis</h3><ul>
-<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/oz1eni">https://www.yuque.com/hypocrite30/oz1eni</a></p>
-</li>
-<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/Redis">https://github.com/hypocrite30/Redis</a></p>
+    <title>JVM「HotSpot VM」</title>
+    <url>/2021/06/02/JVM/JVM%E3%80%8CHotSpot%20VM%E3%80%8D/</url>
+    <content><![CDATA[<h3 id="📌-JVM「HotSpot-VM」"><a href="#📌-JVM「HotSpot-VM」" class="headerlink" title="📌 JVM「HotSpot VM」"></a>📌 JVM「HotSpot VM」</h3><ul>
+<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/JVM-demonstrate">https://github.com/hypocrite30/JVM-demonstrate</a></p>
 <ul>
 <li>In directory 「<code>src</code>」</li>
 </ul>
 </li>
-<li><p>📚 Reference books:  「<strong>Redis开发与运维</strong>」「<strong>Redis设计与实现</strong>」「<strong>Redis深度历险</strong>」</p>
+<li><p>📚 Reference :  </p>
 <ul>
+<li>「<a href="https://book.douban.com/subject/34907497/">深入理解Java虚拟机（第3版）</a>」<ul>
 <li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+<li>「<a href="https://www.bilibili.com/video/BV1PJ411n7xZ">尚硅谷JVM教程</a>」</li>
+</ul>
+</li>
+<li><p>🍬Thanks：</p>
+<ul>
+<li><a href="https://gitee.com/vectorx/NOTE_JVM">https://gitee.com/vectorx/NOTE_JVM</a><ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+<li><a href="https://github.com/TangBean/understanding-the-jvm">https://github.com/TangBean/understanding-the-jvm</a><ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 ]]></content>
       <categories>
-        <category>Redis</category>
+        <category>JVM</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>DesignPatterns</title>
+    <url>/2021/04/15/DesignPatterns/DesignPatterns/</url>
+    <content><![CDATA[<h3 id="📌-Design-Pattern-By-Java"><a href="#📌-Design-Pattern-By-Java" class="headerlink" title="📌 Design Pattern By Java"></a>📌 Design Pattern By Java</h3><ul>
+<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/vf5tcx">https://www.yuque.com/hypocrite30/vf5tcx</a></p>
+</li>
+<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/DesignPatterns">https://github.com/hypocrite30/DesignPatterns</a></p>
+<ul>
+<li>In directory 「<code>src</code>」</li>
+</ul>
+</li>
+<li><p>📚 Reference books:  「<code>设计模式之禅</code> 第二版 」「重学Java设计模式 」</p>
+<ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+</ul>
+<p>🧰「创建者模式」5种</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 1 『工厂方法模式』</li>
+<li><input checked="" disabled="" type="checkbox"> 2 『抽象工厂模式』</li>
+<li><input checked="" disabled="" type="checkbox"> 3 『建造者模式』</li>
+<li><input checked="" disabled="" type="checkbox"> 4『原型模式』</li>
+<li><input checked="" disabled="" type="checkbox"> 5 『单例模式』</li>
+</ul>
+<p>🏹「结构型模式」7种</p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 6 『适配器模式』</li>
+<li><input checked="" disabled="" type="checkbox"> 7 『桥梁模式』</li>
+<li><input disabled="" type="checkbox"> 8 『组合模式』</li>
+<li><input disabled="" type="checkbox"> 9 『装饰模式』</li>
+<li><input disabled="" type="checkbox"> 10 『外观模式』</li>
+<li><input disabled="" type="checkbox"> 11 『享元模式』</li>
+<li><input disabled="" type="checkbox"> 12 『代理模式』</li>
+</ul>
+<p>🧲「行为模式」10种</p>
+<ul>
+<li><p><input disabled="" type="checkbox">  13 『责任链模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  14 『命令模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  15 『迭代器模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  16 『中介者模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  17 『备忘录模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  18 『观察者模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  19 『状态模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  20 『策略模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  21 『模板方法模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  22 『访问者模式』</p>
+</li>
+<li><p><input disabled="" type="checkbox">  23 『解释器模式』</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>DesignPatterns</category>
       </categories>
   </entry>
   <entry>
@@ -810,29 +811,6 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
 ]]></content>
       <categories>
         <category>Linux</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>java中数组多种遍历求和的效率分析</title>
-    <url>/2021/02/01/JavaSE/java%E4%B8%AD%E6%95%B0%E7%BB%84%E5%A4%9A%E7%A7%8D%E9%81%8D%E5%8E%86%E6%B1%82%E5%92%8C%E7%9A%84%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[<h1 id="java中数组多种遍历求和的效率分析"><a href="#java中数组多种遍历求和的效率分析" class="headerlink" title="java中数组多种遍历求和的效率分析"></a>java中数组多种遍历求和的效率分析</h1><h2 id="int型数组的遍历求和效率分析"><a href="#int型数组的遍历求和效率分析" class="headerlink" title="int型数组的遍历求和效率分析"></a>int型数组的遍历求和效率分析</h2><ul>
-<li>转换成流的形式，再求和。IntStream.of(a).sum();</li>
-<li>另一种转换流求和的方式，Arrays.stream(a).sum();</li>
-<li>普通for loop 求和：for i</li>
-<li>增强for loop 求和：for-each</li>
-</ul>
-<p>测试方法使用的是 System.nanoTime() 求出求和段的运行时间，单位为纳秒(10^-9 s)</p>
-<h3 id="测试代码如下："><a href="#测试代码如下：" class="headerlink" title="测试代码如下："></a>测试代码如下：</h3><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span>[] a = <span class="hljs-keyword">new</span> <span class="hljs-keyword">int</span>[<span class="hljs-number">100</span>];<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++) &#123;<br>            a[i] = i + <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">long</span> l1, l2;<br>        <span class="hljs-keyword">int</span> sum1, sum2, sum3 = <span class="hljs-number">0</span>, sum4 = <span class="hljs-number">0</span>;<br><br>        l1 = System.nanoTime();<br>        sum1 = IntStream.of(a).sum();<br>        l2 = System.nanoTime();<br>        System.out.print(<span class="hljs-string">&quot;IntStream.of(a).sum(): &quot;</span>);<br>        System.out.println(sum1);<br>        System.out.println(l2 - l1);<br><br>        l1 = System.nanoTime();<br>        sum2 = Arrays.stream(a).sum();<br>        l2 = System.nanoTime();<br>        System.out.print(<span class="hljs-string">&quot;Arrays.stream(a).sum(): &quot;</span>);<br>        System.out.println(sum2);<br>        System.out.println(l2 - l1);<br><br>        l1 = System.nanoTime();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; a.length; i++) &#123;<br>            sum3 += a[i];<br>        &#125;<br>        l2 = System.nanoTime();<br>        System.out.print(<span class="hljs-string">&quot;for loop: &quot;</span>);<br>        System.out.println(sum3);<br>        System.out.println(l2 - l1);<br><br>        l1 = System.nanoTime();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i : a) &#123;<br>            sum4 += i;<br>        &#125;<br>        l2 = System.nanoTime();<br>        System.out.print(<span class="hljs-string">&quot;iterator loop: &quot;</span>);<br>        System.out.println(sum4);<br>        System.out.println(l2 - l1);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<blockquote>
-<p>IntStream.of(a).sum(): 5050<br>24215600<br>Arrays.stream(a).sum(): 5050<br>184000<br>for loop: 5050<br>1600<br>iterator loop: 5050<br>1800</p>
-</blockquote>
-<p>求和结果都是正确的。所以根据最后求和速度进行排序，效率从低到高：</p>
-<blockquote>
-<p>IntStream.of(A).sum() &lt; Arrays.stream(A).sum() &lt; iterator loop &lt; for loop</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaSE</category>
       </categories>
   </entry>
   <entry>
@@ -904,6 +882,28 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
 ]]></content>
       <categories>
         <category>Linux</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Redis</title>
+    <url>/2021/04/22/Redis/Redis/</url>
+    <content><![CDATA[<h3 id="📌-Redis"><a href="#📌-Redis" class="headerlink" title="📌 Redis"></a>📌 Redis</h3><ul>
+<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/oz1eni">https://www.yuque.com/hypocrite30/oz1eni</a></p>
+</li>
+<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/Redis">https://github.com/hypocrite30/Redis</a></p>
+<ul>
+<li>In directory 「<code>src</code>」</li>
+</ul>
+</li>
+<li><p>📚 Reference books:  「<strong>Redis开发与运维</strong>」「<strong>Redis设计与实现</strong>」「<strong>Redis深度历险</strong>」</p>
+<ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Redis</category>
       </categories>
   </entry>
   <entry>
@@ -1050,6 +1050,15 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">final</span> Node&lt;K,V&gt; <span class="hljs-title">removeNode</span><span class="hljs-params">(<span class="hljs-keyword">int</span> hash, Object key, Object value,</span></span><br><span class="hljs-function"><span class="hljs-params">                           <span class="hljs-keyword">boolean</span> matchValue, <span class="hljs-keyword">boolean</span> movable)</span> </span>&#123;<br>    <span class="hljs-comment">// tab: 引用 hashmap 中的散列表</span><br>    <span class="hljs-comment">// p: 当前 node 节点</span><br>    <span class="hljs-comment">// n: table散列表的数组长度</span><br>    <span class="hljs-comment">// index: 寻址结果</span><br>    Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; p; <span class="hljs-keyword">int</span> n, index;<br>    <span class="hljs-comment">// 对变量初始化赋值，判空</span><br>    <span class="hljs-keyword">if</span> ((tab = table) != <span class="hljs-keyword">null</span> &amp;&amp; (n = tab.length) &gt; <span class="hljs-number">0</span> &amp;&amp;<br>        (p = tab[index = (n - <span class="hljs-number">1</span>) &amp; hash]) != <span class="hljs-keyword">null</span>) &#123;<br>        <span class="hljs-comment">// node: 查找到的结果</span><br>        <span class="hljs-comment">// e: 当前node的下一个节点</span><br>        Node&lt;K,V&gt; node = <span class="hljs-keyword">null</span>, e; K k; V v;<br>        <span class="hljs-comment">// 当前桶中元素就是待删除元素</span><br>        <span class="hljs-keyword">if</span> (p.hash == hash &amp;&amp;<br>            ((k = p.key) == key || (key != <span class="hljs-keyword">null</span> &amp;&amp; key.equals(k))))<br>            node = p;<br>        <span class="hljs-comment">// 桶中遍历其他元素进行删除</span><br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ((e = p.next) != <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-comment">// 桶为树结构</span><br>            <span class="hljs-keyword">if</span> (p <span class="hljs-keyword">instanceof</span> TreeNode)<br>                <span class="hljs-comment">// 树中查找</span><br>                node = ((TreeNode&lt;K,V&gt;)p).getTreeNode(hash, key);<br>            <span class="hljs-comment">// 桶为链表结构</span><br>            <span class="hljs-keyword">else</span> &#123;<br>                <span class="hljs-keyword">do</span> &#123;<br>                    <span class="hljs-keyword">if</span> (e.hash == hash &amp;&amp;<br>                        ((k = e.key) == key ||<br>                         (key != <span class="hljs-keyword">null</span> &amp;&amp; key.equals(k)))) &#123;<br>                        node = e;<br>                        <span class="hljs-keyword">break</span>;<br>                    &#125;<br>                    p = e;<br>                &#125; <span class="hljs-keyword">while</span> ((e = e.next) != <span class="hljs-keyword">null</span>);<br>            &#125;<br>        &#125;<br>        <br>        <span class="hljs-comment">// matchValue为false，就不进行后面的value值判断</span><br>        <span class="hljs-comment">// 为true，则找到value也匹配的情况</span><br>        <span class="hljs-keyword">if</span> (node != <span class="hljs-keyword">null</span> &amp;&amp; (!matchValue || (v = node.value) == value ||<br>                             (value != <span class="hljs-keyword">null</span> &amp;&amp; value.equals(v)))) &#123;<br>            <span class="hljs-comment">// 树节点删除</span><br>            <span class="hljs-keyword">if</span> (node <span class="hljs-keyword">instanceof</span> TreeNode)<br>                ((TreeNode&lt;K,V&gt;)node).removeTreeNode(<span class="hljs-keyword">this</span>, tab, movable);<br>            <span class="hljs-comment">// 上面的 if 的情况，桶中的首元素为待删除元素</span><br>            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (node == p)<br>                tab[index] = node.next;<br>            <span class="hljs-comment">// 链表结构删除节点</span><br>            <span class="hljs-keyword">else</span><br>                p.next = node.next;<br>            ++modCount;<br>            --size;<br>            <span class="hljs-comment">// 在HashMap中是空方法，为了给其子类LinkedHashMap继承重写</span><br>            afterNodeRemoval(node);<br>            <span class="hljs-keyword">return</span> node;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 
+<h4 id="获取-get-Object-key"><a href="#获取-get-Object-key" class="headerlink" title="获取 get(Object key)"></a>获取 get(Object key)</h4><ul>
+<li>实现方法 [getNode(…)](#Map.get 的实现方法及其相关方法)，找不到，则返回 <code>null</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> V <span class="hljs-title">get</span><span class="hljs-params">(Object key)</span> </span>&#123;<br>    Node&lt;K,V&gt; e;<br>    <span class="hljs-keyword">return</span> (e = getNode(hash(key), key)) == <span class="hljs-keyword">null</span> ? <span class="hljs-keyword">null</span> : e.value;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h4 id="Map-get-的实现方法及其相关方法"><a href="#Map-get-的实现方法及其相关方法" class="headerlink" title="Map.get 的实现方法及其相关方法"></a>Map.get 的实现方法及其相关方法</h4><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">final</span> Node&lt;K,V&gt; <span class="hljs-title">getNode</span><span class="hljs-params">(<span class="hljs-keyword">int</span> hash, Object key)</span> </span>&#123;<br>    Node&lt;K,V&gt;[] tab; Node&lt;K,V&gt; first, e; <span class="hljs-keyword">int</span> n; K k;<br>    <span class="hljs-comment">// 对成员变量赋值，并判空</span><br>    <span class="hljs-keyword">if</span> ((tab = table) != <span class="hljs-keyword">null</span> &amp;&amp; (n = tab.length) &gt; <span class="hljs-number">0</span> &amp;&amp;<br>        (first = tab[(n - <span class="hljs-number">1</span>) &amp; hash]) != <span class="hljs-keyword">null</span>) &#123;<br>        <span class="hljs-comment">// 如果桶顶元素符合key，则直接返回</span><br>        <span class="hljs-keyword">if</span> (first.hash == hash &amp;&amp; <span class="hljs-comment">// always check first node</span><br>            ((k = first.key) == key || (key != <span class="hljs-keyword">null</span> &amp;&amp; key.equals(k))))<br>            <span class="hljs-keyword">return</span> first;<br>        <span class="hljs-comment">// 桶后面有其他元素碰撞</span><br>        <span class="hljs-keyword">if</span> ((e = first.next) != <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-comment">// 红黑树结构，二分查找，O(logn)</span><br>            <span class="hljs-keyword">if</span> (first <span class="hljs-keyword">instanceof</span> TreeNode)<br>                <span class="hljs-keyword">return</span> ((TreeNode&lt;K,V&gt;)first).getTreeNode(hash, key);<br>            <span class="hljs-comment">// 链表</span><br>            <span class="hljs-keyword">do</span> &#123;<br>                <span class="hljs-keyword">if</span> (e.hash == hash &amp;&amp;<br>                    ((k = e.key) == key || (key != <span class="hljs-keyword">null</span> &amp;&amp; key.equals(k))))<br>                    <span class="hljs-keyword">return</span> e;<br>            &#125; <span class="hljs-keyword">while</span> ((e = e.next) != <span class="hljs-keyword">null</span>);<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
 <h4 id="hash-计算"><a href="#hash-计算" class="headerlink" title="hash 计算"></a>hash 计算</h4><ul>
 <li>再次计算 <code>key.hashCode()</code>，将 <strong>高 16 位</strong> 参与进来，使得哈希值<strong>更加分散</strong></li>
 <li><code>(h = key.hashCode()) ^ (h &gt;&gt;&gt; 16)</code></li>
@@ -1069,6 +1078,15 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
 <p>🌰：以入参为 10 为例</p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> <span class="hljs-title">tableSizeFor</span><span class="hljs-params">(<span class="hljs-keyword">int</span> cap)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> n = cap - <span class="hljs-number">1</span>; <span class="hljs-comment">// 9</span><br>    n |= n &gt;&gt;&gt; <span class="hljs-number">1</span>; <span class="hljs-comment">// 0b1001 | 0b0100 = 0b1101</span><br>    n |= n &gt;&gt;&gt; <span class="hljs-number">2</span>; <span class="hljs-comment">// 0b1101 | 0b0011 = 0b1111</span><br>    n |= n &gt;&gt;&gt; <span class="hljs-number">4</span>; <span class="hljs-comment">// 下面都是 0b1111</span><br>    n |= n &gt;&gt;&gt; <span class="hljs-number">8</span>;<br>    n |= n &gt;&gt;&gt; <span class="hljs-number">16</span>;<br>    <span class="hljs-comment">// n = 0b1111</span><br>    <span class="hljs-comment">// (n &gt;= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1</span><br>    <span class="hljs-comment">// n + 1 = 15 + 1 = 16</span><br>    <span class="hljs-keyword">return</span> (n &lt; <span class="hljs-number">0</span>) ? <span class="hljs-number">1</span> : (n &gt;= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 <p>📌注：如果一开始 <code>n</code> 不减一，算出来的结果会大一倍</p>
+<h3 id="Ⅳ、HashMap-初始化建议"><a href="#Ⅳ、HashMap-初始化建议" class="headerlink" title="Ⅳ、HashMap 初始化建议"></a>Ⅳ、HashMap 初始化建议</h3><h4 id="一、初始化问题"><a href="#一、初始化问题" class="headerlink" title="一、初始化问题"></a>一、初始化问题</h4><p>由于 HashMap 自动扩容机制，需要重新计算键值对的哈希值，并进行拷贝，开销较大，为了避免自动扩容，尽量在创建哈希表时，<a href="#%E6%9C%89%E5%8F%82%E6%9E%84%E9%80%A0">有参构造</a> 指定初始容量。</p>
+<p>HashMap 的扩容机制 在 [resize()](#扩容方法 resize()) 有介绍，两种情况会进行扩容：①元素个数超过「数组长度 * 负载因子」（<code>threshold = loadFactor * capacity</code>）②桶链表长度大于 8 且 table 数组长度小于 64，则会进行<strong>扩容</strong>，而不是变成树结构</p>
+<h4 id="二、建议初始化大小计算"><a href="#二、建议初始化大小计算" class="headerlink" title="二、建议初始化大小计算"></a>二、建议初始化大小计算</h4><ul>
+<li>根据《阿里巴巴Java开发手册》编程规约中，对集合处理有以下建议：</li>
+</ul>
+<p><img src="https://gitee.com/hypocrite30/ImgBed/raw/master/img/JavaCommons/HashMap%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%9B%E5%BB%BA%E6%8C%87%E5%AE%9A%E5%A4%A7%E5%B0%8F.png" alt="HashMap创建指定初始化大小"></p>
+<p>🌰举例：</p>
+<p>如果设置的默认值为 7，经过 <a href="#%E8%AE%A1%E7%AE%97%E5%A4%A7%E4%BA%8E%E7%AD%89%E4%BA%8E%E7%BB%99%E5%AE%9A%E6%95%B0%E7%9A%84%E6%9C%80%E8%BF%912%E6%AC%A1%E5%B9%82%E6%95%B0">tableSizeFor()</a> 计算后，设置为 8。此时 <code>Threshold = 8 * 0.75 = 6</code>，会进行一次扩容，并不是最佳方案。</p>
+<p>通过 <code>initialCapacity / 0.75F + 1.0F</code> 计算，得到设置值为 <code>7 / 0.75 + 1 = 10</code>，经过 <a href="#%E8%AE%A1%E7%AE%97%E5%A4%A7%E4%BA%8E%E7%AD%89%E4%BA%8E%E7%BB%99%E5%AE%9A%E6%95%B0%E7%9A%84%E6%9C%80%E8%BF%912%E6%AC%A1%E5%B9%82%E6%95%B0">tableSizeFor()</a> 计算后设置为 16，在容量达到 <code>16 * 0.75 = 12</code> 时进行扩容，符合预期。</p>
 <h2 id="三、HashSet"><a href="#三、HashSet" class="headerlink" title="三、HashSet"></a>三、HashSet</h2><ul>
 <li>基于 <code>HashCode</code> 实现元素不重复</li>
 <li>当存入元素哈希码相同时，调用 <code>equals</code> 确认，若为 <code>true</code>，拒绝后者存入「实现不重复」</li>
@@ -1096,6 +1114,7 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
 </ul>
 <h2 id="🔗Reference"><a href="#🔗Reference" class="headerlink" title="🔗Reference"></a>🔗Reference</h2><blockquote>
 <p><a href="https://tech.meituan.com/2016/06/24/java-hashmap.html">https://tech.meituan.com/2016/06/24/java-hashmap.html</a></p>
+<p><a href="https://developer.aliyun.com/topic/java20">《阿里巴巴Java开发手册 v1.7.0嵩山版》</a></p>
 </blockquote>
 ]]></content>
       <categories>
