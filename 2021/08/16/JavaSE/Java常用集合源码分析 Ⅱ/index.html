@@ -187,7 +187,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      5.1k 字
+      5.4k 字
     </span>
   
 
@@ -197,7 +197,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      89
+      94
        分钟
     </span>
   
@@ -239,7 +239,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2021年8月26日 晚上
+                  本文最后更新于：2021年8月28日 晚上
                 
               </p>
             
@@ -403,18 +403,12 @@
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> <span class="hljs-title">hash</span><span class="hljs-params">(Object key)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> h;<br>    <span class="hljs-keyword">return</span> (key == <span class="hljs-keyword">null</span>) ? <span class="hljs-number">0</span> : (h = key.hashCode()) ^ (h &gt;&gt;&gt; <span class="hljs-number">16</span>);<br>&#125;<br></code></pre></div></td></tr></table></figure>
 
 
-
-
-
-
-
-
 <h4 id="计算大于等于给定数的最近2次幂数"><a href="#计算大于等于给定数的最近2次幂数" class="headerlink" title="计算大于等于给定数的最近2次幂数"></a>计算大于等于给定数的最近2次幂数</h4><p>输入7，结果为8；输入10，结果为16；</p>
 <p>🌰：以入参为 10 为例</p>
 <figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">int</span> <span class="hljs-title">tableSizeFor</span><span class="hljs-params">(<span class="hljs-keyword">int</span> cap)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> n = cap - <span class="hljs-number">1</span>; <span class="hljs-comment">// 9</span><br>    n |= n &gt;&gt;&gt; <span class="hljs-number">1</span>; <span class="hljs-comment">// 0b1001 | 0b0100 = 0b1101</span><br>    n |= n &gt;&gt;&gt; <span class="hljs-number">2</span>; <span class="hljs-comment">// 0b1101 | 0b0011 = 0b1111</span><br>    n |= n &gt;&gt;&gt; <span class="hljs-number">4</span>; <span class="hljs-comment">// 下面都是 0b1111</span><br>    n |= n &gt;&gt;&gt; <span class="hljs-number">8</span>;<br>    n |= n &gt;&gt;&gt; <span class="hljs-number">16</span>;<br>    <span class="hljs-comment">// n = 0b1111</span><br>    <span class="hljs-comment">// (n &gt;= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1</span><br>    <span class="hljs-comment">// n + 1 = 15 + 1 = 16</span><br>    <span class="hljs-keyword">return</span> (n &lt; <span class="hljs-number">0</span>) ? <span class="hljs-number">1</span> : (n &gt;= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + <span class="hljs-number">1</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 <p>📌注：如果一开始 <code>n</code> 不减一，算出来的结果会大一倍</p>
 <h3 id="Ⅳ、HashMap-初始化建议"><a href="#Ⅳ、HashMap-初始化建议" class="headerlink" title="Ⅳ、HashMap 初始化建议"></a>Ⅳ、HashMap 初始化建议</h3><h4 id="一、初始化问题"><a href="#一、初始化问题" class="headerlink" title="一、初始化问题"></a>一、初始化问题</h4><p>由于 HashMap 自动扩容机制，需要重新计算键值对的哈希值，并进行拷贝，开销较大，为了避免自动扩容，尽量在创建哈希表时，<a href="#%E6%9C%89%E5%8F%82%E6%9E%84%E9%80%A0">有参构造</a> 指定初始容量。</p>
-<p>HashMap 的扩容机制 在 [resize()](#扩容方法 resize()) 有介绍，两种情况会进行扩容：①元素个数超过「数组长度 * 负载因子」（<code>threshold = loadFactor * capacity</code>）②桶链表长度大于 8 且 table 数组长度小于 64，则会进行<strong>扩容</strong>，而不是变成树结构</p>
+<p>HashMap 的扩容机制 在 [resize()](#扩容方法 resize()) 有介绍，两种情况会进行扩容：①元素个数超过「数组长度 * 负载因子」（threshold = loadFactor * capacity）②桶链表长度大于 8 且 table 数组长度小于 64，则会进行<strong>扩容</strong>，而不是变成树结构</p>
 <h4 id="二、建议初始化大小计算"><a href="#二、建议初始化大小计算" class="headerlink" title="二、建议初始化大小计算"></a>二、建议初始化大小计算</h4><ul>
 <li>根据《阿里巴巴Java开发手册》编程规约中，对集合处理有以下建议：</li>
 </ul>
@@ -422,6 +416,21 @@
 <p>🌰举例：</p>
 <p>如果设置的默认值为 7，经过 <a href="#%E8%AE%A1%E7%AE%97%E5%A4%A7%E4%BA%8E%E7%AD%89%E4%BA%8E%E7%BB%99%E5%AE%9A%E6%95%B0%E7%9A%84%E6%9C%80%E8%BF%912%E6%AC%A1%E5%B9%82%E6%95%B0">tableSizeFor()</a> 计算后，设置为 8。此时 <code>Threshold = 8 * 0.75 = 6</code>，会进行一次扩容，并不是最佳方案。</p>
 <p>通过 <code>initialCapacity / 0.75F + 1.0F</code> 计算，得到设置值为 <code>7 / 0.75 + 1 = 10</code>，经过 <a href="#%E8%AE%A1%E7%AE%97%E5%A4%A7%E4%BA%8E%E7%AD%89%E4%BA%8E%E7%BB%99%E5%AE%9A%E6%95%B0%E7%9A%84%E6%9C%80%E8%BF%912%E6%AC%A1%E5%B9%82%E6%95%B0">tableSizeFor()</a> 计算后设置为 16，在容量达到 <code>16 * 0.75 = 12</code> 时进行扩容，符合预期。</p>
+<h3 id="Ⅴ、线程安全问题"><a href="#Ⅴ、线程安全问题" class="headerlink" title="Ⅴ、线程安全问题"></a>Ⅴ、线程安全问题</h3><h4 id="一、HashMap-线程安全问题"><a href="#一、HashMap-线程安全问题" class="headerlink" title="一、HashMap 线程安全问题"></a>一、HashMap 线程安全问题</h4><p>HashMap的线程不安全体现在会造成<strong>死循环</strong>、<strong>数据丢失</strong>、<strong>数据覆盖</strong>这些问题。其中死循环和数据丢失是在 <code>JDK1.7</code>   中出现的问题，在 <code>JDK1.8</code> 中已经得到解决，然而 1.8 中仍会有<strong>数据覆盖</strong>的问题，即在并发执行 <code>HashMap::put</code> 操作时会发生数据覆盖的情况。</p>
+<h4 id="二、JDK7-HashMap并发死链问题"><a href="#二、JDK7-HashMap并发死链问题" class="headerlink" title="二、JDK7 HashMap并发死链问题"></a>二、JDK7 HashMap并发死链问题</h4><ul>
+<li>首先说明：<code>JDK7</code> 中 <code>HashMap</code> 插入操作是 <strong>头插法</strong>。</li>
+</ul>
+<p>关注到 <code>JDK7</code> 的扩容操作，实现的方法是 <code>transfer(...)</code></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">transfer</span><span class="hljs-params">(Entry[] newTable, <span class="hljs-keyword">boolean</span> rehash)</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> newCapacity = newTable.length;<br>    <span class="hljs-keyword">for</span> (Entry&lt;K,V&gt; e : table) &#123;<br>        <span class="hljs-keyword">while</span>(<span class="hljs-keyword">null</span> != e) &#123;<br>            Entry&lt;K,V&gt; next = e.next; <span class="hljs-comment">// ①</span><br>            <span class="hljs-keyword">if</span> (rehash) &#123;<br>                e.hash = <span class="hljs-keyword">null</span> == e.key ? <span class="hljs-number">0</span> : hash(e.key);<br>            &#125;<br>            <span class="hljs-keyword">int</span> i = indexFor(e.hash, newCapacity); <br>            e.next = newTable[i]; <span class="hljs-comment">// ②</span><br>            newTable[i] = e; <span class="hljs-comment">// ③</span><br>            e = next; <span class="hljs-comment">// ④</span><br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p>①：<code>Entry&lt;K,V&gt; next = e.next;</code> 获取 e 的下一个节点指针</p>
+<p>②：<code>e.next = newTable[i];</code> 待转移节点指向新桶</p>
+<p>③：<code>newTable[i] = e;</code> 待转移节点移动到桶位置</p>
+<p>④：<code>e = next;</code> 成功移动后，将 e 指针回到原来链表位置，对下一个节点转移\</p>
+<p>以下视频有详细讲解：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1n541177Ea">https://www.bilibili.com/video/BV1n541177Ea</a></p>
+<p><a target="_blank" rel="noopener" href="https://coolshell.cn/articles/9606.html#">https://coolshell.cn/articles/9606.html#</a></p>
+</blockquote>
 <h2 id="三、HashSet"><a href="#三、HashSet" class="headerlink" title="三、HashSet"></a>三、HashSet</h2><ul>
 <li>基于 <code>HashCode</code> 实现元素不重复</li>
 <li>当存入元素哈希码相同时，调用 <code>equals</code> 确认，若为 <code>true</code>，拒绝后者存入「实现不重复」</li>
@@ -450,6 +459,7 @@
 <h2 id="🔗Reference"><a href="#🔗Reference" class="headerlink" title="🔗Reference"></a>🔗Reference</h2><blockquote>
 <p><a target="_blank" rel="noopener" href="https://tech.meituan.com/2016/06/24/java-hashmap.html">https://tech.meituan.com/2016/06/24/java-hashmap.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://developer.aliyun.com/topic/java20">《阿里巴巴Java开发手册 v1.7.0嵩山版》</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1n541177Ea">HashMap死链问题</a></p>
 </blockquote>
 
             </div>
