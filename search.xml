@@ -77,6 +77,42 @@
       </categories>
   </entry>
   <entry>
+    <title>JVM「HotSpot VM」</title>
+    <url>/2021/06/02/JVM/JVM%E3%80%8CHotSpot%20VM%E3%80%8D/</url>
+    <content><![CDATA[<h3 id="📌-JVM「HotSpot-VM」"><a href="#📌-JVM「HotSpot-VM」" class="headerlink" title="📌 JVM「HotSpot VM」"></a>📌 JVM「HotSpot VM」</h3><ul>
+<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/JVM-demonstrate">https://github.com/hypocrite30/JVM-demonstrate</a></p>
+<ul>
+<li>In directory 「<code>src</code>」</li>
+</ul>
+</li>
+<li><p>📚 Reference :  </p>
+<ul>
+<li>「<a href="https://book.douban.com/subject/34907497/">深入理解Java虚拟机（第3版）</a>」<ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+<li>「<a href="https://www.bilibili.com/video/BV1PJ411n7xZ">尚硅谷JVM教程</a>」</li>
+</ul>
+</li>
+<li><p>🍬Thanks：</p>
+<ul>
+<li><a href="https://gitee.com/vectorx/NOTE_JVM">https://gitee.com/vectorx/NOTE_JVM</a><ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+<li><a href="https://github.com/TangBean/understanding-the-jvm">https://github.com/TangBean/understanding-the-jvm</a><ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>JVM</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Java For-loop&amp; For-each &amp; Iterator 效率分析</title>
     <url>/2021/03/16/JavaSE/Java%20For-loop&amp;%20For-each%20&amp;%20Iterator%20%E6%95%88%E7%8E%87%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<ul>
@@ -184,6 +220,76 @@
 
 
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>总而言之，与传统的for循环相比，for-each循环在简洁性、灵活性以及出错预防性方面都占有绝对优势，并且<strong>没有性能惩罚</strong>的问题。因此，当可以选择的时候，for-each循环应该优先于for循环。</p>
+]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Java左值和右值的思考</title>
+    <url>/2021/12/05/JavaSE/Java%E5%B7%A6%E5%80%BC%E5%92%8C%E5%8F%B3%E5%80%BC%E7%9A%84%E6%80%9D%E8%80%83/</url>
+    <content><![CDATA[<h1 id="Java左值和右值的思考"><a href="#Java左值和右值的思考" class="headerlink" title="Java左值和右值的思考"></a>Java左值和右值的思考</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>昨天做了一道LeetCode，用到小根堆「PriorityQueue」，其中一个操作让我困惑了很久。</p>
+<ul>
+<li>小根堆存储的是原数组为负值的下标，则小根堆堆顶为最小负数的下标</li>
+<li>本意是循环中，每次让最小负数取到相反数，变成一个正数</li>
+<li><code>while (k-- &gt; 0) nums[queue.peek()] = -nums[queue.poll()];</code><ul>
+<li>这一操作让我疑惑了很久，根据赋值表达式的性质，应该是从右计算到左，但是如果这样思考的话，就会让 <code>poll</code> 先进行，后面才 <code>peek</code> ，这样下标的计算就出错了。</li>
+</ul>
+</li>
+</ul>
+<h2 id="断点分析"><a href="#断点分析" class="headerlink" title="断点分析"></a>断点分析</h2><ol>
+<li>先直接测试 <code>num[q.peek()] = -num[q.poll()]</code> 这一写法</li>
+</ol>
+<p><img src="https://gitee.com/hypocrite30/ImgBed/raw/master/img/JavaCommons/num%5Bq.peek()%5D%20=%20-num%5Bq.poll()%5D1.png" alt="num[q.peek()] = -num[q.poll()]"></p>
+<p><img src="https://gitee.com/hypocrite30/ImgBed/raw/master/img/JavaCommons/num%5Bq.peek()%5D%20=%20-num%5Bq.poll()%5D2.png" alt="num[q.peek()] = -num[q.poll()]"></p>
+<ul>
+<li>即成功将 <code>num</code> 的第一个元素变成相反数</li>
+</ul>
+<ol start="2">
+<li>将 <code>q.peek()</code> 抽取变量</li>
+</ol>
+<p><img src="https://gitee.com/hypocrite30/ImgBed/raw/master/img/JavaCommons/%E5%B0%86q.peek()%E6%8A%BD%E5%8F%96%E5%8F%98%E9%87%8F1.png" alt="将q.peek()抽取变量"></p>
+<p><img src="https://gitee.com/hypocrite30/ImgBed/raw/master/img/JavaCommons/%E5%B0%86q.peek()%E6%8A%BD%E5%8F%96%E5%8F%98%E9%87%8F2.png" alt="将q.peek()抽取变量"></p>
+<ul>
+<li>按照预期「将 peek 的下标元素置为相反数」，提取变量，即下标，这种写法清晰明了</li>
+</ul>
+<ol start="3">
+<li>将 <code>q.poll()</code> 抽取变量</li>
+</ol>
+<p><img src="https://gitee.com/hypocrite30/ImgBed/raw/master/img/JavaCommons/%E5%B0%86q.poll()%E6%8A%BD%E5%8F%96%E5%8F%98%E9%87%8F1.png" alt="将q.poll()抽取变量"></p>
+<p><code>q.poll()</code> 让堆顶出队，保存下来，但这改变堆结构，在下次 <code>peek</code> 就不再是原堆的最小值元素</p>
+<p><img src="https://gitee.com/hypocrite30/ImgBed/raw/master/img/JavaCommons/%E5%B0%86q.poll()%E6%8A%BD%E5%8F%96%E5%8F%98%E9%87%8F2.png" alt="将q.poll()抽取变量"></p>
+<ul>
+<li>最终影响到第二个元素，而不是第一个元素，不符合预期。</li>
+</ul>
+<h2 id="字节码分析"><a href="#字节码分析" class="headerlink" title="字节码分析"></a>字节码分析</h2><p>反编译 <code>.class</code> 文件，分析执行过程</p>
+<ol>
+<li><code>num[q.peek()] = -num[q.poll()]</code></li>
+</ol>
+<p><img src="https://gitee.com/hypocrite30/ImgBed/raw/master/img/JavaCommons/num%5Bq.peek()%5D%20=%20-num%5Bq.poll()%5D3.png" alt="num[q.peek()] = -num[q.poll()]"></p>
+<ul>
+<li>显然是先执行的 <code>peek</code> 后执行 <code>poll</code>，符合预期</li>
+</ul>
+<ol start="2">
+<li>将 <code>q.peek()</code> 抽取变量</li>
+</ol>
+<p><img src="https://gitee.com/hypocrite30/ImgBed/raw/master/img/JavaCommons/%E5%B0%86q.peek()%E6%8A%BD%E5%8F%96%E5%8F%98%E9%87%8F3.png" alt="将q.peek()抽取变量"></p>
+<ul>
+<li>也是按照预期执行 <code>peek</code> 后执行 <code>poll</code></li>
+</ul>
+<ol start="3">
+<li>将 <code>q.poll()</code> 抽取变量</li>
+</ol>
+<p><img src="https://gitee.com/hypocrite30/ImgBed/raw/master/img/JavaCommons/%E5%B0%86q.poll()%E6%8A%BD%E5%8F%96%E5%8F%98%E9%87%8F3.png" alt="将q.poll()抽取变量"></p>
+<ul>
+<li>先执行的 <code>poll</code> 后执行 <code>peek</code>，不符合预期</li>
+</ul>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
+<li>不能按照赋值表达式 <code>=</code> 从右向左运行的思想思考 <code>nums[queue.peek()] = -nums[queue.poll()];</code></li>
+<li>最终的赋值的确会按照右向左执行「赋值操作」，完成 <strong>置相反数</strong> 的操作</li>
+<li>但是从最终字节码的执行顺序来看，📌猜测：对于<strong>表达式</strong>的计算，会<strong>从左向右</strong>计算，将前序准备工作「取值」完成后，才进行写操作，赋值。</li>
+</ul>
+<h2 id="🔗Reference"><a href="#🔗Reference" class="headerlink" title="🔗Reference"></a>🔗Reference</h2><p><a href="https://leetcode-cn.com/problems/maximize-sum-of-array-after-k-negations/">1005. K 次取反后最大化的数组和</a></p>
 ]]></content>
       <categories>
         <category>JavaSE</category>
@@ -476,6 +582,63 @@
       </categories>
   </entry>
   <entry>
+    <title>Java手动实现迭代器。(LeetCode 341)</title>
+    <url>/2021/03/23/JavaSE/Java%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%82(LeetCode%20341)/</url>
+    <content><![CDATA[<h1 id="341-扁平化嵌套列表迭代器"><a href="#341-扁平化嵌套列表迭代器" class="headerlink" title="341. 扁平化嵌套列表迭代器"></a>341. 扁平化嵌套列表迭代器</h1><hr>
+<p><a href="https://imgtu.com/i/6T7qHO"><img src="https://z3.ax1x.com/2021/03/23/6T7qHO.png" alt="leetCode 341"></a></p>
+<p><a href="https://leetcode-cn.com/problems/flatten-nested-list-iterator/">https://leetcode-cn.com/problems/flatten-nested-list-iterator/</a></p>
+<ul>
+<li>先声明 <code>NestedInteger</code> 的结构（题目给出）</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">NestedInteger</span> </span>&#123;<br><br>    <span class="hljs-comment">// @return true if this NestedInteger holds a single integer, rather than a nested list.</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isInteger</span><span class="hljs-params">()</span></span>;<br><br>    <span class="hljs-comment">// @return the single integer that this NestedInteger holds, if it holds a single integer</span><br>    <span class="hljs-comment">// Return null if this NestedInteger holds a nested list</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">getInteger</span><span class="hljs-params">()</span></span>;<br><br>    <span class="hljs-comment">// @return the nested list that this NestedInteger holds, if it holds a nested list</span><br>    <span class="hljs-comment">// Return null if this NestedInteger holds a single integer</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;NestedInteger&gt; <span class="hljs-title">getList</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h2 id="迭代器（效率最高）"><a href="#迭代器（效率最高）" class="headerlink" title="迭代器（效率最高）"></a>迭代器（效率最高）</h2><ul>
+<li>手动遍历，将遍历结果存在集合中，然后生成迭代器，其他操作基于此迭代器即可。</li>
+<li>遍历方式是DFS，因为此结构可以联系到数据结构中的 <code>树</code>。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * use Java Iterator</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    <span class="hljs-keyword">private</span> Iterator&lt;Integer&gt; iterator;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedIterator</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (NestedInteger node : nestedList) &#123;<br>            DFS(node, list);<br>        &#125;<br>        <span class="hljs-keyword">this</span>.iterator = list.iterator(); <span class="hljs-comment">// all the operation use list&#x27;s iterator</span><br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> iterator.next();<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> iterator.hasNext();<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * DFS get every element into List res;</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DFS</span><span class="hljs-params">(NestedInteger node, List&lt;Integer&gt; res)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (node.isInteger()) &#123;<br>            res.add(node.getInteger());<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (NestedInteger child : node.getList()) &#123;<br>            DFS(child, res);<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h2 id="队列-DFS（用队列实现-Iterator）"><a href="#队列-DFS（用队列实现-Iterator）" class="headerlink" title="队列 + DFS（用队列实现 Iterator）"></a>队列 + DFS（用队列实现 Iterator）</h2><ul>
+<li>道理同上，DFS手动遍历，将遍历结果存在队列中</li>
+<li>用队列手动实现 <code>iterator</code>。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * use DFS and Queue</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    Deque&lt;Integer&gt; queue = <span class="hljs-keyword">new</span> ArrayDeque&lt;Integer&gt;();<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedIterator</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        DFS(nestedList);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> hasNext() ? queue.pollFirst() : -<span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> !queue.isEmpty();<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * DFS the nestedList, offer the elements into the queue</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DFS</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (NestedInteger elem : nestedList) &#123;<br>            <span class="hljs-keyword">if</span> (elem.isInteger()) &#123; <span class="hljs-comment">// elem is Integer, offer the queue</span><br>                queue.addLast(elem.getInteger());<br>            &#125; <span class="hljs-keyword">else</span> &#123;    <span class="hljs-comment">// elem is List, DFS the list and offer the elements into queue</span><br>                DFS(elem.getList());<br>            &#125;<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<h2 id="栈-递归-Stack-Recursion"><a href="#栈-递归-Stack-Recursion" class="headerlink" title="栈 + 递归 (Stack + Recursion)"></a>栈 + 递归 (Stack + Recursion)</h2><ul>
+<li>不同于队列的是，队列要在初始化阶段，将遍历的结果全部处理好，最后按照顺序进行操作即可。</li>
+<li>利用栈的思想是，先将这些 <code>NestedInteger</code>按顺序（倒序）存放在栈中，而要使用里面的元素时，再一步步的<strong>拆封</strong>出来。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * use Stack and Recursion</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    Deque&lt;NestedInteger&gt; stack = <span class="hljs-keyword">new</span> ArrayDeque&lt;NestedInteger&gt;();<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedIterator</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = nestedList.size() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span> ; i--) &#123;<br>            stack.push(nestedList.get(i));<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> hasNext() ? stack.pop().getInteger() : -<span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (stack.isEmpty()) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;    <span class="hljs-comment">// stack not empty, judge the peek elem&#x27;s type(List/Integer)</span><br>            NestedInteger elem = stack.peek();<br>            <span class="hljs-keyword">if</span> (elem.isInteger()) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>            &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// peek elem is list, iterate the list to push elem into the stack</span><br>                elem = stack.pop();<br>                List&lt;NestedInteger&gt; list = elem.getList();<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = list.size() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>                    stack.push(list.get(i));<br>                &#125;<br>                <span class="hljs-keyword">return</span> hasNext();<br>            &#125;<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Redis</title>
+    <url>/2021/04/22/Redis/Redis/</url>
+    <content><![CDATA[<h3 id="📌-Redis"><a href="#📌-Redis" class="headerlink" title="📌 Redis"></a>📌 Redis</h3><ul>
+<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/oz1eni">https://www.yuque.com/hypocrite30/oz1eni</a></p>
+</li>
+<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/Redis">https://github.com/hypocrite30/Redis</a></p>
+<ul>
+<li>In directory 「<code>src</code>」</li>
+</ul>
+</li>
+<li><p>📚 Reference books:  「<strong>Redis开发与运维</strong>」「<strong>Redis设计与实现</strong>」「<strong>Redis深度历险</strong>」</p>
+<ul>
+<li>In directory 「<code>doc</code>」</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Java算法竞赛常用模板</title>
     <url>/2021/02/10/JavaSE/Java%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B%E5%B8%B8%E7%94%A8%E6%A8%A1%E6%9D%BF/</url>
     <content><![CDATA[<h1 id="Java算法竞赛常用模板"><a href="#Java算法竞赛常用模板" class="headerlink" title="Java算法竞赛常用模板"></a>Java算法竞赛常用模板</h1><h2 id="一、输入输出"><a href="#一、输入输出" class="headerlink" title="一、输入输出"></a>一、输入输出</h2><h3 id="简单输入"><a href="#简单输入" class="headerlink" title="简单输入"></a>简单输入</h3><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.Scanner <br><span class="hljs-keyword">import</span> java.io.BufferedInputStream;<br><br>Scanner sc1 = <span class="hljs-keyword">new</span> Scanner(System.in);<br>Scanner sc2 = <span class="hljs-keyword">new</span> Scanner(<span class="hljs-keyword">new</span> BufferedInputStream(System.in));<br><span class="hljs-comment">// sc2用到缓冲流，读入更快</span><br></code></pre></div></td></tr></table></figure>
@@ -486,7 +649,7 @@
 </blockquote>
 <h3 id="复杂输入"><a href="#复杂输入" class="headerlink" title="复杂输入"></a>复杂输入</h3><div class="hljs code-wrapper"><pre><code>    如：1,2,3,4,5
 </code></pre></div>
-<figure class="highlight reasonml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs reasonml">public static void main(String<span class="hljs-literal">[]</span> args) &#123;<br>    Scanner sc = <span class="hljs-keyword">new</span> <span class="hljs-constructor">Scanner(System.<span class="hljs-params">in</span>)</span>;<br>    String str = sc.next<span class="hljs-literal">()</span>;<br>    String<span class="hljs-literal">[]</span> split = str.split(<span class="hljs-string">&quot;,&quot;</span>);<br>    <span class="hljs-built_in">int</span><span class="hljs-literal">[]</span> strInt = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span><span class="hljs-literal">[<span class="hljs-identifier">split</span>.<span class="hljs-identifier">length</span>]</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; split.length; i++) &#123;<br>        strInt<span class="hljs-literal">[<span class="hljs-identifier">i</span>]</span> = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Integer</span>.</span></span>parse<span class="hljs-constructor">Int(<span class="hljs-params">split</span>[<span class="hljs-params">i</span>])</span>;<br>    &#125;<br>    <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Arrays</span>.</span></span><span class="hljs-keyword">to</span><span class="hljs-constructor">String(<span class="hljs-params">strInt</span>)</span>);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight processing"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs processing"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> main(<span class="hljs-keyword">String</span>[] args) &#123;<br>    Scanner sc = <span class="hljs-keyword">new</span> Scanner(System.in);<br>    <span class="hljs-keyword">String</span> <span class="hljs-built_in">str</span> = sc.next();<br>    <span class="hljs-keyword">String</span>[] <span class="hljs-built_in">split</span> = <span class="hljs-built_in">str</span>.<span class="hljs-built_in">split</span>(<span class="hljs-string">&quot;,&quot;</span>);<br>    <span class="hljs-built_in">int</span>[] strInt = <span class="hljs-keyword">new</span> <span class="hljs-built_in">int</span>[<span class="hljs-built_in">split</span>.length];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-built_in">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">split</span>.length; i++) &#123;<br>        strInt[i] = Integer.parseInt(<span class="hljs-built_in">split</span>[i]);<br>    &#125;<br>    System.out.<span class="hljs-built_in">println</span>(Arrays.toString(strInt));<br>&#125;<br></code></pre></div></td></tr></table></figure>
 <blockquote>
 <p>1,2,3,4,5<br>[1, 2, 3, 4, 5]</p>
 </blockquote>
@@ -583,7 +746,7 @@
 <ul>
 <li>Date转换为Calendar</li>
 </ul>
-<figure class="highlight reasonml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs reasonml">Date date2 = <span class="hljs-keyword">new</span> <span class="hljs-constructor">Date()</span>;<br>Calendar cal2 = <span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Calendar</span>.</span></span>get<span class="hljs-constructor">Instance()</span>;<br>cal2.set<span class="hljs-constructor">Time(<span class="hljs-params">date2</span>)</span>;<br><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(cal2.get(Calendar.YEAR) +<span class="hljs-string">&quot;-&quot;</span>+(cal2.get(Calendar.MONTH)+<span class="hljs-number">1</span>)+<span class="hljs-string">&quot;-&quot;</span>+cal2.get(Calendar.DATE));<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs pgsql"><span class="hljs-type">Date</span> date2 = <span class="hljs-built_in">new</span> <span class="hljs-type">Date</span>();<br>Calendar cal2 = Calendar.getInstance();<br>cal2.setTime(date2);<br><span class="hljs-keyword">System</span>.<span class="hljs-keyword">out</span>.println(cal2.<span class="hljs-keyword">get</span>(Calendar.YEAR) +&quot;-&quot;+(cal2.<span class="hljs-keyword">get</span>(Calendar.MONTH)+<span class="hljs-number">1</span>)+&quot;-&quot;+cal2.<span class="hljs-keyword">get</span>(Calendar.DATE));<br></code></pre></div></td></tr></table></figure>
 <p>例题：</p>
 <p>从键盘输入一个日期，格式为yyyy-M-d</p>
 <p>要求计算该日期与1949年10月1日距离多少天</p>
@@ -625,7 +788,7 @@
 <li>public static String toHexString(int i) - 转十六进制</li>
 </ul>
 <figure class="highlight reasonml"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs reasonml"><span class="hljs-built_in">int</span> n = <span class="hljs-number">12</span>;<br><span class="hljs-comment">// 十进制整数 -&gt; 十进制字符串</span><br><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Integer</span>.</span></span><span class="hljs-keyword">to</span><span class="hljs-constructor">String(<span class="hljs-params">n</span>)</span>);<span class="hljs-comment">// 12</span><br> <br><span class="hljs-comment">// 十进制整数 -&gt; 二进制字符串</span><br><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Integer</span>.</span></span><span class="hljs-keyword">to</span><span class="hljs-constructor">String(<span class="hljs-params">n</span>, 2)</span>);<span class="hljs-comment">// 1100</span><br> <br><span class="hljs-comment">// 十进制整数 -&gt; 8进制字符串</span><br><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Integer</span>.</span></span><span class="hljs-keyword">to</span><span class="hljs-constructor">String(<span class="hljs-params">n</span>, 8)</span>);<span class="hljs-comment">// 14</span><br> <br><span class="hljs-comment">// 十进制整数 -&gt; 16进制字符串</span><br><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Integer</span>.</span></span><span class="hljs-keyword">to</span><span class="hljs-constructor">String(<span class="hljs-params">n</span>, 16)</span>);<span class="hljs-comment">// c</span><br> <br><span class="hljs-comment">// 十进制整数 -&gt; 32进制字符串</span><br><span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">System</span>.</span></span>out.println(<span class="hljs-module-access"><span class="hljs-module"><span class="hljs-identifier">Integer</span>.</span></span><span class="hljs-keyword">to</span><span class="hljs-constructor">String(<span class="hljs-params">n</span>, 32)</span>);<span class="hljs-comment">// c</span><br></code></pre></div></td></tr></table></figure>
-<h2 id="自定义排序"><a href="#自定义排序" class="headerlink" title="自定义排序"></a>自定义排序</h2><figure class="highlight typescript"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs typescript"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-built_in">void</span> <span class="hljs-function"><span class="hljs-title">main</span>(<span class="hljs-params"><span class="hljs-built_in">String</span>[] args</span>)</span> &#123;<br>    <span class="hljs-built_in">String</span>[] arr = <span class="hljs-keyword">new</span> <span class="hljs-built_in">String</span>[] &#123;<span class="hljs-string">&quot;3&quot;</span>, <span class="hljs-string">&quot;22&quot;</span>, <span class="hljs-string">&quot;1111&quot;</span>&#125;;<br>    <span class="hljs-comment">// 按照长度降序</span><br>    Arrays.sort(arr, (s1, s2) -&gt; &#123;<br>        <span class="hljs-keyword">return</span> s2.length() - s1.length();<br>    &#125;);<br>    System.out.println(Arrays.toString(arr));<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<h2 id="自定义排序"><a href="#自定义排序" class="headerlink" title="自定义排序"></a>自定义排序</h2><figure class="highlight arduino"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs arduino"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(<span class="hljs-keyword">String</span>[] args)</span> </span>&#123;<br>    <span class="hljs-keyword">String</span>[] arr = <span class="hljs-keyword">new</span> <span class="hljs-keyword">String</span>[] &#123;<span class="hljs-string">&quot;3&quot;</span>, <span class="hljs-string">&quot;22&quot;</span>, <span class="hljs-string">&quot;1111&quot;</span>&#125;;<br>    <span class="hljs-comment">// 按照长度降序</span><br>    Arrays.sort(arr, (s1, s2) -&gt; &#123;<br>        <span class="hljs-keyword">return</span> s2.length() - s1.length();<br>    &#125;);<br>    System.out.<span class="hljs-built_in">println</span>(Arrays.toString(arr));<br>&#125;<br></code></pre></div></td></tr></table></figure>
 <h2 id="数组求和"><a href="#数组求和" class="headerlink" title="数组求和"></a>数组求和</h2><ul>
 <li>Arrays工具类转stream再求和</li>
 </ul>
@@ -633,133 +796,6 @@
 <ul>
 <li>for loop 求和，虽然代码量比上面的大一点，但是效率比上面的高很多，建议还是使用for loop求和，别搞花里胡哨的</li>
 </ul>
-]]></content>
-      <categories>
-        <category>JavaSE</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Java手动实现迭代器。(LeetCode 341)</title>
-    <url>/2021/03/23/JavaSE/Java%E6%89%8B%E5%8A%A8%E5%AE%9E%E7%8E%B0%E8%BF%AD%E4%BB%A3%E5%99%A8%E3%80%82(LeetCode%20341)/</url>
-    <content><![CDATA[<h1 id="341-扁平化嵌套列表迭代器"><a href="#341-扁平化嵌套列表迭代器" class="headerlink" title="341. 扁平化嵌套列表迭代器"></a>341. 扁平化嵌套列表迭代器</h1><hr>
-<p><a href="https://imgtu.com/i/6T7qHO"><img src="https://z3.ax1x.com/2021/03/23/6T7qHO.png" alt="leetCode 341"></a></p>
-<p><a href="https://leetcode-cn.com/problems/flatten-nested-list-iterator/">https://leetcode-cn.com/problems/flatten-nested-list-iterator/</a></p>
-<ul>
-<li>先声明 <code>NestedInteger</code> 的结构（题目给出）</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">NestedInteger</span> </span>&#123;<br><br>    <span class="hljs-comment">// @return true if this NestedInteger holds a single integer, rather than a nested list.</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isInteger</span><span class="hljs-params">()</span></span>;<br><br>    <span class="hljs-comment">// @return the single integer that this NestedInteger holds, if it holds a single integer</span><br>    <span class="hljs-comment">// Return null if this NestedInteger holds a nested list</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">getInteger</span><span class="hljs-params">()</span></span>;<br><br>    <span class="hljs-comment">// @return the nested list that this NestedInteger holds, if it holds a nested list</span><br>    <span class="hljs-comment">// Return null if this NestedInteger holds a single integer</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;NestedInteger&gt; <span class="hljs-title">getList</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<h2 id="迭代器（效率最高）"><a href="#迭代器（效率最高）" class="headerlink" title="迭代器（效率最高）"></a>迭代器（效率最高）</h2><ul>
-<li>手动遍历，将遍历结果存在集合中，然后生成迭代器，其他操作基于此迭代器即可。</li>
-<li>遍历方式是DFS，因为此结构可以联系到数据结构中的 <code>树</code>。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * use Java Iterator</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    <span class="hljs-keyword">private</span> Iterator&lt;Integer&gt; iterator;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedIterator</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        List&lt;Integer&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (NestedInteger node : nestedList) &#123;<br>            DFS(node, list);<br>        &#125;<br>        <span class="hljs-keyword">this</span>.iterator = list.iterator(); <span class="hljs-comment">// all the operation use list&#x27;s iterator</span><br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> iterator.next();<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> iterator.hasNext();<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * DFS get every element into List res;</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DFS</span><span class="hljs-params">(NestedInteger node, List&lt;Integer&gt; res)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (node.isInteger()) &#123;<br>            res.add(node.getInteger());<br>            <span class="hljs-keyword">return</span>;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (NestedInteger child : node.getList()) &#123;<br>            DFS(child, res);<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<h2 id="队列-DFS（用队列实现-Iterator）"><a href="#队列-DFS（用队列实现-Iterator）" class="headerlink" title="队列 + DFS（用队列实现 Iterator）"></a>队列 + DFS（用队列实现 Iterator）</h2><ul>
-<li>道理同上，DFS手动遍历，将遍历结果存在队列中</li>
-<li>用队列手动实现 <code>iterator</code>。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * use DFS and Queue</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    Deque&lt;Integer&gt; queue = <span class="hljs-keyword">new</span> ArrayDeque&lt;Integer&gt;();<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedIterator</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        DFS(nestedList);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> hasNext() ? queue.pollFirst() : -<span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> !queue.isEmpty();<br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * DFS the nestedList, offer the elements into the queue</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">DFS</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (NestedInteger elem : nestedList) &#123;<br>            <span class="hljs-keyword">if</span> (elem.isInteger()) &#123; <span class="hljs-comment">// elem is Integer, offer the queue</span><br>                queue.addLast(elem.getInteger());<br>            &#125; <span class="hljs-keyword">else</span> &#123;    <span class="hljs-comment">// elem is List, DFS the list and offer the elements into queue</span><br>                DFS(elem.getList());<br>            &#125;<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<h2 id="栈-递归-Stack-Recursion"><a href="#栈-递归-Stack-Recursion" class="headerlink" title="栈 + 递归 (Stack + Recursion)"></a>栈 + 递归 (Stack + Recursion)</h2><ul>
-<li>不同于队列的是，队列要在初始化阶段，将遍历的结果全部处理好，最后按照顺序进行操作即可。</li>
-<li>利用栈的思想是，先将这些 <code>NestedInteger</code>按顺序（倒序）存放在栈中，而要使用里面的元素时，再一步步的<strong>拆封</strong>出来。</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * use Stack and Recursion</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">NestedIterator</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Iterator</span>&lt;<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>    Deque&lt;NestedInteger&gt; stack = <span class="hljs-keyword">new</span> ArrayDeque&lt;NestedInteger&gt;();<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">NestedIterator</span><span class="hljs-params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = nestedList.size() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span> ; i--) &#123;<br>            stack.push(nestedList.get(i));<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">next</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> hasNext() ? stack.pop().getInteger() : -<span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">hasNext</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (stack.isEmpty()) &#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125; <span class="hljs-keyword">else</span> &#123;    <span class="hljs-comment">// stack not empty, judge the peek elem&#x27;s type(List/Integer)</span><br>            NestedInteger elem = stack.peek();<br>            <span class="hljs-keyword">if</span> (elem.isInteger()) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>            &#125; <span class="hljs-keyword">else</span> &#123; <span class="hljs-comment">// peek elem is list, iterate the list to push elem into the stack</span><br>                elem = stack.pop();<br>                List&lt;NestedInteger&gt; list = elem.getList();<br>                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = list.size() - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--) &#123;<br>                    stack.push(list.get(i));<br>                &#125;<br>                <span class="hljs-keyword">return</span> hasNext();<br>            &#125;<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></div></td></tr></table></figure>]]></content>
-      <categories>
-        <category>JavaSE</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>关于设计绝对值abs的一些思考</title>
-    <url>/2021/09/18/JavaSE/%E5%85%B3%E4%BA%8E%E8%AE%BE%E8%AE%A1%E7%BB%9D%E5%AF%B9%E5%80%BCabs%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</url>
-    <content><![CDATA[<h1 id="关于设计绝对值abs的一些思考"><a href="#关于设计绝对值abs的一些思考" class="headerlink" title="关于设计绝对值abs的一些思考"></a>关于设计绝对值abs的一些思考</h1><p><img src="https://img.shields.io/badge/JDK-1.8-red"></p>
-<p>「<strong>取绝对值</strong>」对于 <code>Integer</code> 毫无疑问直接判断正负</p>
-<ul>
-<li><code>Math::abs(int)</code></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> (a &lt; <span class="hljs-number">0</span>) ? -a : a;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<p>注意到双精度浮点数 <code>Double</code> 官方使用以下实现</p>
-<ul>
-<li><code>Math::abs(double)</code></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">double</span> a)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> (a &lt;= <span class="hljs-number">0.0D</span>) ? <span class="hljs-number">0.0D</span> - a : a;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<p>Java 遵循 <a href="https://en.wikipedia.org/wiki/IEEE_754-2008">IEEE-754</a> 标准，因此实现上存在 <code>+0.0</code> &amp; <code>-0.0</code>，两者除了文本表示不同，在计算过程中也不同。如：<code>1 / +- 0.0</code> 得到的结果是 <code>+Infinity</code> &amp; <code>-Infinity</code> </p>
-<ul>
-<li><code>abs</code> 计算结果仍然是负数，出现<strong>错误</strong>，原因既是 <code>+0.0 == -0.0 </code></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">double</span> x = -<span class="hljs-number">0.0</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-number">1</span> / abs(x) &lt; <span class="hljs-number">0</span>) &#123;<br>            System.out.println(<span class="hljs-string">&quot;abs(x) &lt; 0&quot;</span>);<br>        &#125;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">double</span> a)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> (a &lt; <span class="hljs-number">0</span>) ? -a : a;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<p>尝试解决问题，添加判断条件：<code>if (val &lt; 0 || val == -0.0)</code> 对 <code>-0.0</code> 单独考虑，进行双重判断，这里采用 <code>Double::compare(double, double)</code> 实现</p>
-<ul>
-<li><strong>成功实现</strong></li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">double</span> value)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-number">0</span> || Double.compare(value, -<span class="hljs-number">0.0</span>) == <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">return</span> -value;<br>    &#125;<br>    <span class="hljs-keyword">return</span> value;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<p>再追求极致的优化。查看  <a href="https://github.com/openjdk/jdk/blob/36e2ddad4d2ef3ce27475af6244d0246a8315c0c/src/java.base/share/classes/java/lang/Double.java#L1117">Double::compare</a> 实现。</p>
-<ul>
-<li>对于<strong>正数</strong>进行额外的<strong>两次</strong>比较</li>
-<li>对于 <strong>-0.0</strong> 进行额外的<strong>三次</strong>比较</li>
-<li>对于 <strong>+0.0</strong> 进行额外的<strong>四次</strong>比较</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(<span class="hljs-keyword">double</span> d1, <span class="hljs-keyword">double</span> d2)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (d1 &lt; d2)<br>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;           <span class="hljs-comment">// Neither val is NaN, thisVal is smaller</span><br>    <span class="hljs-keyword">if</span> (d1 &gt; d2)<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;            <span class="hljs-comment">// Neither val is NaN, thisVal is larger</span><br><br>    <span class="hljs-comment">// Cannot use doubleToRawLongBits because of possibility of NaNs.</span><br>    <span class="hljs-keyword">long</span> thisBits    = Double.doubleToLongBits(d1);<br>    <span class="hljs-keyword">long</span> anotherBits = Double.doubleToLongBits(d2);<br><br>    <span class="hljs-keyword">return</span> (thisBits == anotherBits ?  <span class="hljs-number">0</span> : <span class="hljs-comment">// Values are equal</span><br>            (thisBits &lt; anotherBits ? -<span class="hljs-number">1</span> : <span class="hljs-comment">// (-0.0, 0.0) or (!NaN, NaN)</span><br>             <span class="hljs-number">1</span>));                          <span class="hljs-comment">// (0.0, -0.0) or (NaN, !NaN)</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<p>而实际上，要想实现只需要 <code>Double::doubleToLongBits</code> 方法，将 <code>Double</code> 转 <code>Long</code> </p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> MINUS_ZERO_LONG_BITS =<br>        Double.doubleToLongBits(-<span class="hljs-number">0.0</span>);<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">double</span> value)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-number">0</span> ||<br>            Double.doubleToLongBits(value) == MINUS_ZERO_LONG_BITS) &#123;<br>        <span class="hljs-keyword">return</span> -value;<br>    &#125;<br>    <span class="hljs-keyword">return</span> value;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<p>不过 <code>Double::doubleToLongBits</code> 也只有微不足道的性能提升，因为它会对 <code>NaN</code> 进行约束，<code>NaN</code> 会赋值为 <code>0x7ff8000000000000L</code> ，如果确保 <code>abs</code> 入参肯定是 <code>double</code>，则只需要取出 <code>Double::doubleToRawLongBits</code></p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">long</span> <span class="hljs-title">doubleToLongBits</span><span class="hljs-params">(<span class="hljs-keyword">double</span> value)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (!isNaN(value)) &#123;<br>        <span class="hljs-keyword">return</span> doubleToRawLongBits(value);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0x7ff8000000000000L</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<p>于是就变成这样实现</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> MINUS_ZERO_LONG_BITS =<br>  Double.doubleToRawLongBits(-<span class="hljs-number">0.0</span>);<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">double</span> value)</span> </span>&#123;<br>  <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-number">0</span> ||<br>      Double.doubleToRawLongBits(value) == MINUS_ZERO_LONG_BITS) &#123;<br>    <span class="hljs-keyword">return</span> -value;<br>  &#125;<br>  <span class="hljs-keyword">return</span> value;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<p>到 <code>JDK8</code> 就结束了，而 <code>JDK9</code> 开始引入 <code>@HotSpotIntrinsicCandidate</code> 注解，即 <code>HotSpot JVM</code> 内部的 <code>JIT compiler</code> 会移除 <code>JDK</code> 中的实现方法，采用 <code>CPU</code> 指令直接实现，这会比高级语言转汇编转机器语言要快很多，毕竟 CPU 并不会在乎数据类型的问题，只需要重新解释(reinterpreting) 储存在 CPU 寄存器的一组位的问题，以便于与 Java 数据类型一致。</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@HotSpotIntrinsicCandidate</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">native</span> <span class="hljs-keyword">long</span> <span class="hljs-title">doubleToRawLongBits</span><span class="hljs-params">(<span class="hljs-keyword">double</span> value)</span></span>;<br></code></pre></div></td></tr></table></figure>
-
-
-<p>但这么实现，仍然有条件分支，如果 CPU 分支预测(branch predictor) 失误，性能开销就会增大。接下来考虑减少条件分支。</p>
-<p>利用 <code>0.0</code> 与 <code>+/0.0</code> 作差，都会使正负零转化为正零</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">System.out.println(<span class="hljs-number">0.0</span> - (-<span class="hljs-number">0.0</span>)); <span class="hljs-comment">// 0.0</span><br>System.out.println(<span class="hljs-number">0.0</span> - (+<span class="hljs-number">0.0</span>)); <span class="hljs-comment">// 0.0</span><br></code></pre></div></td></tr></table></figure>
-
-
-<p>对方法进行改写</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">double</span> value)</span> </span>&#123;<br>  <span class="hljs-keyword">if</span> (value == <span class="hljs-number">0</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0.0</span> - value;<br>  &#125;<br>  <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-number">0</span>) &#123;<br>    <span class="hljs-keyword">return</span> -value;<br>  &#125;<br>  <span class="hljs-keyword">return</span> value;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<p>注意到对于普通负数而言，<code>0.0 - value</code> 与 <code>-value</code> 的结果相同，所以合并分支</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">double</span> value)</span> </span>&#123;<br>  <span class="hljs-keyword">if</span> (value &lt;= <span class="hljs-number">0</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0.0</span> - value;<br>  &#125;<br>  <span class="hljs-keyword">return</span> value;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<p><strong>AKA</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">double</span> a)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> (a &lt;= <span class="hljs-number">0.0</span>) ? <span class="hljs-number">0.0</span> - a : a;<br>&#125;<br></code></pre></div></td></tr></table></figure>
-<ul>
-<li>会发现，JDK <code>Math::abs(double,double)</code> 实现相同（逃</li>
-</ul>
-<p>遵循 <code>IEEE-754</code> 的双精度浮点数二进制表达形式，只需要将二进制在高位符号位改成 0 即可实现转正数(abs)，需要掩码 <code>0x7fffffffffffffffL</code> == 63位 1 bit</p>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">System.out.println(Long.bitCount(<span class="hljs-number">0x7fffffffffffffffL</span>)); <span class="hljs-comment">// 63</span><br></code></pre></div></td></tr></table></figure>
-
-
-<h2 id="最终实现"><a href="#最终实现" class="headerlink" title="最终实现"></a>最终实现</h2><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">double</span> value)</span> </span>&#123;<br>  <span class="hljs-keyword">return</span> Double.longBitsToDouble(<br>    Double.doubleToRawLongBits(value) &amp; <span class="hljs-number">0x7fffffffffffffffL</span>);<br>&#125;<br></code></pre></div></td></tr></table></figure>
-
-
-<p>📌此版本不存在分支，在某些条件下的吞吐量增加 **10%**，单分支实现在 Java 标准库存在多年，在随即到来的 JDK 18 中，改进版本已经提交「From: 2021/9/18」</p>
-<p>然而在许多情况下，这些改进并没有太大意义，因为 JIT 编译器会适当使用汇编指令(if available) 会完全替代 Java code，所以这种改动并<strong>不能</strong>使程序显著性提升很多（逃</p>
-<h2 id="🔗Reference"><a href="#🔗Reference" class="headerlink" title="🔗Reference"></a>🔗Reference</h2><blockquote>
-<p><a href="https://habr.com/en/post/574082/">One does not simply calculate the absolute value</a></p>
-<p><a href="https://github.com/openjdk/jdk/blob/36e2ddad4d2ef3ce27475af6244d0246a8315c0c/src/java.base/share/classes/java/lang/Double.java#L1117">OpenJDK Double::compare</a></p>
-<p><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html#doubleToLongBits-double-">JavaSE 8 doubleToLongBits</a></p>
-</blockquote>
 ]]></content>
       <categories>
         <category>JavaSE</category>
@@ -782,120 +818,6 @@
 <p>求和结果都是正确的。所以根据最后求和速度进行排序，效率从低到高：</p>
 <blockquote>
 <p>IntStream.of(A).sum() &lt; Arrays.stream(A).sum() &lt; iterator loop &lt; for loop</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaSE</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Redis</title>
-    <url>/2021/04/22/Redis/Redis/</url>
-    <content><![CDATA[<h3 id="📌-Redis"><a href="#📌-Redis" class="headerlink" title="📌 Redis"></a>📌 Redis</h3><ul>
-<li><p>📕 Note Book: <a href="https://www.yuque.com/hypocrite30/oz1eni">https://www.yuque.com/hypocrite30/oz1eni</a></p>
-</li>
-<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/Redis">https://github.com/hypocrite30/Redis</a></p>
-<ul>
-<li>In directory 「<code>src</code>」</li>
-</ul>
-</li>
-<li><p>📚 Reference books:  「<strong>Redis开发与运维</strong>」「<strong>Redis设计与实现</strong>」「<strong>Redis深度历险</strong>」</p>
-<ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Redis</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>JVM「HotSpot VM」</title>
-    <url>/2021/06/02/JVM/JVM%E3%80%8CHotSpot%20VM%E3%80%8D/</url>
-    <content><![CDATA[<h3 id="📌-JVM「HotSpot-VM」"><a href="#📌-JVM「HotSpot-VM」" class="headerlink" title="📌 JVM「HotSpot VM」"></a>📌 JVM「HotSpot VM」</h3><ul>
-<li><p>📂 Code Repository: <a href="https://github.com/hypocrite30/JVM-demonstrate">https://github.com/hypocrite30/JVM-demonstrate</a></p>
-<ul>
-<li>In directory 「<code>src</code>」</li>
-</ul>
-</li>
-<li><p>📚 Reference :  </p>
-<ul>
-<li>「<a href="https://book.douban.com/subject/34907497/">深入理解Java虚拟机（第3版）</a>」<ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-<li>「<a href="https://www.bilibili.com/video/BV1PJ411n7xZ">尚硅谷JVM教程</a>」</li>
-</ul>
-</li>
-<li><p>🍬Thanks：</p>
-<ul>
-<li><a href="https://gitee.com/vectorx/NOTE_JVM">https://gitee.com/vectorx/NOTE_JVM</a><ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-<li><a href="https://github.com/TangBean/understanding-the-jvm">https://github.com/TangBean/understanding-the-jvm</a><ul>
-<li>In directory 「<code>doc</code>」</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>JVM</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>负数取模运算</title>
-    <url>/2020/05/27/JavaSE/%E8%B4%9F%E6%95%B0%E5%8F%96%E6%A8%A1%E8%BF%90%E7%AE%97/</url>
-    <content><![CDATA[<h1 id="负数取模运算"><a href="#负数取模运算" class="headerlink" title="负数取模运算"></a>负数取模运算</h1><hr>
-<h2 id="一、引例"><a href="#一、引例" class="headerlink" title="一、引例"></a>一、引例</h2><div class="hljs code-wrapper"><pre><code>System.out.println(&quot;3 % 5 = &quot; + 3 % 5);
-System.out.println(&quot;-3 % 5 = &quot; + -3 % 5);
-System.out.println(&quot;3 % -5 = &quot; + 3 % -5);
-System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
-</code></pre></div>
-<blockquote>
-<p> 3 % 5 = 3<br> -3 % 5 = -3<br> 3 % -5 = 3<br> -3 % -5 = -3  </p>
-</blockquote>
-<h3 id="规律"><a href="#规律" class="headerlink" title="规律"></a>规律</h3><blockquote>
-<p>被除数是负数，则取模后符号也为负</p>
-</blockquote>
-<blockquote>
-<p>被除数是正数，则取模后符号也为正</p>
-</blockquote>
-<blockquote>
-<p>结果的符号与除数的正负号无关</p>
-</blockquote>
-<h2 id="二、整数除法问题"><a href="#二、整数除法问题" class="headerlink" title="二、整数除法问题"></a>二、整数除法问题</h2><ul>
-<li><p>向上取整(Ceiling) 向X轴正方向取整，即取比实际结果稍大的数<br>比如：17 / 8 == 3， 8 / 3 == 3，-9 / 4 == -2</p>
-</li>
-<li><p>向下取整(Floor) 向X轴负方向取整，即取比实际结果稍小的数<br>比如：17 / 8 == 2， 8 / 3 == 2，-9 / 4 == -3</p>
-</li>
-<li><p>向零取整(Truncate) 向原点方向取整，即直接省略小数部分，取整<br>比如：17 / 8 == 2， 8 / 3 == 2，-9 / 4 == -2</p>
-</li>
-</ul>
-<h2 id="三、取模通用公式"><a href="#三、取模通用公式" class="headerlink" title="三、取模通用公式"></a>三、取模通用公式</h2><blockquote>
-<p>a % b = r</p>
-</blockquote>
-<blockquote>
-<p>r = a - (a/b) * b</p>
-</blockquote>
-<h2 id="四、计算机语言差异性"><a href="#四、计算机语言差异性" class="headerlink" title="四、计算机语言差异性"></a>四、计算机语言差异性</h2><ul>
-<li><p>C/Java<br>采用Truncate除法，即向零取整</p>
-</li>
-<li><p>Python<br>采用Floor除法，即向下取整</p>
-</li>
-</ul>
-<h2 id="五、Truncate除法的问题"><a href="#五、Truncate除法的问题" class="headerlink" title="五、Truncate除法的问题"></a>五、Truncate除法的问题</h2><p>在一些题目中，数组元素可能出现负数，这样导致取模的时候，会出现取整问题的歧义</p>
-<blockquote>
-<p>在Java中，默认Truncate除法，为避免歧义可以使用：</p>
-</blockquote>
-<blockquote>
-<p>1、使用Math.floorMod方法进行Floor除法</p>
-</blockquote>
-<blockquote>
-<p>2、如在前缀和计算中，用<br>int modulus = <strong>(sum % K + K) % k</strong>;<br>而不用 <strong>sum % k</strong>，避免负数干扰结果</p>
 </blockquote>
 ]]></content>
       <categories>
@@ -996,6 +918,154 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
 ]]></content>
       <categories>
         <category>Linux</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>负数取模运算</title>
+    <url>/2020/05/27/JavaSE/%E8%B4%9F%E6%95%B0%E5%8F%96%E6%A8%A1%E8%BF%90%E7%AE%97/</url>
+    <content><![CDATA[<h1 id="负数取模运算"><a href="#负数取模运算" class="headerlink" title="负数取模运算"></a>负数取模运算</h1><hr>
+<h2 id="一、引例"><a href="#一、引例" class="headerlink" title="一、引例"></a>一、引例</h2><div class="hljs code-wrapper"><pre><code>System.out.println(&quot;3 % 5 = &quot; + 3 % 5);
+System.out.println(&quot;-3 % 5 = &quot; + -3 % 5);
+System.out.println(&quot;3 % -5 = &quot; + 3 % -5);
+System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
+</code></pre></div>
+<blockquote>
+<p> 3 % 5 = 3<br> -3 % 5 = -3<br> 3 % -5 = 3<br> -3 % -5 = -3  </p>
+</blockquote>
+<h3 id="规律"><a href="#规律" class="headerlink" title="规律"></a>规律</h3><blockquote>
+<p>被除数是负数，则取模后符号也为负</p>
+</blockquote>
+<blockquote>
+<p>被除数是正数，则取模后符号也为正</p>
+</blockquote>
+<blockquote>
+<p>结果的符号与除数的正负号无关</p>
+</blockquote>
+<h2 id="二、整数除法问题"><a href="#二、整数除法问题" class="headerlink" title="二、整数除法问题"></a>二、整数除法问题</h2><ul>
+<li><p>向上取整(Ceiling) 向X轴正方向取整，即取比实际结果稍大的数<br>比如：17 / 8 == 3， 8 / 3 == 3，-9 / 4 == -2</p>
+</li>
+<li><p>向下取整(Floor) 向X轴负方向取整，即取比实际结果稍小的数<br>比如：17 / 8 == 2， 8 / 3 == 2，-9 / 4 == -3</p>
+</li>
+<li><p>向零取整(Truncate) 向原点方向取整，即直接省略小数部分，取整<br>比如：17 / 8 == 2， 8 / 3 == 2，-9 / 4 == -2</p>
+</li>
+</ul>
+<h2 id="三、取模通用公式"><a href="#三、取模通用公式" class="headerlink" title="三、取模通用公式"></a>三、取模通用公式</h2><blockquote>
+<p>a % b = r</p>
+</blockquote>
+<blockquote>
+<p>r = a - (a/b) * b</p>
+</blockquote>
+<h2 id="四、计算机语言差异性"><a href="#四、计算机语言差异性" class="headerlink" title="四、计算机语言差异性"></a>四、计算机语言差异性</h2><ul>
+<li><p>C/Java<br>采用Truncate除法，即向零取整</p>
+</li>
+<li><p>Python<br>采用Floor除法，即向下取整</p>
+</li>
+</ul>
+<h2 id="五、Truncate除法的问题"><a href="#五、Truncate除法的问题" class="headerlink" title="五、Truncate除法的问题"></a>五、Truncate除法的问题</h2><p>在一些题目中，数组元素可能出现负数，这样导致取模的时候，会出现取整问题的歧义</p>
+<blockquote>
+<p>在Java中，默认Truncate除法，为避免歧义可以使用：</p>
+</blockquote>
+<blockquote>
+<p>1、使用Math.floorMod方法进行Floor除法</p>
+</blockquote>
+<blockquote>
+<p>2、如在前缀和计算中，用<br>int modulus = <strong>(sum % K + K) % k</strong>;<br>而不用 <strong>sum % k</strong>，避免负数干扰结果</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaSE</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>关于设计绝对值abs的一些思考</title>
+    <url>/2021/09/18/JavaSE/%E5%85%B3%E4%BA%8E%E8%AE%BE%E8%AE%A1%E7%BB%9D%E5%AF%B9%E5%80%BCabs%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83/</url>
+    <content><![CDATA[<h1 id="关于设计绝对值abs的一些思考"><a href="#关于设计绝对值abs的一些思考" class="headerlink" title="关于设计绝对值abs的一些思考"></a>关于设计绝对值abs的一些思考</h1><p><img src="https://img.shields.io/badge/JDK-1.8-red"></p>
+<p>「<strong>取绝对值</strong>」对于 <code>Integer</code> 毫无疑问直接判断正负</p>
+<ul>
+<li><code>Math::abs(int)</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">int</span> a)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> (a &lt; <span class="hljs-number">0</span>) ? -a : a;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<p>注意到双精度浮点数 <code>Double</code> 官方使用以下实现</p>
+<ul>
+<li><code>Math::abs(double)</code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">double</span> a)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> (a &lt;= <span class="hljs-number">0.0D</span>) ? <span class="hljs-number">0.0D</span> - a : a;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<p>Java 遵循 <a href="https://en.wikipedia.org/wiki/IEEE_754-2008">IEEE-754</a> 标准，因此实现上存在 <code>+0.0</code> &amp; <code>-0.0</code>，两者除了文本表示不同，在计算过程中也不同。如：<code>1 / +- 0.0</code> 得到的结果是 <code>+Infinity</code> &amp; <code>-Infinity</code> </p>
+<ul>
+<li><code>abs</code> 计算结果仍然是负数，出现<strong>错误</strong>，原因既是 <code>+0.0 == -0.0 </code></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">double</span> x = -<span class="hljs-number">0.0</span>;<br>        <span class="hljs-keyword">if</span> (<span class="hljs-number">1</span> / abs(x) &lt; <span class="hljs-number">0</span>) &#123;<br>            System.out.println(<span class="hljs-string">&quot;abs(x) &lt; 0&quot;</span>);<br>        &#125;<br>    &#125;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">double</span> a)</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> (a &lt; <span class="hljs-number">0</span>) ? -a : a;<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<p>尝试解决问题，添加判断条件：<code>if (val &lt; 0 || val == -0.0)</code> 对 <code>-0.0</code> 单独考虑，进行双重判断，这里采用 <code>Double::compare(double, double)</code> 实现</p>
+<ul>
+<li><strong>成功实现</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">double</span> value)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-number">0</span> || Double.compare(value, -<span class="hljs-number">0.0</span>) == <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-keyword">return</span> -value;<br>    &#125;<br>    <span class="hljs-keyword">return</span> value;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<p>再追求极致的优化。查看  <a href="https://github.com/openjdk/jdk/blob/36e2ddad4d2ef3ce27475af6244d0246a8315c0c/src/java.base/share/classes/java/lang/Double.java#L1117">Double::compare</a> 实现。</p>
+<ul>
+<li>对于<strong>正数</strong>进行额外的<strong>两次</strong>比较</li>
+<li>对于 <strong>-0.0</strong> 进行额外的<strong>三次</strong>比较</li>
+<li>对于 <strong>+0.0</strong> 进行额外的<strong>四次</strong>比较</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(<span class="hljs-keyword">double</span> d1, <span class="hljs-keyword">double</span> d2)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (d1 &lt; d2)<br>        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;           <span class="hljs-comment">// Neither val is NaN, thisVal is smaller</span><br>    <span class="hljs-keyword">if</span> (d1 &gt; d2)<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;            <span class="hljs-comment">// Neither val is NaN, thisVal is larger</span><br><br>    <span class="hljs-comment">// Cannot use doubleToRawLongBits because of possibility of NaNs.</span><br>    <span class="hljs-keyword">long</span> thisBits    = Double.doubleToLongBits(d1);<br>    <span class="hljs-keyword">long</span> anotherBits = Double.doubleToLongBits(d2);<br><br>    <span class="hljs-keyword">return</span> (thisBits == anotherBits ?  <span class="hljs-number">0</span> : <span class="hljs-comment">// Values are equal</span><br>            (thisBits &lt; anotherBits ? -<span class="hljs-number">1</span> : <span class="hljs-comment">// (-0.0, 0.0) or (!NaN, NaN)</span><br>             <span class="hljs-number">1</span>));                          <span class="hljs-comment">// (0.0, -0.0) or (NaN, !NaN)</span><br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<p>而实际上，要想实现只需要 <code>Double::doubleToLongBits</code> 方法，将 <code>Double</code> 转 <code>Long</code> </p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> MINUS_ZERO_LONG_BITS =<br>        Double.doubleToLongBits(-<span class="hljs-number">0.0</span>);<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">double</span> value)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-number">0</span> ||<br>            Double.doubleToLongBits(value) == MINUS_ZERO_LONG_BITS) &#123;<br>        <span class="hljs-keyword">return</span> -value;<br>    &#125;<br>    <span class="hljs-keyword">return</span> value;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<p>不过 <code>Double::doubleToLongBits</code> 也只有微不足道的性能提升，因为它会对 <code>NaN</code> 进行约束，<code>NaN</code> 会赋值为 <code>0x7ff8000000000000L</code> ，如果确保 <code>abs</code> 入参肯定是 <code>double</code>，则只需要取出 <code>Double::doubleToRawLongBits</code></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">long</span> <span class="hljs-title">doubleToLongBits</span><span class="hljs-params">(<span class="hljs-keyword">double</span> value)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (!isNaN(value)) &#123;<br>        <span class="hljs-keyword">return</span> doubleToRawLongBits(value);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0x7ff8000000000000L</span>;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<p>于是就变成这样实现</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">long</span> MINUS_ZERO_LONG_BITS =<br>  Double.doubleToRawLongBits(-<span class="hljs-number">0.0</span>);<br><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">double</span> value)</span> </span>&#123;<br>  <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-number">0</span> ||<br>      Double.doubleToRawLongBits(value) == MINUS_ZERO_LONG_BITS) &#123;<br>    <span class="hljs-keyword">return</span> -value;<br>  &#125;<br>  <span class="hljs-keyword">return</span> value;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<p>到 <code>JDK8</code> 就结束了，而 <code>JDK9</code> 开始引入 <code>@HotSpotIntrinsicCandidate</code> 注解，即 <code>HotSpot JVM</code> 内部的 <code>JIT compiler</code> 会移除 <code>JDK</code> 中的实现方法，采用 <code>CPU</code> 指令直接实现，这会比高级语言转汇编转机器语言要快很多，毕竟 CPU 并不会在乎数据类型的问题，只需要重新解释(reinterpreting) 储存在 CPU 寄存器的一组位的问题，以便于与 Java 数据类型一致。</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@HotSpotIntrinsicCandidate</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">native</span> <span class="hljs-keyword">long</span> <span class="hljs-title">doubleToRawLongBits</span><span class="hljs-params">(<span class="hljs-keyword">double</span> value)</span></span>;<br></code></pre></div></td></tr></table></figure>
+
+
+<p>但这么实现，仍然有条件分支，如果 CPU 分支预测(branch predictor) 失误，性能开销就会增大。接下来考虑减少条件分支。</p>
+<p>利用 <code>0.0</code> 与 <code>+/0.0</code> 作差，都会使正负零转化为正零</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">System.out.println(<span class="hljs-number">0.0</span> - (-<span class="hljs-number">0.0</span>)); <span class="hljs-comment">// 0.0</span><br>System.out.println(<span class="hljs-number">0.0</span> - (+<span class="hljs-number">0.0</span>)); <span class="hljs-comment">// 0.0</span><br></code></pre></div></td></tr></table></figure>
+
+
+<p>对方法进行改写</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">double</span> value)</span> </span>&#123;<br>  <span class="hljs-keyword">if</span> (value == <span class="hljs-number">0</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0.0</span> - value;<br>  &#125;<br>  <span class="hljs-keyword">if</span> (value &lt; <span class="hljs-number">0</span>) &#123;<br>    <span class="hljs-keyword">return</span> -value;<br>  &#125;<br>  <span class="hljs-keyword">return</span> value;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<p>注意到对于普通负数而言，<code>0.0 - value</code> 与 <code>-value</code> 的结果相同，所以合并分支</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">double</span> value)</span> </span>&#123;<br>  <span class="hljs-keyword">if</span> (value &lt;= <span class="hljs-number">0</span>) &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0.0</span> - value;<br>  &#125;<br>  <span class="hljs-keyword">return</span> value;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<p><strong>AKA</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">double</span> a)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> (a &lt;= <span class="hljs-number">0.0</span>) ? <span class="hljs-number">0.0</span> - a : a;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<ul>
+<li>会发现，JDK <code>Math::abs(double,double)</code> 实现相同（逃</li>
+</ul>
+<p>遵循 <code>IEEE-754</code> 的双精度浮点数二进制表达形式，只需要将二进制在高位符号位改成 0 即可实现转正数(abs)，需要掩码 <code>0x7fffffffffffffffL</code> == 63位 1 bit</p>
+<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java">System.out.println(Long.bitCount(<span class="hljs-number">0x7fffffffffffffffL</span>)); <span class="hljs-comment">// 63</span><br></code></pre></div></td></tr></table></figure>
+
+
+<h2 id="最终实现"><a href="#最终实现" class="headerlink" title="最终实现"></a>最终实现</h2><figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">double</span> <span class="hljs-title">abs</span><span class="hljs-params">(<span class="hljs-keyword">double</span> value)</span> </span>&#123;<br>  <span class="hljs-keyword">return</span> Double.longBitsToDouble(<br>    Double.doubleToRawLongBits(value) &amp; <span class="hljs-number">0x7fffffffffffffffL</span>);<br>&#125;<br></code></pre></div></td></tr></table></figure>
+
+
+<p>📌此版本不存在分支，在某些条件下的吞吐量增加 **10%**，单分支实现在 Java 标准库存在多年，在随即到来的 JDK 18 中，改进版本已经提交「From: 2021/9/18」</p>
+<p>然而在许多情况下，这些改进并没有太大意义，因为 JIT 编译器会适当使用汇编指令(if available) 会完全替代 Java code，所以这种改动并<strong>不能</strong>使程序显著性提升很多（逃</p>
+<h2 id="🔗Reference"><a href="#🔗Reference" class="headerlink" title="🔗Reference"></a>🔗Reference</h2><blockquote>
+<p><a href="https://habr.com/en/post/574082/">One does not simply calculate the absolute value</a></p>
+<p><a href="https://github.com/openjdk/jdk/blob/36e2ddad4d2ef3ce27475af6244d0246a8315c0c/src/java.base/share/classes/java/lang/Double.java#L1117">OpenJDK Double::compare</a></p>
+<p><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Double.html#doubleToLongBits-double-">JavaSE 8 doubleToLongBits</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaSE</category>
       </categories>
   </entry>
   <entry>
@@ -2719,7 +2789,7 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
 <ul>
 <li>现在Mysql中写出完整的SQL,再对应的去修改成为我们的动态SQL实现通用即可！</li>
 </ul>
-<h2 id="13、缓存-（了解）"><a href="#13、缓存-（了解）" class="headerlink" title="13、缓存 （了解）"></a>13、缓存 （了解）</h2><h3 id="13-1、简介"><a href="#13-1、简介" class="headerlink" title="13.1、简介"></a>13.1、简介</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs livecodeserver">查询  ：  连接数据库 ，耗资源！<br>	一次查询的结果，给他暂存在一个可以直接取到的地方！<span class="hljs-comment">--&gt; 内存 ： 缓存</span><br>	<br>我们再次查询相同数据的时候，直接走缓存，就不用走数据库了<br></code></pre></div></td></tr></table></figure>
+<h2 id="13、缓存-（了解）"><a href="#13、缓存-（了解）" class="headerlink" title="13、缓存 （了解）"></a>13、缓存 （了解）</h2><h3 id="13-1、简介"><a href="#13-1、简介" class="headerlink" title="13.1、简介"></a>13.1、简介</h3><figure class="highlight ada"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs ada">查询  ：  连接数据库 ，耗资源！<br>	一次查询的结果，给他暂存在一个可以直接取到的地方！<span class="hljs-comment">--&gt; 内存 ： 缓存</span><br>	<br>我们再次查询相同数据的时候，直接走缓存，就不用走数据库了<br></code></pre></div></td></tr></table></figure>
 
 
 <ol>
@@ -4015,7 +4085,7 @@ System.out.println(&quot;-3 % -5 = &quot; + -3 % -5);
 <li><code>userDetailsService</code> 选择使用哪个 Service进行认证</li>
 <li>编写实现类，返回User对象，User对象有用户名密码和权限</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs java"><span class="hljs-meta">@Service(&quot;userDetailsService&quot;)</span> <span class="hljs-comment">// 与注入的名称一一对应</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyUserDetailsService</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">UserDetailsService</span> </span>&#123;<br>	<span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> UserDetails <span class="hljs-title">loadUserByUsername</span><span class="hljs-params">(String s)</span> <span class="hljs-keyword">throws</span> UsernameNotFoundException </span>&#123;<br>        List&lt;GrantedAuthority&gt; auths =<br>                AuthorityUtils.commaSeparatedStringToAuthorityList(<span class="hljs-string">&quot;role&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> User(<span class="hljs-string">&quot;hypocrite30&quot;</span>,<br>                <span class="hljs-keyword">new</span> BCryptPasswordEncoder().encode(<span class="hljs-string">&quot;password&quot;</span>), auths);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
+<figure class="highlight haxe"><table><tr><td class="gutter hljs"><div class="hljs code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></div></td><td class="code"><div class="hljs code-wrapper"><pre><code class="hljs haxe">@Service(<span class="hljs-string">&quot;userDetailsService&quot;</span>) <span class="hljs-comment">// 与注入的名称一一对应</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyUserDetailsService</span> <span class="hljs-keyword"><span class="hljs-keyword">implements</span> <span class="hljs-type">UserDetailsService</span></span> </span>&#123;<br>	@Override<br>    <span class="hljs-keyword">public</span> UserDetails loadUserByUsername(<span class="hljs-keyword">String</span> s) throws UsernameNotFoundException &#123;<br>        List&lt;GrantedAuthority&gt; auths =<br>                AuthorityUtils.commaSeparatedStringToAuthorityList(<span class="hljs-string">&quot;role&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-type">User</span>(<span class="hljs-string">&quot;hypocrite30&quot;</span>,<br>                <span class="hljs-keyword">new</span> <span class="hljs-type">BCryptPasswordEncoder</span>().encode(<span class="hljs-string">&quot;password&quot;</span>), auths);<br>    &#125;<br>&#125;<br></code></pre></div></td></tr></table></figure>
 <blockquote>
 <p>一般都是用<strong>第三种</strong>方法，自定义实现类。但是涉及到管理员模式，可以使用第一和第二种方式设置admin。</p>
 </blockquote>
